@@ -1,5 +1,5 @@
 <template>
-  <div class="home-view fill-current">
+  <div class="setting-view fill-current">
 
   </div>
 </template>
@@ -8,8 +8,8 @@
 
 </script>
 
-<style lang="scss" scoped>
-.home-view {
+<style scoped lang="scss">
+.setting-view {
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
