@@ -20,16 +20,4 @@ import MenuPanel from '@/components/menu/MenuPanel.vue';
   border-radius: 1.5rem;
   padding: 1rem;
 }
-
-@media screen and (min-width: 768px) {
-  .main-view {
-    width: calc(100% - 188px);
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .main-view {
-    height: calc(100% - 56px);
-  }
-}
 </style>

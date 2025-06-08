@@ -14,6 +14,11 @@ const router = createRouter({
       name: 'setting',
       component: () => import('../views/SettingView.vue'),
     },
+    {
+      path: '/translate',
+      name: 'translate',
+      component: () => import('../views/TranslateView.vue'),
+    },
   ],
 })
 

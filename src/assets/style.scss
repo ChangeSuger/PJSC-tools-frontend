@@ -24,7 +24,7 @@ body {
   --color-border: rgb(229,230,235);
 }
 
-body[arco-theme="dark"] {
+body[class="dark"] {
   --kokomi-purple: #767ABA;
   --kokomi-pink: #DE9EBA;
   --color-bg-0: #24252680;
@@ -100,6 +100,11 @@ p {
 }
 
 .fill-height {
+  height: 100%;
+}
+
+.fill-current {
+  width: 100%;
   height: 100%;
 }
 

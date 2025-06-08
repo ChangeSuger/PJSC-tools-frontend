@@ -23,3 +23,9 @@ type ScriptTypeMap = {
 export type StoryScript = Array<
   ScriptTypeMap[keyof ScriptTypeMap]
 >;
+
+export type StoryItem = {
+  character: string;
+  content: string;
+  contentJP: string;
+}
