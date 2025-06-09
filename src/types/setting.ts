@@ -51,8 +51,8 @@ export type TTSConfig = {
 };
 
 export type OSSConfig = {
-  legion: string;
+  region: string;
   accessKeyId: string;
-  accessKeyScrect: string;
+  accessKeySecret: string;
   bucket: string;
 };

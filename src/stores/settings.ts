@@ -1,7 +1,8 @@
 import { ref, computed, watch, onMounted } from 'vue';
 import { defineStore } from 'pinia';
 import { usePreferredDark } from '@vueuse/core';
-import type { LLMConfig } from '@/types';
+
+import type { LLMConfig, TTSConfig, OSSConfig } from '@/types';
 
 type Theme = 'light' | 'dark' | 'auto';
 
@@ -67,6 +68,41 @@ export const useSettingsStore = defineStore(
       return !!(apiKey && baseURL && model);
     }
 
+    const ttsConfig = ref<TTSConfig>({
+      baseURL: '',
+      batchSize: 5,
+      sliceMethod: '凑四句一切',
+      samplingStep: 32,
+      speed: 1,
+      pauseBetweenSentences: 0.3,
+      topK: 15,
+      topP: 1,
+      temperature: 1,
+    });
+
+    const getTTSConfig = computed<TTSConfig>(() => {
+      return { ...ttsConfig.value };
+    });
+
+    function setTTSConfig(config: TTSConfig) {
+      ttsConfig.value = { ...config };
+    }
+
+    const ossConfig = ref<OSSConfig>({
+      region: '',
+      accessKeyId: '',
+      accessKeySecret: '',
+      bucket: '',
+    });
+
+    const getOSSConfig = computed<OSSConfig>(() => {
+      return { ...ossConfig.value };
+    });
+
+    function setOSSConfig(config: OSSConfig) {
+      ossConfig.value = { ...config };
+    }
+
     return {
       theme,
       getTheme,
@@ -76,7 +112,15 @@ export const useSettingsStore = defineStore(
       getLLMConfig,
       setLLMConfig,
       checkLLMConfig,
-    }
+
+      ttsConfig,
+      getTTSConfig,
+      setTTSConfig,
+
+      ossConfig,
+      getOSSConfig,
+      setOSSConfig,
+    };
   },
   {
     persist: true,

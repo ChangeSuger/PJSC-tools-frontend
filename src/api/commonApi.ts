@@ -20,4 +20,18 @@ export class CommonApi {
       } as Response<string>;
     }
   }
+
+  static async ttsBatchGenerate(data: FormData) {
+    try {
+      const res = await axiosInstance.post<Response<string>>('/tts', data);
+      return successWrapper(res.data.data);
+    } catch(error) {
+      console.log(error);
+
+      return {
+        code: 500,
+        msg: '网络错误'
+      } as Response<string>;
+    }
+  }
 }

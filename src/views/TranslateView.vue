@@ -31,10 +31,10 @@
 </template>
 
 <script setup lang="ts">
-import { CommonApi } from '@/api';
 import { Upload, Download } from '@element-plus/icons-vue';
 import { ref } from 'vue';
 import { useSettingsStore } from '@/stores';
+import OpenAI from "openai";
 
 import type { StoryItem } from '@/types';
 
@@ -75,12 +75,27 @@ const storyList = ref<StoryItem[]>([
 async function translate(storyItem: StoryItem) {
   const llmConfig = settingsStore.getLLMConfig;
 
-  const result = await CommonApi.translate({
-    config: llmConfig,
-    text: storyItem.content,
+  const { apiKey, model, baseURL } = llmConfig;
+
+  const BASE_PROMPT = '你是一名专业的中译日翻译家，你的目标是把中文翻译成日文，请翻译时不要带翻译腔，而是要翻译得自然、流畅和地道，使用优美和高雅的表达方式。';
+
+  const userMessage = `请翻译下面这句话：“${storyItem.content}”`;
+
+  const client = new OpenAI({
+    apiKey,
+    baseURL,
+    dangerouslyAllowBrowser: true,
   });
 
-  storyItem.contentJP = result.data;
+  const response = await client.chat.completions.create({
+    model,
+    messages: [
+      { role: 'system', content: BASE_PROMPT },
+      { role: 'user', content: userMessage },
+    ],
+  });
+
+  storyItem.contentJP = response.choices[0].message.content!;
 }
 
 async function translateAll() {
