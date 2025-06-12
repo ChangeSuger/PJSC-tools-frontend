@@ -56,3 +56,5 @@ export type OSSConfig = {
   accessKeySecret: string;
   bucket: string;
 };
+
+export type Theme = 'light' | 'dark' | 'auto';

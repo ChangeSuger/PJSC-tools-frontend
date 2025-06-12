@@ -19,6 +19,21 @@ const router = createRouter({
       name: 'translate',
       component: () => import('../views/TranslateView.vue'),
     },
+    {
+      path: '/emotion',
+      name: 'emotion',
+      component: () => import('../views/EmotionView.vue'),
+    },
+    {
+      path: '/tts',
+      name: 'tts',
+      component: () => import('../views/TTSView.vue'),
+    },
+    {
+      path: '/tts-check',
+      name: 'tts-check',
+      component: () => import('../views/TTSCheckView.vue'),
+    },
   ],
 })
 

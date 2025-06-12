@@ -1,10 +1,9 @@
 import { ref, computed, watch, onMounted } from 'vue';
 import { defineStore } from 'pinia';
 import { usePreferredDark } from '@vueuse/core';
+import { LLM_CONFIG_INIT, TTS_CONFIG_INIT, OSS_CONFIG_INIT } from '@/datas';
 
-import type { LLMConfig, TTSConfig, OSSConfig } from '@/types';
-
-type Theme = 'light' | 'dark' | 'auto';
+import type { LLMConfig, TTSConfig, OSSConfig, Theme } from '@/types';
 
 export const useSettingsStore = defineStore(
   'global-settings',
@@ -46,11 +45,7 @@ export const useSettingsStore = defineStore(
       }
     });
 
-    const llmConfig = ref<LLMConfig>({
-      apiKey: '',
-      baseURL: 'https://dashscope.aliyuncs.com/compatible-mode/v1',
-      model: 'qwen-plus',
-    });
+    const llmConfig = ref<LLMConfig>({ ...LLM_CONFIG_INIT });
 
     const getLLMConfig = computed<LLMConfig>(() => {
       return { ...llmConfig.value };
@@ -68,17 +63,7 @@ export const useSettingsStore = defineStore(
       return !!(apiKey && baseURL && model);
     }
 
-    const ttsConfig = ref<TTSConfig>({
-      baseURL: '',
-      batchSize: 5,
-      sliceMethod: '凑四句一切',
-      samplingStep: 32,
-      speed: 1,
-      pauseBetweenSentences: 0.3,
-      topK: 15,
-      topP: 1,
-      temperature: 1,
-    });
+    const ttsConfig = ref<TTSConfig>({ ...TTS_CONFIG_INIT });
 
     const getTTSConfig = computed<TTSConfig>(() => {
       return { ...ttsConfig.value };
@@ -88,12 +73,7 @@ export const useSettingsStore = defineStore(
       ttsConfig.value = { ...config };
     }
 
-    const ossConfig = ref<OSSConfig>({
-      region: '',
-      accessKeyId: '',
-      accessKeySecret: '',
-      bucket: '',
-    });
+    const ossConfig = ref<OSSConfig>({ ...OSS_CONFIG_INIT });
 
     const getOSSConfig = computed<OSSConfig>(() => {
       return { ...ossConfig.value };

@@ -13,6 +13,7 @@
         <el-icon>
           <component :is="item.icon"></component>
         </el-icon>
+
         {{ item.label }}
       </div>
     </div>
@@ -43,8 +44,8 @@ function goTo(menuName: string) {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-top: 2rem;
-  padding-bottom: 0.5rem;
+  padding: 0.5rem;
+  padding-top: 1rem;
 
   .menu-title {
     font-size: 24px;
@@ -58,6 +59,10 @@ function goTo(menuName: string) {
     cursor: pointer;
     padding: 5px 10px;
     border-radius: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
 
     &:hover {
       background-color: var(--color-fill-4);
@@ -70,7 +75,6 @@ function goTo(menuName: string) {
 
   .menu-footer {
     justify-content: left;
-    padding: 0 10px;
 
     button {
       width: 40px;

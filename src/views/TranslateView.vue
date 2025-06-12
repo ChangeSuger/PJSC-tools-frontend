@@ -44,7 +44,7 @@ import { ElMessage } from 'element-plus';
 const settingsStore = useSettingsStore();
 
 const form = ref({
-  scriptName: ''
+  scriptName: '',
 });
 
 const translateLoading = ref(false);
