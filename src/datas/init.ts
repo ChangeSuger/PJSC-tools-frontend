@@ -3,6 +3,7 @@ import type {
   TTSConfig,
   OSSConfig,
   TTSCharacterConfig,
+  TranslateSystemMessageItem,
 } from '@/types';
 
 export const LLM_CONFIG_INIT: LLMConfig = {
@@ -38,4 +39,9 @@ export const OSS_CONFIG_INIT: OSSConfig = {
   accessKeyId: '',
   accessKeySecret: '',
   bucket: '',
+};
+
+export const TRANSLATE_SYSTEM_MESSAGE_ITEM_DEFAULT: TranslateSystemMessageItem = {
+  charecter: 'default',
+  systemMessage: '你是一名专业的中译日翻译家，你的目标是把中文翻译成日文，请翻译时不要带翻译腔，而是要翻译得自然、流畅和地道，使用优美和高雅的表达方式。',
 };

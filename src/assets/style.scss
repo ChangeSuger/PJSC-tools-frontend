@@ -24,7 +24,7 @@ body {
   --color-border: rgb(229,230,235);
 }
 
-body[class="dark"] {
+body[class*="dark"] {
   --kokomi-purple: #767ABA;
   --kokomi-pink: #DE9EBA;
   --color-bg-0: #24252680;

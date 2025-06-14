@@ -23,7 +23,7 @@
     </div>
 
     <div class="story-viewer-item-right">
-
+      <el-button @click="translate">翻译</el-button>
     </div>
   </div>
 </template>
@@ -32,12 +32,18 @@
 import { type PropType } from 'vue';
 import type { StoryItem } from '@/types';
 
+const emit = defineEmits(['translate']);
+
 defineProps({
   storyItem: {
     type: Object as PropType<StoryItem>,
     required: true,
   },
 });
+
+function translate() {
+  emit('translate');
+}
 </script>
 
 <style lang="scss" scoped>

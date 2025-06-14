@@ -1,27 +1,26 @@
 <template>
   <div class="tts-view fill-current">
-    <ExampleAudioItem :id="'test-default'" :exampleAudioDB="exampleAudioDB" />
+    <ExampleAudioItem :id="'test-default'" />
     <el-button @click="ttsBatchGenerate">ttsBatchGenerate</el-button>
   </div>
 </template>
 
 <script setup lang="ts">
 import { CommonApi } from '@/api';
-import { useSettingsStore } from '@/stores';
-import { ref } from 'vue';
-import { ExampleAudioDB } from '@/utils/exampleAudioDB';
+import { useSettingsStore, useAudioDBStore } from '@/stores';
 
 import ExampleAudioItem from '@/components/tts/ExampleAudioItem.vue';
 
 const settingsStore = useSettingsStore();
-
-const exampleAudioDB = ref<ExampleAudioDB>(new ExampleAudioDB());
+const audioDBStore = useAudioDBStore();
 
 async function ttsBatchGenerate() {
   const ttsConfig = settingsStore.getTTSConfig;
   const ossConfig = settingsStore.getOSSConfig;
 
-  const exampleAudio = await exampleAudioDB.value.getExampleAudio('test-default');
+  const exampleAudioDB = audioDBStore.getExampleAudioDB;
+
+  const exampleAudio = await exampleAudioDB.getExampleAudio('test-default');
 
   const formData = new FormData();
   formData.append('ttsConfig', JSON.stringify(ttsConfig));
