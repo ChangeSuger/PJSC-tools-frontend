@@ -20,10 +20,18 @@
           {{ storyItem.contentJP }}
         </el-text>
       </div>
+
+      <div class="audios" v-if="storyItem.audioURLs.length">
+        <AudioPlayer
+          v-for="(url, index) of storyItem.audioURLs"
+          :key="`audio-${storyItem.id}-${index}`"
+          :url="url"
+        />
+      </div>
     </div>
 
     <div class="story-viewer-item-right">
-      <el-button @click="translate">翻译</el-button>
+      <slot></slot>
     </div>
   </div>
 </template>
@@ -32,7 +40,7 @@
 import { type PropType } from 'vue';
 import type { StoryItem } from '@/types';
 
-const emit = defineEmits(['translate']);
+import AudioPlayer from '../tts/AudioPlayer.vue';
 
 defineProps({
   storyItem: {
@@ -40,10 +48,6 @@ defineProps({
     required: true,
   },
 });
-
-function translate() {
-  emit('translate');
-}
 </script>
 
 <style lang="scss" scoped>
@@ -77,6 +81,11 @@ function translate() {
     align-items: flex-start;
     justify-content: center;
     gap: 0.5rem;
+
+    .audios {
+      display: flex;
+      gap: 0.5rem;
+    }
   }
 }
 </style>

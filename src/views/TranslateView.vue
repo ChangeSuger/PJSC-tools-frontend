@@ -33,8 +33,9 @@
         v-for="storyItem in storyList"
         :key="storyItem.content"
         :story-item="storyItem"
-        @translate="translate(storyItem)"
-      />
+      >
+        <el-button @click="translate(storyItem)">翻译</el-button>
+      </StoryViewerItem>
     </div>
   </div>
 
@@ -98,25 +99,12 @@ const translateLoading = ref(false);
 
 const storyList = ref<StoryItem[]>([
   {
+    id: 'demo-test-001-1',
     character: '平野葵',
     content: '终于又见面了呢，拓君。这一年来过得可好？',
-    contentJP: '「拓君、また会えて嬉しいです。今年の一年、いかがお過ごしでしたか？」',
-  },
-  {
-    character: '柊澪',
-    content: '魔法？也太扯了。没想到到了这还能看到这么离谱的东西。',
-    contentJP: '',
-  },
-  {
-    character: '飛鳥灯',
-    content: '欢迎光临！能找到这里真是有缘呢，从今天起我们就是一家人了！',
-    contentJP: '',
-  },
-  {
-    character: '茜音縁',
-    content: '哦哦，所以我们这个是魔法研究部是吧，然后学姐是部长，这位同学是……。等一下，欸，魔法？',
-    contentJP: '',
-  },
+    contentJP: '拓くん、やっとまた会えたね。この一年、元気にしていた？',
+    audioURLs: [],
+  }
 ]);
 
 async function translate(storyItem: StoryItem) {
@@ -171,7 +159,9 @@ function importScriptJSON() {
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
-
+        const jsonstring = reader.result as string;
+        const data = JSON.parse(jsonstring) as StoryItem[];
+        storyList.value = data;
       }
       reader.readAsText(file);
     }
@@ -180,13 +170,13 @@ function importScriptJSON() {
 }
 
 function exportScriptJSON() {
-  const scriptdata = '';
+  const scriptdata = storyList.value;
 
   const json = JSON.stringify(scriptdata);
   const blob = new Blob([json], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
-  a.download = `script.json`;
+  a.download = `${form.value.scriptName}.json`;
   a.href = url;
   a.click();
   URL.revokeObjectURL(url);

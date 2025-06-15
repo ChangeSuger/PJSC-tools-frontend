@@ -9,7 +9,7 @@ export type TTSCharacterConfig = Pick<
   | 'topK'
   | 'topP'
   | 'temperature'
->;
+>
 
 export type ExampleAudioObject = {
   /**
@@ -18,4 +18,18 @@ export type ExampleAudioObject = {
   id: string;
   audio: Blob;
   text: string;
+}
+
+export type Emotion =
+| '默认'
+| '开心'
+| '生气'
+| '难过'
+| '吃惊'
+| '厌恶'
+| '恐惧'
+
+export type TTSGenerateSSEData = {
+  code: number,
+  url: string,
 }

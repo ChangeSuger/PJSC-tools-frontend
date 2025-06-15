@@ -1,7 +1,7 @@
 <template>
   <div class="example-audio-item rounded-medium">
     <div class="example-audio-item-left">
-      <EmotionTag text="默认" />
+      <EmotionTag :text="emotion" />
     </div>
 
     <div class="example-audio-item-center">
@@ -22,16 +22,20 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue';
+import { ref, onMounted, computed, type PropType } from 'vue';
 import { useAudioDBStore } from '@/stores';
 
-import type { ExampleAudioObject } from '@/types';
+import type { ExampleAudioObject, Emotion } from '@/types';
 
 import EmotionTag from './EmotionTag.vue';
 
 const props = defineProps({
   id: {
     type: String,
+    required: true,
+  },
+  emotion: {
+    type: String as PropType<Emotion>,
     required: true,
   },
 });

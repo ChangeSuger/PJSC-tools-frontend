@@ -1,0 +1,67 @@
+<template>
+  <div>
+    <audio :src="url" controls ref="audioRef"></audio>
+    <el-button type="info" size="large" plain class="audio-player" @click="audioPlay" :icon="icon"></el-button>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { computed, ref } from 'vue';
+
+import { VideoPlay, VideoPause } from '@element-plus/icons-vue';
+
+defineProps({
+  url: {
+    type: String,
+    required: true,
+  }
+});
+
+let timer: NodeJS.Timeout | null = null;
+
+const audioRef = ref<HTMLAudioElement>();
+const isPlaying = ref(false);
+
+const icon = computed(() => {
+  return isPlaying.value ? VideoPause : VideoPlay;
+});
+
+function audioPlay() {
+  if (isPlaying.value) {
+    pause();
+  } else {
+    play();
+  }
+}
+
+function play() {
+  audioRef.value?.play();
+  isPlaying.value = true;
+  timer = setInterval(() => {
+    if (audioRef.value?.paused && isPlaying.value) {
+      isPlaying.value = false;
+      clearInterval(timer!);
+    }
+  }, 100);
+}
+
+function pause() {
+  audioRef.value?.pause();
+  isPlaying.value = false;
+}
+</script>
+
+<style lang="scss" scoped>
+audio {
+  width: 0px;
+  height: 0px;
+  visibility: hidden;
+}
+
+.audio-player {
+  font-size: 30px;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+}
+</style>

@@ -16,7 +16,7 @@ defineProps({
 <style lang="scss">
 .emotion-tag {
   height: 32px;
-  font-size: 16px;
+  font-size: 14px;
 
   .el-tag__content {
     padding: 4px 8px;

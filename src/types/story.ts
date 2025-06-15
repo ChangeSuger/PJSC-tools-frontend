@@ -1,3 +1,5 @@
+import type { Emotion } from "./tts";
+
 type SystemContent = {
   type: string;
   content: string;
@@ -25,7 +27,10 @@ export type StoryScript = Array<
 >;
 
 export type StoryItem = {
+  id: string;
   character: string;
   content: string;
   contentJP: string;
+  emotion?: Emotion;
+  audioURLs: string[];
 }
