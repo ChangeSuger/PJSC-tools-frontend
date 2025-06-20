@@ -19,7 +19,7 @@
     <div class="tts-check-body">
       <StoryViewerItem
         v-for="storyItem in storyList"
-        :key="storyItem.content"
+        :key="storyItem.line"
         :story-item="storyItem"
       ></StoryViewerItem>
     </div>
@@ -27,36 +27,19 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 
-import type { StoryItem } from '@/types';
+import type { StoryItem, StoryScriptFull } from '@/types';
 import { Upload } from '@element-plus/icons-vue';
 import StoryViewerItem from '@/components/story/StoryViewerItem.vue';
+import { scriptAdaptIn } from '@/utils/scriptAdapter';
 
-const storyList = ref<StoryItem[]>([
-  {
-    id: 'demo-test-001-1',
-    character: '平野葵',
-    content: '终于又见面了呢，拓君。',
-    contentJP: '拓君、また会えて嬉しいです。',
-    emotion: '默认',
-    audioURLs: [
-      "https://camille-oss-public.oss-cn-zhangjiakou.aliyuncs.com/pjsc-tts/demo-test-001-1_v1.wav",
-      "https://camille-oss-public.oss-cn-zhangjiakou.aliyuncs.com/pjsc-tts/demo-test-001-1_v2.wav",
-      "https://camille-oss-public.oss-cn-zhangjiakou.aliyuncs.com/pjsc-tts/demo-test-001-1_v3.wav",
-      "https://camille-oss-public.oss-cn-zhangjiakou.aliyuncs.com/pjsc-tts/demo-test-001-1_v4.wav",
-      "https://camille-oss-public.oss-cn-zhangjiakou.aliyuncs.com/pjsc-tts/demo-test-001-1_v5.wav",
-    ],
-  },
-  {
-    id: 'demo-test-001-2',
-    character: '平野葵',
-    content: '这一年来过得可好？',
-    contentJP: '今年の一年、いかがお過ごしでしたか？',
-    emotion: '默认',
-    audioURLs: [],
-  },
-]);
+const storyScript = ref<StoryScriptFull>();
+const storyList = computed(() => {
+  return storyScript.value?.filter((item) => {
+    return item.type === 'line';
+  }) ?? [];
+});
 
 function importScriptJSON() {
   const input = document.createElement('input');
@@ -68,8 +51,8 @@ function importScriptJSON() {
       const reader = new FileReader();
       reader.onload = () => {
         const jsonstring = reader.result as string;
-        const data = JSON.parse(jsonstring) as StoryItem[];
-        storyList.value = data;
+        const scriptData = JSON.parse(jsonstring) as StoryItem[];
+        storyScript.value = scriptAdaptIn(scriptData);
       }
       reader.readAsText(file);
     }

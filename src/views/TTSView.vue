@@ -18,7 +18,7 @@
       </div>
 
       <div class="tts-header-right">
-        <el-button type="primary" text @click="ttsGenerateAll" :loading="generateLoading" :disabled="generateLoading">
+        <el-button type="primary" text @click="ttsGenerateAllJP" :loading="generateLoading" :disabled="generateLoading">
           批量生成音频
         </el-button>
 
@@ -64,10 +64,10 @@
 
       <StoryViewerItem
         v-for="storyItem in storyListFilter"
-        :key="storyItem.content"
+        :key="storyItem.line"
         :story-item="storyItem"
       >
-        <el-button @click="ttsBatchGenerate(storyItem)">音频生成</el-button>
+        <el-button @click="ttsBatchGenerateJP(storyItem)">音频生成</el-button>
       </StoryViewerItem>
     </div>
   </div>
@@ -93,7 +93,7 @@
 
 <script setup lang="ts">
 import { CommonApi } from '@/api';
-import { useSettingsStore, useAudioDBStore, useExampleAudioStore } from '@/stores';
+import { useSettingsStore, useAudioDBStore, useTTSCharacterStore } from '@/stores';
 import { computed, ref } from 'vue';
 import { EMOTIONS } from '@/datas';
 
@@ -101,15 +101,18 @@ import ExampleAudioItem from '@/components/tts/ExampleAudioItem.vue';
 import StoryViewerItem from '@/components/story/StoryViewerItem.vue';
 import { Upload, Download } from '@element-plus/icons-vue';
 import { type TabPaneName, ElMessage } from 'element-plus';
-import type { StoryItem, TTSGenerateSSEData } from '@/types';
+import type { StoryItem, StoryScriptFull, TTSGenerateSSEData } from '@/types';
+import { scriptAdaptIn } from '@/utils/scriptAdapter';
 
 const settingsStore = useSettingsStore();
 const audioDBStore = useAudioDBStore();
-const exampleAudioStore = useExampleAudioStore();
+const ttsCharacterStore = useTTSCharacterStore();
 
-const characters = ref<string[]>([ ...exampleAudioStore.characters ]);
+const characters = ref<string[]>([ ...ttsCharacterStore.characters ]);
 const avtiveName = ref(characters.value[0]);
+
 const visible = ref(false);
+
 const addCharacterForm = ref({
   name: ''
 });
@@ -117,30 +120,12 @@ const addCharacterForm = ref({
 const generateLoading = ref(false);
 const characterSelected = ref('');
 
-const storyList = ref<StoryItem[]>([
-  {
-    id: 'demo-test-001-1',
-    character: '平野葵',
-    content: '终于又见面了呢，拓君。',
-    contentJP: '拓君、また会えて嬉しいです。',
-    emotion: '默认',
-    audioURLs: [
-      "https://camille-oss-public.oss-cn-zhangjiakou.aliyuncs.com/pjsc-tts/demo-test-001-1_v1.wav",
-      "https://camille-oss-public.oss-cn-zhangjiakou.aliyuncs.com/pjsc-tts/demo-test-001-1_v2.wav",
-      "https://camille-oss-public.oss-cn-zhangjiakou.aliyuncs.com/pjsc-tts/demo-test-001-1_v3.wav",
-      "https://camille-oss-public.oss-cn-zhangjiakou.aliyuncs.com/pjsc-tts/demo-test-001-1_v4.wav",
-      "https://camille-oss-public.oss-cn-zhangjiakou.aliyuncs.com/pjsc-tts/demo-test-001-1_v5.wav",
-    ],
-  },
-  {
-    id: 'demo-test-001-2',
-    character: '平野葵',
-    content: '这一年来过得可好？',
-    contentJP: '今年の一年、いかがお過ごしでしたか？',
-    emotion: '默认',
-    audioURLs: [],
-  },
-]);
+const storyScript = ref<StoryScriptFull>();
+const storyList = computed(() => {
+  return storyScript.value?.filter((item) => {
+    return item.type === 'line';
+  }) ?? [];
+});
 
 const characterOptions = computed(() => {
   return [ ...characters.value ];
@@ -149,25 +134,25 @@ const characterOptions = computed(() => {
 const storyListFilter = computed(() => {
   if (characterSelected.value) {
     return storyList.value.filter(item => {
-      return item.character === characterSelected.value;
+      return item.cid === characterSelected.value;
     });
   } else {
     return storyList.value;
   }
 });
 
-async function ttsBatchGenerate(storyItem: StoryItem) {
-  const { id, character, contentJP, emotion } = storyItem;
+async function ttsBatchGenerateJP(storyItem: StoryItem) {
+  const { id, cid, lineJP, emotion } = storyItem;
 
   const ttsConfig = settingsStore.getTTSConfig;
   const ossConfig = settingsStore.getOSSConfig;
 
   const exampleAudioDB = audioDBStore.getExampleAudioDB;
 
-  let exampleAudio = await exampleAudioDB.getExampleAudio(`${character}-${emotion}`);
+  let exampleAudio = await exampleAudioDB.getExampleAudio(`${cid}-${emotion}`);
 
   if (!exampleAudio) {
-    exampleAudio = await exampleAudioDB.getExampleAudio(`${character}-默认`);
+    exampleAudio = await exampleAudioDB.getExampleAudio(`${cid}-中立`);
   }
 
   const formData = new FormData();
@@ -176,7 +161,7 @@ async function ttsBatchGenerate(storyItem: StoryItem) {
   formData.append('exampleAudio', exampleAudio!.audio);
   formData.append('exampleText', exampleAudio!.text);
   formData.append('targetText', JSON.stringify({
-    text: contentJP,
+    text: lineJP,
     id,
   }));
 
@@ -197,8 +182,8 @@ async function ttsBatchGenerate(storyItem: StoryItem) {
           console.log('TTS Start')
         } else if (progressData.code === 1) {
           const url = progressData.url;
-          if (!storyItem.audioURLs.includes(url)) {
-            storyItem.audioURLs.push(url);
+          if (!storyItem.jpAudioURLs.includes(url)) {
+            storyItem.jpAudioURLs.push(url);
           }
         }
       };
@@ -211,11 +196,11 @@ async function ttsBatchGenerate(storyItem: StoryItem) {
   }
 }
 
-async function ttsGenerateAll() {
+async function ttsGenerateAllJP() {
   if (characterSelected.value) {
     for (const storyItem of storyListFilter.value) {
-      if (storyItem.audioURLs.length === 0 || storyItem.audioURLs.length < settingsStore.getTTSConfig.batchSize) {
-        await ttsBatchGenerate(storyItem);
+      if (storyItem.jpAudioURLs.length === 0 || storyItem.jpAudioURLs.length < settingsStore.getTTSConfig.batchSize) {
+        await ttsBatchGenerateJP(storyItem);
       }
     }
   } else {
@@ -233,8 +218,8 @@ function importScriptJSON() {
       const reader = new FileReader();
       reader.onload = () => {
         const jsonstring = reader.result as string;
-        const data = JSON.parse(jsonstring) as StoryItem[];
-        storyList.value = data;
+        const scriptData = JSON.parse(jsonstring) as StoryItem[];
+        storyScript.value = scriptAdaptIn(scriptData);
       }
       reader.readAsText(file);
     }
@@ -265,7 +250,7 @@ function handleTabEdit(
     characters.value = characters.value.filter((character => {
       return character !== targetName;
     }));
-    exampleAudioStore.setCharacters(characters.value);
+    ttsCharacterStore.setCharacters(characters.value);
   }
 }
 
@@ -283,7 +268,7 @@ function addCharacter() {
   if (newCharacterName && !characters.value.includes(newCharacterName)) {
     characters.value.push(newCharacterName);
 
-    exampleAudioStore.setCharacters(characters.value);
+    ttsCharacterStore.setCharacters(characters.value);
 
     addCharacterForm.value.name = '';
   }

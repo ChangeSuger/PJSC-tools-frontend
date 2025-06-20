@@ -3,7 +3,7 @@
     <div class="story-viewer-item-left">
       <div class="character-name">
         <el-text>
-          {{ storyItem.character }}
+          {{ storyItem.cid }}
         </el-text>
       </div>
     </div>
@@ -11,19 +11,19 @@
     <div class="story-viewer-item-center" style="flex: 1">
       <div class="content-cn">
         <el-text size="large">
-          {{ storyItem.content }}
+          {{ storyItem.line }}
         </el-text>
       </div>
 
-      <div class="content-jp" v-if="storyItem.contentJP">
+      <div class="content-jp" v-if="storyItem.lineJP">
         <el-text size="large">
-          {{ storyItem.contentJP }}
+          {{ storyItem.lineJP }}
         </el-text>
       </div>
 
-      <div class="audios" v-if="storyItem.audioURLs.length">
+      <div class="audios" v-if="storyItem.jpAudioURLs.length">
         <AudioPlayer
-          v-for="(url, index) of storyItem.audioURLs"
+          v-for="(url, index) of storyItem.jpAudioURLs"
           :key="`audio-${storyItem.id}-${index}`"
           :url="url"
         />

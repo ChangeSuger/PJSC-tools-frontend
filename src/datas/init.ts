@@ -12,18 +12,6 @@ export const LLM_CONFIG_INIT: LLMConfig = {
   apiKey: '',
 };
 
-export const TTS_CONFIG_INIT: TTSConfig = {
-  baseURL: '',
-  batchSize: 5,
-  sliceMethod: '凑四句一切',
-  samplingStep: 32,
-  speed: 1,
-  pauseBetweenSentences: 0.3,
-  topK: 15,
-  topP: 1,
-  temperature: 1,
-};
-
 export const TTS_CHARACTER_CONFIG_INIT: TTSCharacterConfig = {
   sliceMethod: '凑四句一切',
   samplingStep: 32,
@@ -33,6 +21,13 @@ export const TTS_CHARACTER_CONFIG_INIT: TTSCharacterConfig = {
   topP: 1,
   temperature: 1,
 };
+
+export const TTS_CONFIG_INIT: TTSConfig = {
+  baseURL: '',
+  batchSize: 5,
+  ...TTS_CHARACTER_CONFIG_INIT,
+};
+
 
 export const OSS_CONFIG_INIT: OSSConfig = {
   region: '',

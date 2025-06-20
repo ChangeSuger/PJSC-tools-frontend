@@ -3,7 +3,7 @@
     <div class="translate-header fill-width">
       <div class="translate-header-left">
         <el-form :inline="true" :model="form">
-          <el-form-item label="剧本名" style="margin-bottom: 0;">
+          <el-form-item label="Scenario Name" style="margin-bottom: 0;">
             <el-input style="width: 240px" v-model="form.scriptName" clearable />
           </el-form-item>
         </el-form>
@@ -31,7 +31,7 @@
     <div class="translate-body">
       <StoryViewerItem
         v-for="storyItem in storyList"
-        :key="storyItem.content"
+        :key="storyItem.line"
         :story-item="storyItem"
       >
         <el-button @click="translate(storyItem)">翻译</el-button>
@@ -55,9 +55,17 @@
         :key="index"
       >
         <el-input style="width: 200px" v-model="item.charecter" :disabled="item.charecter === 'default'" />
+
         <el-input style="flex: 1" type="textarea" autosize v-model="item.systemMessage" />
+
         <div style="width: 50px">
-          <el-button type="danger" plain @click="deleteTranslateSystemMessageItem(index)" :icon="Delete" v-if="item.charecter !== 'default'"></el-button>
+          <el-button
+            v-if="item.charecter !== 'default'"
+            type="danger"
+            plain
+            :icon="Delete"
+            @click="deleteTranslateSystemMessageItem(index)"
+          ></el-button>
         </div>
       </el-form-item>
     </el-form>
@@ -73,11 +81,12 @@
 
 <script setup lang="ts">
 import { Upload, Download, Setting } from '@element-plus/icons-vue';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import { useSettingsStore, useTranslataStore } from '@/stores';
 import OpenAI from "openai";
+import { scriptAdaptIn } from '@/utils/scriptAdapter';
 
-import type { StoryItem, TranslateSystemMessageItem } from '@/types';
+import type { StoryItem, StoryScript, StoryScriptFull, TranslateSystemMessageItem } from '@/types';
 
 import StoryViewerItem from '@/components/story/StoryViewerItem.vue';
 import { Delete } from '@element-plus/icons-vue';
@@ -97,24 +106,22 @@ const translateSystemMessageForm = ref<TranslateSystemMessageItem[]>(cloneDeep(t
 
 const translateLoading = ref(false);
 
-const storyList = ref<StoryItem[]>([
-  {
-    id: 'demo-test-001-1',
-    character: '平野葵',
-    content: '终于又见面了呢，拓君。这一年来过得可好？',
-    contentJP: '拓くん、やっとまた会えたね。この一年、元気にしていた？',
-    audioURLs: [],
-  }
-]);
+const storyScript = ref<StoryScriptFull>();
+
+const storyList = computed(() => {
+  return storyScript.value?.filter((item) => {
+    return item.type === 'line';
+  });
+});
 
 async function translate(storyItem: StoryItem) {
   const llmConfig = settingsStore.getLLMConfig;
 
   const { apiKey, model, baseURL } = llmConfig;
 
-  const systemMessage = translateStore.getSystemMessage(storyItem.character);
+  const systemMessage = translateStore.getSystemMessage(storyItem.cid);
 
-  const userMessage = `请翻译下面这句话：“${storyItem.content}”`;
+  const userMessage = `请翻译下面这句话：“${storyItem.line}”`;
 
   const client = new OpenAI({
     apiKey,
@@ -130,7 +137,7 @@ async function translate(storyItem: StoryItem) {
     ],
   });
 
-  storyItem.contentJP = response.choices[0].message.content!;
+  storyItem.lineJP = response.choices[0].message.content!;
 }
 
 async function translateAll() {
@@ -141,8 +148,8 @@ async function translateAll() {
 
   translateLoading.value = true;
 
-  for (const storyItem of storyList.value) {
-    if (!storyItem.contentJP) {
+  for (const storyItem of storyList.value!) {
+    if (!storyItem.lineJP) {
       await translate(storyItem);
     }
   }
@@ -160,8 +167,8 @@ function importScriptJSON() {
       const reader = new FileReader();
       reader.onload = () => {
         const jsonstring = reader.result as string;
-        const data = JSON.parse(jsonstring) as StoryItem[];
-        storyList.value = data;
+        const scriptData = JSON.parse(jsonstring) as StoryScript;
+        storyScript.value = scriptAdaptIn(scriptData);
       }
       reader.readAsText(file);
     }

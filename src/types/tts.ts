@@ -13,21 +13,26 @@ export type TTSCharacterConfig = Pick<
 
 export type ExampleAudioObject = {
   /**
-   * 格式：<character>-<emotion>
+   * 格式：<character_name>-<emotion>
    */
   id: string;
   audio: Blob;
   text: string;
 }
 
+/**
+ * 情感分类，共 9 种
+ */
 export type Emotion =
-| '默认'
+| '中立'
 | '开心'
 | '生气'
 | '难过'
-| '吃惊'
-| '厌恶'
+| '紧张'
+| '担忧'
+| '疑惑'
 | '恐惧'
+| '吃惊'
 
 export type TTSGenerateSSEData = {
   code: number,

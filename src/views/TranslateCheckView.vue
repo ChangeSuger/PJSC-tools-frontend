@@ -1,6 +1,6 @@
 <template>
-  <div class="emotion-view fill-current">
-    Emotion
+  <div class="translate-check-view fill-current">
+    translate-check
   </div>
 </template>
 
@@ -9,7 +9,7 @@
 </script>
 
 <style lang="scss" scoped>
-.emotion-view {
+.translate-check-view {
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
