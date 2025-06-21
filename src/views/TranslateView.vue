@@ -39,44 +39,7 @@
     </div>
   </div>
 
-  <el-dialog
-    v-model="dialogVisible"
-    append-to-body
-    center
-    width="80%"
-    title="提示词设置"
-  >
-    <el-form
-      v-model="translateSystemMessageForm"
-    >
-      <el-form-item
-        class="translate-form-item"
-        v-for="(item, index) of translateSystemMessageForm"
-        :key="index"
-      >
-        <el-input style="width: 200px" v-model="item.charecter" :disabled="item.charecter === 'default'" />
-
-        <el-input style="flex: 1" type="textarea" autosize v-model="item.systemMessage" />
-
-        <div style="width: 50px">
-          <el-button
-            v-if="item.charecter !== 'default'"
-            type="danger"
-            plain
-            :icon="Delete"
-            @click="deleteTranslateSystemMessageItem(index)"
-          ></el-button>
-        </div>
-      </el-form-item>
-    </el-form>
-
-    <el-button type="primary" plain @click="addTranslateSystemMessageItem">添加配置</el-button>
-
-    <template #footer>
-      <el-button type="primary" plain @click="saveTranslateSystemMessageForm">保存</el-button>
-      <el-button type="info" plain @click="closeDialog">取消</el-button>
-    </template>
-  </el-dialog>
+  <TranslateSystemMessageDialog ref="translateSystemMessageDialogFef" />
 </template>
 
 <script setup lang="ts">
@@ -86,23 +49,20 @@ import { useSettingsStore, useTranslataStore } from '@/stores';
 import OpenAI from "openai";
 import { scriptAdaptIn } from '@/utils/scriptAdapter';
 
-import type { StoryItem, StoryScript, StoryScriptFull, TranslateSystemMessageItem } from '@/types';
+import type { StoryItem, StoryScript, StoryScriptFull } from '@/types';
 
 import StoryViewerItem from '@/components/story/StoryViewerItem.vue';
-import { Delete } from '@element-plus/icons-vue';
-import { cloneDeep } from 'lodash-es';
+import TranslateSystemMessageDialog from '@/components/translate/TranslateSystemMessageDialog.vue';
 import { ElMessage } from 'element-plus';
 
 const settingsStore = useSettingsStore();
 const translateStore = useTranslataStore();
 
-const dialogVisible = ref(false);
+const translateSystemMessageDialogFef = ref<InstanceType<typeof TranslateSystemMessageDialog>>();
 
 const form = ref({
   scriptName: '',
 });
-
-const translateSystemMessageForm = ref<TranslateSystemMessageItem[]>(cloneDeep(translateStore.translateSystemMessageList));
 
 const translateLoading = ref(false);
 
@@ -164,6 +124,8 @@ function importScriptJSON() {
   input.onchange = () => {
     const file = input.files?.[0];
     if (file) {
+      form.value.scriptName = file.name.split('.')[0];
+
       const reader = new FileReader();
       reader.onload = () => {
         const jsonstring = reader.result as string;
@@ -190,29 +152,7 @@ function exportScriptJSON() {
 }
 
 function openDialog() {
-  translateSystemMessageForm.value = cloneDeep(translateStore.translateSystemMessageList);
-
-  dialogVisible.value = true;
-}
-
-function closeDialog() {
-  dialogVisible.value = false;
-}
-
-function addTranslateSystemMessageItem() {
-  translateSystemMessageForm.value.push({
-    charecter: '',
-    systemMessage: '',
-  });
-}
-
-function deleteTranslateSystemMessageItem(index: number) {
-  translateSystemMessageForm.value.splice(index, 1);
-}
-
-function saveTranslateSystemMessageForm() {
-  translateStore.setTranslateSystemMessageList(translateSystemMessageForm.value);
-  closeDialog();
+  translateSystemMessageDialogFef.value?.open();
 }
 </script>
 
