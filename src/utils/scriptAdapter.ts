@@ -1,10 +1,10 @@
 import type { Emotion, ScriptTypeMap, StoryItem, StoryScript, StoryScriptFull } from "@/types";
 
-import { EMOTIONS } from "@/datas";
+import { EMOTIONS, EMOTION_MAP } from "@/datas";
 
 function getEmotion(storyItem: ScriptTypeMap['line']): Emotion {
   if (storyItem.charas) {
-    const emotion = storyItem.charas[storyItem.cid];
+    const emotion = EMOTION_MAP[storyItem.charas[storyItem.cid]];
 
     if (emotion && EMOTIONS.includes(emotion as Emotion)) {
       return emotion as Emotion;

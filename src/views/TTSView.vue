@@ -53,7 +53,7 @@
     <div class="tts-body">
       <StoryViewerItem
         v-for="storyItem in storyListFilter"
-        :key="storyItem.line"
+        :key="storyItem.id"
         :story-item="storyItem"
       >
         <el-space direction="vertical">
@@ -298,7 +298,7 @@ function exportScriptJSON() {
   const blob = new Blob([json], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
-  a.download = `${form.value.scriptName}.json`;
+  a.download = `${form.value.scriptName}.tts.json`;
   a.href = url;
   a.click();
   URL.revokeObjectURL(url);

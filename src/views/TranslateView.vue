@@ -35,7 +35,7 @@
     <div class="translate-body">
       <StoryViewerItem
         v-for="storyItem in storyList"
-        :key="storyItem.line"
+        :key="storyItem.id"
         :story-item="storyItem"
       >
         <el-button @click="translate(storyItem)">翻译</el-button>

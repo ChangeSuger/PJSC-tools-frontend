@@ -6,6 +6,7 @@
           {{ storyItem.cid }}
         </el-text>
       </div>
+      <EmotionTag :text="storyItem.emotion" />
     </div>
 
     <div class="story-viewer-item-center" style="flex: 1">
@@ -49,6 +50,7 @@ import { type PropType } from 'vue';
 import type { StoryItem } from '@/types';
 
 import AudioPlayer from '../tts/AudioPlayer.vue';
+import EmotionTag from '../tts/EmotionTag.vue';
 
 defineProps({
   storyItem: {
@@ -72,8 +74,10 @@ defineProps({
   .story-viewer-item-left {
     width: 100px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 0.5rem;
 
     .character-name {
       padding: 4px 10px;

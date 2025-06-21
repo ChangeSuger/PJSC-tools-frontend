@@ -31,7 +31,7 @@
     <div class="translate-check-body">
       <TranslateCheckItem
         v-for="(storyItem, index) in storyList"
-        :key="storyItem.line"
+        :key="storyItem.id"
         :story-item="storyItem"
       >
         <template #jp>
