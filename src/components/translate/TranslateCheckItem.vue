@@ -1,6 +1,6 @@
 <template>
-  <div class="story-viewer-item rounded-medium">
-    <div class="story-viewer-item-left">
+  <div class="translate-check-item rounded-medium">
+    <div class="translate-check-item-left">
       <div class="character-name">
         <el-text>
           {{ storyItem.cid }}
@@ -8,37 +8,19 @@
       </div>
     </div>
 
-    <div class="story-viewer-item-center" style="flex: 1">
-      <div class="content-cn">
+    <div class="translate-check-item-center" style="flex: 1">
+      <div class="content-cn fill-width">
         <el-text size="large">
           {{ storyItem.line }}
         </el-text>
       </div>
 
-      <div class="audios" v-if="storyItem.cnAudioURLs.length">
-        <AudioPlayer
-          v-for="(url, index) of storyItem.cnAudioURLs"
-          :key="`audio-${storyItem.id}-${index}`"
-          :url="url"
-        />
-      </div>
-
-      <div class="content-jp" v-if="storyItem.lineJP">
-        <el-text size="large">
-          {{ storyItem.lineJP }}
-        </el-text>
-      </div>
-
-      <div class="audios" v-if="storyItem.jpAudioURLs.length">
-        <AudioPlayer
-          v-for="(url, index) of storyItem.jpAudioURLs"
-          :key="`audio-${storyItem.id}-${index}`"
-          :url="url"
-        />
+      <div class="content-jp fill-width" v-if="storyItem.lineJP">
+        <slot name="jp"></slot>
       </div>
     </div>
 
-    <div class="story-viewer-item-right">
+    <div class="translate-check-item-right">
       <slot></slot>
     </div>
   </div>
@@ -47,8 +29,6 @@
 <script setup lang="ts">
 import { type PropType } from 'vue';
 import type { StoryItem } from '@/types';
-
-import AudioPlayer from '../tts/AudioPlayer.vue';
 
 defineProps({
   storyItem: {
@@ -59,7 +39,7 @@ defineProps({
 </script>
 
 <style lang="scss" scoped>
-.story-viewer-item {
+.translate-check-item {
   width: 100%;
   padding: 8px;
   display: flex;
@@ -69,7 +49,7 @@ defineProps({
   gap: 4px;
   background-color: var(--color-bg);
 
-  .story-viewer-item-left {
+  .translate-check-item-left {
     width: 100px;
     display: flex;
     justify-content: center;
@@ -82,18 +62,13 @@ defineProps({
     }
   }
 
-  .story-viewer-item-center {
+  .translate-check-item-center {
     padding: 0.5rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     gap: 0.5rem;
-
-    .audios {
-      display: flex;
-      gap: 0.5rem;
-    }
   }
 }
 </style>

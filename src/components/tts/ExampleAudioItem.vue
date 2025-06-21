@@ -7,7 +7,6 @@
     <div class="example-audio-item-center">
       <div class="example-audio-player">
         <audio v-if="exampleAudioURL" controls :src="exampleAudioURL"></audio>
-        <el-button type="primary" @click="uploadExampleAudio">上传音频</el-button>
       </div>
 
       <div class="example-audio-text">
@@ -16,7 +15,10 @@
     </div>
 
     <div class="example-audio-item-right">
-      <el-button type="primary" @click="putExampleAudioObject">更新音频</el-button>
+      <el-space direction="vertical">
+        <el-button type="primary" @click="uploadExampleAudio">上传音频</el-button>
+        <el-button type="primary" @click="putExampleAudioObject">更新音频</el-button>
+      </el-space>
     </div>
   </div>
 </template>
@@ -69,7 +71,6 @@ async function getExampleAudioObject() {
 
 async function putExampleAudioObject() {
   try {
-    console.log(111);
     await audioDBStore.getExampleAudioDB.addExampleAudio(exampleAudioObject.value as ExampleAudioObject);
     console.log('success');
   } catch (error) {
@@ -85,6 +86,7 @@ function uploadExampleAudio() {
     const audio = input.files?.[0];
     if (audio) {
       exampleAudioObject.value.audio = audio;
+      exampleAudioObject.value.text = audio.name.split('.')[0];
     }
   }
 

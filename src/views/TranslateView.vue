@@ -3,10 +3,14 @@
     <div class="translate-header fill-width">
       <div class="translate-header-left">
         <el-form :inline="true" :model="form">
-          <el-form-item label="Scenario Name" style="margin-bottom: 0;">
+          <el-form-item label="剧本名" style="margin-bottom: 0;">
             <el-input style="width: 240px" v-model="form.scriptName" clearable />
           </el-form-item>
         </el-form>
+      </div>
+
+      <div class="translate-header-center" v-if="translateLoading">
+        {{ count }} / {{ total }}
       </div>
 
       <div class="translate-header-right">
@@ -64,6 +68,9 @@ const form = ref({
   scriptName: '',
 });
 
+const total = ref(0);
+const count = ref(0);
+
 const translateLoading = ref(false);
 
 const storyScript = ref<StoryScriptFull>();
@@ -108,13 +115,18 @@ async function translateAll() {
 
   translateLoading.value = true;
 
+  total.value = storyList.value!.length;
+  count.value = 0;
+
   for (const storyItem of storyList.value!) {
     if (!storyItem.lineJP) {
       await translate(storyItem);
+      count.value = count.value + 1;
     }
   }
 
   translateLoading.value = false;
+  ElMessage.success('批量翻译完成');
 }
 
 function importScriptJSON() {
@@ -139,13 +151,13 @@ function importScriptJSON() {
 }
 
 function exportScriptJSON() {
-  const scriptdata = storyList.value;
+  const scriptdata = storyScript.value;
 
   const json = JSON.stringify(scriptdata);
   const blob = new Blob([json], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
-  a.download = `${form.value.scriptName}.json`;
+  a.download = `${form.value.scriptName}.translate.json`;
   a.href = url;
   a.click();
   URL.revokeObjectURL(url);
