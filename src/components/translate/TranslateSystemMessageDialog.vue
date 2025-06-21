@@ -1,6 +1,6 @@
 <template>
   <el-dialog
-    v-model="dialogVisible"
+    v-model="visible"
     append-to-body
     center
     width="80%"
@@ -50,9 +50,9 @@ import { Delete } from '@element-plus/icons-vue';
 
 defineExpose({
   open,
-})
+});
 
-const dialogVisible = ref(false);
+const visible = ref(false);
 const translateStore = useTranslataStore();
 
 const translateSystemMessageForm = ref<TranslateSystemMessageItem[]>(
@@ -62,11 +62,11 @@ const translateSystemMessageForm = ref<TranslateSystemMessageItem[]>(
 function open() {
   translateSystemMessageForm.value = cloneDeep(translateStore.translateSystemMessageList);
 
-  dialogVisible.value = true;
+  visible.value = true;
 }
 
 function close() {
-  dialogVisible.value = false;
+  visible.value = false;
 }
 
 function addTranslateSystemMessageItem() {

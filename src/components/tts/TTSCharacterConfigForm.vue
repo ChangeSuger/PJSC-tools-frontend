@@ -1,15 +1,14 @@
 <template>
   <el-form :model="ttsCharacterConfigForm" :label-width="labelWidth">
     <el-form-item label="切分方式">
-      <el-radio-group v-model="ttsCharacterConfigForm.sliceMethod">
-        <el-radio-button
+      <el-select v-model="ttsCharacterConfigForm.sliceMethod">
+        <el-option
           v-for="method of SLICE_METHOD_OPTIONS"
           :key="`slice-method-${method}`"
           :value="method"
-        >
-          {{ method }}
-        </el-radio-button>
-      </el-radio-group>
+          :label="method"
+        />
+      </el-select>
     </el-form-item>
 
     <el-form-item label="采样步长">

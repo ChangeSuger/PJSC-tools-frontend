@@ -19,7 +19,7 @@
 
       <div class="tts-header-right">
         <el-button type="primary" text @click="ttsGenerateAllJP" :loading="generateLoading" :disabled="generateLoading">
-          批量生成音频
+          批量生成日文音频
         </el-button>
 
         <el-button type="primary" text :icon="Upload" @click="importScriptJSON">
@@ -29,78 +29,42 @@
         <el-button type="primary" text :icon="Download" @click="exportScriptJSON">
           导出剧本
         </el-button>
+
+        <el-button type="primary" text :icon="Setting" @click="openExampleAudioConfigDialog">
+          参考音频配置
+        </el-button>
+
+        <el-button type="primary" text :icon="Setting" @click="openTTSCharacterConfigDialog">
+          角色参数配置
+        </el-button>
       </div>
     </div>
 
     <div class="tts-body">
-      <el-collapse>
-        <el-collapse-item title="参考音频配置" name="1">
-          <el-tabs
-            v-model="avtiveName"
-            type="card"
-            editable
-            @edit="handleTabEdit"
-          >
-            <template #add-icon>
-              <el-button plain>增加参考音频</el-button>
-            </template>
-
-            <el-tab-pane
-              v-for="character of characters"
-              :key="character"
-              :label="character"
-              :name="character"
-            >
-              <ExampleAudioItem
-                v-for="characterEmotion of generateCharacterEmotionList(character)"
-                :key="`${characterEmotion.character}-${characterEmotion.emotion}`"
-                :id="`${characterEmotion.character}-${characterEmotion.emotion}`"
-                :emotion="characterEmotion.emotion"
-              />
-            </el-tab-pane>
-          </el-tabs>
-        </el-collapse-item>
-      </el-collapse>
-
       <StoryViewerItem
         v-for="storyItem in storyListFilter"
         :key="storyItem.line"
         :story-item="storyItem"
       >
-        <el-button @click="ttsBatchGenerateJP(storyItem)">音频生成</el-button>
+        <el-button v-if="characterOptions.includes(storyItem.cid)" @click="ttsBatchGenerateJP(storyItem)">音频生成</el-button>
       </StoryViewerItem>
     </div>
   </div>
 
-  <el-dialog
-    v-model="visible"
-    append-to-body
-    center
-    title="新增角色参考音频"
-  >
-    <el-form v-model="addCharacterForm">
-      <el-form-item label="角色名">
-        <el-input v-model="addCharacterForm.name" />
-      </el-form-item>
-    </el-form>
-
-    <template #footer>
-      <el-button type="primary" plain @click="addCharacter">确定</el-button>
-      <el-button type="info" plain @click="closeDialog">取消</el-button>
-    </template>
-  </el-dialog>
+  <ExampleAudioConfigDialog ref="exampleAudioConfigDialogRef" />
+  <TTSCharacterConfigDialog ref="ttsCharacterConfigDialogRef" />
 </template>
 
 <script setup lang="ts">
 import { CommonApi } from '@/api';
 import { useSettingsStore, useAudioDBStore, useTTSCharacterStore } from '@/stores';
 import { computed, ref } from 'vue';
-import { EMOTIONS } from '@/datas';
 
-import ExampleAudioItem from '@/components/tts/ExampleAudioItem.vue';
 import StoryViewerItem from '@/components/story/StoryViewerItem.vue';
-import { Upload, Download } from '@element-plus/icons-vue';
-import { type TabPaneName, ElMessage } from 'element-plus';
+import ExampleAudioConfigDialog from '@/components/tts/ExampleAudioConfigDialog.vue';
+import TTSCharacterConfigDialog from '@/components/tts/TTSCharacterConfigDialog.vue';
+import { Upload, Download, Setting } from '@element-plus/icons-vue';
+import { ElMessage } from 'element-plus';
 import type { StoryItem, StoryScriptFull, TTSGenerateSSEData } from '@/types';
 import { scriptAdaptIn } from '@/utils/scriptAdapter';
 
@@ -108,14 +72,10 @@ const settingsStore = useSettingsStore();
 const audioDBStore = useAudioDBStore();
 const ttsCharacterStore = useTTSCharacterStore();
 
+const exampleAudioConfigDialogRef = ref<InstanceType<typeof ExampleAudioConfigDialog>>();
+const ttsCharacterConfigDialogRef = ref<InstanceType<typeof TTSCharacterConfigDialog>>();
+
 const characters = ref<string[]>([ ...ttsCharacterStore.characters ]);
-const avtiveName = ref(characters.value[0]);
-
-const visible = ref(false);
-
-const addCharacterForm = ref({
-  name: ''
-});
 
 const generateLoading = ref(false);
 const characterSelected = ref('');
@@ -240,49 +200,12 @@ function exportScriptJSON() {
   URL.revokeObjectURL(url);
 }
 
-function handleTabEdit(
-  targetName: TabPaneName | undefined,
-  action: 'remove' | 'add'
-) {
-  if (action === 'add') {
-    openDialog();
-  } else if (action === 'remove') {
-    characters.value = characters.value.filter((character => {
-      return character !== targetName;
-    }));
-    ttsCharacterStore.setCharacters(characters.value);
-  }
+function openExampleAudioConfigDialog() {
+  exampleAudioConfigDialogRef.value?.open();
 }
 
-function openDialog() {
-  visible.value = true;
-}
-
-function closeDialog() {
-  visible.value = false;
-}
-
-function addCharacter() {
-  const newCharacterName = addCharacterForm.value.name;
-
-  if (newCharacterName && !characters.value.includes(newCharacterName)) {
-    characters.value.push(newCharacterName);
-
-    ttsCharacterStore.setCharacters(characters.value);
-
-    addCharacterForm.value.name = '';
-  }
-
-  closeDialog();
-}
-
-function generateCharacterEmotionList(character: string) {
-  return EMOTIONS.map((emotion) => {
-    return {
-      emotion,
-      character,
-    };
-  });
+function openTTSCharacterConfigDialog() {
+  ttsCharacterConfigDialogRef.value?.open();
 }
 </script>
 
@@ -307,16 +230,6 @@ function generateCharacterEmotionList(character: string) {
     display: flex;
     flex-direction: column;
     gap: 8px;
-  }
-}
-</style>
-
-<style lang="scss">
-.tts-view {
-  .el-tabs__new-tab {
-    width: 120px;
-    height: 32px;
-    border: none;
   }
 }
 </style>

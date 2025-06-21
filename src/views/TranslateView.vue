@@ -181,15 +181,3 @@ function openDialog() {
   }
 }
 </style>
-
-<style lang="scss">
-.translate-form-item {
-
-  .el-form-item__content {
-    display: flex;
-    flex-direction: row;
-    gap: 0.5rem;
-    align-items: start;
-  }
-}
-</style>
