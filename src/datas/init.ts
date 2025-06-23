@@ -37,6 +37,13 @@ export const OSS_CONFIG_INIT: OSSConfig = {
 };
 
 export const TRANSLATE_SYSTEM_MESSAGE_ITEM_DEFAULT: TranslateSystemMessageItem = {
-  charecter: 'default',
+  character: 'default',
   systemMessage: '你是一名专业的中译日翻译家，你的目标是把中文翻译成日文，请翻译时不要带翻译腔，而是要翻译得自然、流畅和地道，使用优美和高雅的表达方式。',
 };
+
+export const CHARACTERS_INIT = [
+  '灯',
+  '缘',
+  '澪',
+  '葵',
+];

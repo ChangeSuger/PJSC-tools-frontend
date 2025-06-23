@@ -15,7 +15,7 @@
         </el-text>
       </div>
 
-      <div class="content-jp fill-width" v-if="storyItem.lineJP">
+      <div class="content-jp fill-width">
         <slot name="jp"></slot>
       </div>
     </div>

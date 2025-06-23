@@ -1,11 +1,11 @@
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 import type { TTSCharacterConfig } from '@/types';
-import { TTS_CHARACTER_CONFIG_INIT } from '@/datas';
+import { TTS_CHARACTER_CONFIG_INIT, CHARACTERS_INIT } from '@/datas';
 
 export const useTTSCharacterStore = defineStore(
   'tts-character-settings', () => {
-    const characters = ref<string[]>([]);
+    const characters = ref<string[]>([ ...CHARACTERS_INIT ]);
 
     const ttsCharacterConfigMap = ref<Record<string, TTSCharacterConfig>>({});
 

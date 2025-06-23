@@ -19,7 +19,7 @@ export const useTranslataStore = defineStore(
 
     function getSystemMessage(character: string) {
       for (const item of translateSystemMessageList.value) {
-        if (item.charecter === character) {
+        if (item.character === character) {
           return item.systemMessage;
         }
       }

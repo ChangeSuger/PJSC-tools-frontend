@@ -4,9 +4,20 @@
       <div class="translate-check-header-left">
         <el-form :inline="true" :model="form">
           <el-form-item label="剧本名" style="margin-bottom: 0;">
-            <el-input style="width: 240px" v-model="form.scriptName" clearable />
+            <el-input style="width: 150px" v-model="form.scriptName" clearable />
           </el-form-item>
         </el-form>
+
+        <el-dropdown @command="handleCommand">
+          <el-button>
+            选择内置剧本 <el-icon><arrow-down /></el-icon>
+          </el-button>
+
+          <template #dropdown>
+            <el-dropdown-item command="K-1">K-1</el-dropdown-item>
+            <el-dropdown-item command="K-2">K-2</el-dropdown-item>
+          </template>
+        </el-dropdown>
       </div>
 
       <div class="translate-header-center" v-if="total">
@@ -34,24 +45,27 @@
         :key="storyItem.id"
         :story-item="storyItem"
       >
-        <template #jp>
+        <template #jp v-if="characters.includes(storyItem.cid)">
           <el-input type="textarea" autosize v-model="storyItem.lineJP" />
         </template>
 
-        <el-rate
-          v-model="checkList[index]"
-          :icons="[CircleCheck, CircleCheck, CircleCheck]"
-          :void-icon="CircleCheck"
-          :max="1"
-          clearable
-        />
+        <div class="translate-item-check-button">
+          <el-rate
+            v-if="checkListMap[index] !== undefined"
+            v-model="checkList[checkListMap[index]]"
+            :icons="[CircleCheck, CircleCheck, CircleCheck]"
+            :void-icon="CircleCheck"
+            :max="1"
+            clearable
+          />
+        </div>
       </TranslateCheckItem>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { Upload, Download, CircleCheck, Search } from '@element-plus/icons-vue';
+import { Upload, Download, CircleCheck, Search, ArrowDown } from '@element-plus/icons-vue';
 
 import { ref, computed, watch } from 'vue';
 import { scriptAdaptIn } from '@/utils/scriptAdapter';
@@ -60,6 +74,8 @@ import type { StoryScript, StoryScriptFull } from '@/types';
 
 import TranslateCheckItem from '@/components/translate/TranslateCheckItem.vue';
 import { ElMessage } from 'element-plus';
+
+const characters = [ '灯', '缘', '澪', '葵' ];
 
 const form = ref({
   scriptName: '',
@@ -74,6 +90,7 @@ const storyList = computed(() => {
 });
 
 const checkList = ref<number[]>([]);
+const checkListMap = ref<Record<number, number>>({});
 
 const total = computed(() => {
   return checkList.value.length;
@@ -88,7 +105,19 @@ const checkedCount = computed(() => {
 watch(
   () => storyList.value?.length,
   () => {
-    checkList.value = storyList.value.map(() => {
+    checkListMap.value = {};
+    let count = 0;
+
+    checkList.value = storyList.value.filter((item, index) => {
+      if (characters.includes(item.cid)) {
+        checkListMap.value[index] = count;
+        count ++;
+
+        return true;
+      } else {
+        return false;
+      }
+    }).map(() => {
       return 0;
     });
   }
@@ -131,7 +160,15 @@ function exportScriptJSON() {
 function findFirstNoCheckItem() {
   const hasNoCheckItem = checkList.value.some((checked, index) => {
     if (!checked) {
-      document.querySelectorAll('.translate-check-item')[index].scrollIntoView();
+      Object.entries(checkListMap.value).some(([key, value]) => {
+        if (value === index) {
+          document.querySelectorAll('.translate-check-item')[Number(key)].scrollIntoView();
+          return true;
+        } else {
+          return false;
+        }
+      });
+
       return true;
     }
     return false;
@@ -140,6 +177,20 @@ function findFirstNoCheckItem() {
   if (!hasNoCheckItem) {
     ElMessage.success('已全部校对完成~');
   }
+}
+
+async function handleCommand(command: string) {
+  const file = await fetch(`/${command}.json`);
+
+  const reader = new FileReader();
+  reader.onload = () => {
+    const jsonstring = reader.result as string;
+    const scriptData = JSON.parse(jsonstring) as StoryScript;
+    storyScript.value = scriptAdaptIn(scriptData);
+  }
+  reader.readAsText(await file.blob());
+
+  form.value.scriptName = command;
 }
 </script>
 
@@ -157,6 +208,11 @@ function findFirstNoCheckItem() {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+
+    .translate-check-header-left {
+      display: flex;
+      align-items: center;
+    }
   }
 
   .translate-check-body {
@@ -165,6 +221,11 @@ function findFirstNoCheckItem() {
     display: flex;
     flex-direction: column;
     gap: 8px;
+
+    .translate-item-check-button {
+      width: 50px;
+      height: 32px;
+    }
   }
 }
 </style>

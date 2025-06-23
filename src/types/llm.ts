@@ -1,4 +1,4 @@
 export type TranslateSystemMessageItem = {
-  charecter: string;
+  character: string;
   systemMessage: string;
 };

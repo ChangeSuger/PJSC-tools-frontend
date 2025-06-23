@@ -1,0 +1,4340 @@
+[
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "background",
+        "src": "K-1:3",
+        "content": "blackout"
+      }
+    ]
+  },
+  {
+    "type": "comment",
+    "src": "K-1:5",
+    "content": "参考野良猫整活的风格"
+  },
+  {
+    "type": "comment",
+    "src": "K-1:6",
+    "content": "这段感觉对程序和配音是不是极不友好，要不不配了（"
+  },
+  {
+    "lineJP": "「――2025年、人類はかつてない未曾有の危機に陥っていた。」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "blackout",
+    "src": "K-1:7",
+    "id": "ecc335c0",
+    "cid": "旁白",
+    "line": "——2025年，人类陷入了空前未有的危机中。"
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "background",
+        "src": "K-1:8",
+        "content": "世界地图"
+      }
+    ]
+  },
+  {
+    "lineJP": "神秘なUFOが七大州の各地に降り立ち、その中から数え切れないほどの宇宙侵略者が現れた。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "世界地图",
+    "src": "K-1:9",
+    "id": "256ccd80",
+    "cid": "旁白",
+    "line": "神秘UFO降落在七大洲的各个角落，而从中出现的是不计其数的外星侵略者。"
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "background",
+        "src": "K-1:10",
+        "content": "城市"
+      }
+    ]
+  },
+  {
+    "lineJP": "それらは潮のように都市と街道に殺到し、長い触手を振り回して建物を破壊し、住民を巻き去った――",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:11",
+    "id": "77c61800",
+    "cid": "旁白",
+    "line": "它们如同潮水一般涌入城市与街道，挥舞着长长的触手摧毁建筑，卷走居民——"
+  },
+  {
+    "lineJP": "「あぁ————————！」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:12",
+    "id": "70174f20",
+    "cid": "$女性",
+    "line": "啊————————!",
+    "alias": "女性"
+  },
+  {
+    "lineJP": "「いいえ、 Darling ——！」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:13",
+    "id": "ba061490",
+    "cid": "$男性",
+    "line": "不，达令————!",
+    "alias": "男性"
+  },
+  {
+    "lineJP": "「お母さん、おかあさーん！」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:14",
+    "id": "31b7d1d0",
+    "cid": "$女孩",
+    "line": "妈，妈妈————!",
+    "alias": "女孩"
+  },
+  {
+    "lineJP": "「花子——！」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:15",
+    "id": "eedb8d90",
+    "cid": "$母亲",
+    "line": "花子————!",
+    "alias": "母亲"
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "transform",
+        "src": "K-1:16",
+        "content": "blackout"
+      }
+    ]
+  },
+  {
+    "lineJP": "人類は絶望的に何度も抵抗を試みたが、すべての抵抗が徒労に終わるようだった。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:17",
+    "id": "320c3f20",
+    "cid": "旁白",
+    "line": "人类绝望地一次又一次试图组织反抗，但所有的反抗似乎都只是徒劳。"
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "background",
+        "src": "K-1:18",
+        "content": "城市"
+      }
+    ]
+  },
+  {
+    "lineJP": "私の合図を聞いて、3、2、1、発射！",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:19",
+    "id": "74efb080",
+    "cid": "$队长",
+    "line": "听我口令，3，2，1，发射！",
+    "alias": "队长"
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "background",
+        "src": "K-1:20",
+        "content": "爆炸"
+      },
+      {
+        "type": "sound",
+        "src": "K-1:21",
+        "content": "爆炸"
+      },
+      {
+        "type": "background",
+        "src": "K-1:22",
+        "content": "城市"
+      }
+    ]
+  },
+  {
+    "lineJP": "「くそ、装甲貫通弾さえあの奴には届かないというのか……本当に怪物だな……」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:23",
+    "id": "9067e9e0",
+    "cid": "$队长",
+    "line": "可恶，就连穿甲弹也打不穿那家伙吗……真是个怪物……",
+    "alias": "队长"
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "transform",
+        "src": "K-1:24",
+        "content": "blackout"
+      }
+    ]
+  },
+  {
+    "lineJP": "触手を持つ宇宙人は建造物の群れの中で暴れ続け、市内の住民たちは無力に逃げ惑っていた。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:25",
+    "id": "2d43b570",
+    "cid": "旁白",
+    "line": "触手外星人继续在建筑群中肆虐，城里的居民们无助地奔逃着。"
+  },
+  {
+    "lineJP": "しかし、人類の希望はまだ消えていません。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:26",
+    "id": "6eadcb20",
+    "cid": "旁白",
+    "line": "但是，人类的希望仍然没有消失。"
+  },
+  {
+    "lineJP": "君は、魔法を信じるかい？",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:27",
+    "id": "e82a7b20",
+    "cid": "$声音",
+    "line": "你，相信魔法吗？",
+    "alias": "声音"
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "background",
+        "src": "K-1:28",
+        "content": "城市"
+      }
+    ]
+  },
+  {
+    "lineJP": "「ん？」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:29",
+    "id": "2fbe5c60",
+    "cid": "$男性",
+    "line": "嗯？",
+    "alias": "男性"
+  },
+  {
+    "lineJP": "「誰が……話しているのかしら？」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:30",
+    "id": "570ecde0",
+    "cid": "$母亲",
+    "line": "是谁……在说话？",
+    "alias": "母亲"
+  },
+  {
+    "lineJP": "「信じるのなら、願いを大声で叫びなさい——」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:31",
+    "id": "5a1c2d50",
+    "cid": "$声音",
+    "line": "如果相信的话，就大声喊出你们的愿望吧——",
+    "alias": "声音"
+  },
+  {
+    "lineJP": "どうか、私の子供を救ってください！",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:32",
+    "id": "5a2c6930",
+    "cid": "$母亲",
+    "line": "求求你了，救救我的孩子！",
+    "alias": "母亲"
+  },
+  {
+    "lineJP": "「どうか、私の愛する人をも救ってください！」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:33",
+    "id": "5a0799d0",
+    "cid": "$男性",
+    "line": "也，也救救我的爱人！",
+    "alias": "男性"
+  },
+  {
+    "lineJP": "「かしこまりました――皆様のご希望、すべて承知いたしました！」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:34",
+    "id": "33b9a9e0",
+    "cid": "$声音",
+    "line": "好的——你们的愿望，我都已经听到了！",
+    "alias": "声音"
+  },
+  {
+    "lineJP": "魔法少女アリオスちゃん、華麗に登場☆~",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:35",
+    "id": "07785cd0",
+    "cid": "$声音",
+    "line": "魔法少女阿莉厄丝酱，闪亮登场☆~",
+    "alias": "声音"
+  },
+  {
+    "lineJP": "その声がまだ響いているうちに、一人の人影がパニックに駆け回る群衆の頭上を飛び越え、宇宙人の前に降り立った。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:36",
+    "id": "7aee7d20",
+    "cid": "旁白",
+    "line": "话音未落，一道人影从慌乱逃窜地人群头顶飞过，来到外星人面前。"
+  },
+  {
+    "lineJP": "「あぁ、魔法少女のアリスさんですね！」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:37",
+    "id": "e3085200",
+    "cid": "$母亲",
+    "line": "啊，是魔法少女阿莉厄丝酱！",
+    "alias": "母亲"
+  },
+  {
+    "lineJP": "「素晴らしい！魔法少女アリオスちゃんじゃないか！助かったぞ！」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:38",
+    "id": "6314e670",
+    "cid": "$男性",
+    "line": "太好了，是魔法少女阿莉厄丝酱！我们有救了！",
+    "alias": "男性"
+  },
+  {
+    "lineJP": "魔法少女が空中で軽やかに舞い、四面八方から袭ってくる触手をしなやかな体の動きで避けながら、侵略者の前に立ち塞ぎました。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:39",
+    "id": "b3d75430",
+    "cid": "旁白",
+    "line": "魔法少女在空中轻盈的飞舞着，用灵活的身姿躲避开从四面八方袭来的触手，来到侵略者的面前。"
+  },
+  {
+    "lineJP": "直後、彼女は眼前の怪物に対して一瞬も躊躇うことなく、手にしていた武器――精巧な装飾が施され、先端が心形をした杖――を振るった。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:40",
+    "id": "e3d9dfa0",
+    "cid": "旁白",
+    "line": "紧接着，她对着眼前的怪物毫不迟疑地挥出手中的武器——一根装饰精美、有着心形前端的手杖。"
+  },
+  {
+    "lineJP": "鋭い爆鳴を発する杖が、砲弾さえも貫けなかった防壁を軽々と突破し、怪物が伸ばした触手を一瞬のうちに驚異的な速さで切断した。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:41",
+    "id": "0ba99740",
+    "cid": "旁白",
+    "line": "发出尖锐爆鸣声的手杖轻松突破了连炮弹都无法击穿的防御，以奇快无比的速度在一瞬间切断了怪物伸出的触手。"
+  },
+  {
+    "lineJP": "タコ男は痛みに耐えられず地面を転げ回った。一方、アリウスちゃんはもう一度杖をかるく振ると、先ほど触手に捕らわれていた人々が光に包まれながら優雅に地面に降り立った。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:42",
+    "id": "2ee19fc0",
+    "cid": "旁白",
+    "line": "章鱼人痛得在地上打起了滚，而阿莉厄丝酱则再轻轻一挥手杖，之前被触手抓住的人们便在光芒的包裹中缓缓落地。"
+  },
+  {
+    "lineJP": "「ありがとう、アリエスちゃん！」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:43",
+    "id": "4630d9b0",
+    "cid": "$女性",
+    "line": "谢谢你，阿莉厄丝酱！",
+    "alias": "女性"
+  },
+  {
+    "lineJP": "次回は気をつけてね☆~",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:44",
+    "id": "9af0e850",
+    "cid": "阿莉厄丝酱",
+    "line": "下次可要小心点哦☆~"
+  },
+  {
+    "lineJP": "アリューシャさん、後ろです！",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:45",
+    "id": "bbe5ef10",
+    "cid": "$女孩",
+    "line": "阿莉厄丝酱，背后！",
+    "alias": "女孩"
+  },
+  {
+    "lineJP": "「えぇっ？」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:46",
+    "id": "eb0a2e30",
+    "cid": "阿莉厄丝酱",
+    "line": "唔嗯嗯？"
+  },
+  {
+    "lineJP": "いつの間にか背後から現れたもう一体のタコ人間が、突然触手を伸ばしてアリウスちゃんを襲撃し、彼女の武器を地面に叩き落とした。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:47",
+    "id": "b5a80cc0",
+    "cid": "旁白",
+    "line": "不知何时从背后钻出来的另一只章鱼人突然伸出触手袭击了阿莉厄丝酱，将她的武器击落在地。"
+  },
+  {
+    "lineJP": "彼女が気付くよりも早く、他の触手が彼女の四肢や腰部に這い上がり、彼女をきつく束縛してしまった。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:49",
+    "id": "cf84d110",
+    "cid": "旁白",
+    "line": "还没等她反应过来，其他触手便爬上了她的四肢与腰间，将她紧紧地拘束住。"
+  },
+  {
+    "lineJP": "アリューシャさん————————！",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:50",
+    "id": "4482c700",
+    "cid": "$女孩",
+    "line": "阿莉厄丝酱——————！",
+    "alias": "女孩"
+  },
+  {
+    "lineJP": "魔法少女アリースちゃんは、驚きの声を上げながら、自らの体に絡みついた触手たちに高々と持ち上げられていた。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:51",
+    "id": "1fa805e0",
+    "cid": "旁白",
+    "line": "魔法少女阿莉厄丝酱一边惊呼着，一边被缠满她身体的触手们高高举起。"
+  },
+  {
+    "lineJP": "アリウスちゃんが触手の玩具になるところを目前にして、誰もが思わず目をギュッと閉じた――。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "城市",
+    "src": "K-1:52",
+    "id": "6e2f4390",
+    "cid": "旁白",
+    "line": "眼看着阿莉厄丝酱就要成为触手的玩物，所有人都不由得闭紧了双眼——"
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "transform",
+        "src": "K-1:53",
+        "content": "blackout"
+      },
+      {
+        "type": "sound",
+        "src": "K-1:54",
+        "content": "闹铃"
+      },
+      {
+        "type": "background",
+        "src": "K-1:55",
+        "content": "宿舍"
+      }
+    ]
+  },
+  {
+    "lineJP": "私はベッドからばたっと起き上がった。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "宿舍",
+    "src": "K-1:56",
+    "id": "c9fb7cb0",
+    "cid": "旁白",
+    "line": "我猛地从床上坐起身来。"
+  },
+  {
+    "lineJP": "目の前には何の触手モンスターもおらず、魔法少女の姿もない。ただいつもと同じ天井と馴染み深い壁だけがそこにあった。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "宿舍",
+    "src": "K-1:57",
+    "id": "1a944c80",
+    "cid": "旁白",
+    "line": "眼前并没有什么触手怪物，也看不到什么魔法少女。只有一如既往的天花板与熟悉的墙壁。"
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "effect",
+        "src": "K-1:58",
+        "content": "放大背景"
+      }
+    ]
+  },
+  {
+    "lineJP": "先ほど人々が絶望的に発した驚きの声はすでに消え去り、代わって部屋の中には静寂が広がっている。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "宿舍",
+    "src": "K-1:59",
+    "id": "6468de40",
+    "cid": "旁白",
+    "line": "方才人们绝望的惊呼早已不见，取而代之的是屋内的寂静。"
+  },
+  {
+    "lineJP": "寝室の窓を通じて、太陽の光が存分に部屋の中に差し込み、階下から伝わる賑やかな音が微かに聞こえる。時計を見ると、すでに午前中になっていた。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "宿舍",
+    "src": "K-1:60",
+    "id": "54d40500",
+    "cid": "旁白",
+    "line": "阳光尽情的穿过寝室的窗户洒向屋内，还能隐隐听到楼下传来的喧闹声。时间已经来到上午了。"
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "reset",
+        "src": "K-1:61",
+        "content": "effect"
+      }
+    ]
+  },
+  {
+    "lineJP": "「やばい、寝坊したみたい……」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "宿舍",
+    "src": "K-1:62",
+    "id": "ee61cca0",
+    "cid": "主角",
+    "line": "糟了，好像睡过了……"
+  },
+  {
+    "lineJP": "我不禁咂舌一声，赶忙从床上爬起，掏出手机确认当前的时间。  \n（日本語：思わず舌打ちをして、慌ててベッドから起き上がり、スマホを取り出して現在の時間を確認した。）",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "宿舍",
+    "src": "K-1:63",
+    "id": "33708780",
+    "cid": "旁白",
+    "line": "我不禁啧了一声，连忙从床上爬起来，打开手机，确认当前的时间。"
+  },
+  {
+    "lineJP": "「……幸いなことに、まだ少し時間があるので、間に合うはずです。」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "宿舍",
+    "src": "K-1:64",
+    "id": "be3acd50",
+    "cid": "主角",
+    "line": "……幸好还有点时间，应该来得及。"
+  },
+  {
+    "lineJP": "「昨夜、アニメを見ながら徹夜するのはやめるべきだったと今更気が付く……。こんなことで遅刻しては、彼女に申し訳ないというものだ。」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "宿舍",
+    "src": "K-1:65",
+    "id": "3ee7db40",
+    "cid": "主角",
+    "line": "早知道昨晚就不应该熬夜看动画的……要是因为这种事情迟到，也太对不起她了。"
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "move",
+        "src": "K-1:67",
+        "content": "放大并横向"
+      }
+    ]
+  },
+  {
+    "lineJP": "夢の中で見た不気味なシーンを思い出すと、またしても全身に鳥肌が立った。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "宿舍",
+    "src": "K-1:67",
+    "id": "d6954af0",
+    "cid": "旁白",
+    "line": "回想起梦里那些诡异的画面，我不由得又起了一身鸡皮疙瘩。"
+  },
+  {
+    "lineJP": "昨夜、ついに訪れた週末に対し、リラックスしようとベッドに横たわり、アニメ『魔法少女☆プニプニ☆アリアスちゃん』を適当に選んで、時間潰しをしようと思った。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "宿舍",
+    "src": "K-1:68",
+    "id": "e4a31030",
+    "cid": "旁白",
+    "line": "昨天晚上，面对终于来临的周末，我抱着放松一下的心态躺在床上，随便找了一部动画《魔法少女☆普尼普尼☆阿莉厄丝酱》准备打发打发时间。"
+  },
+  {
+    "lineJP": "思ってもみなかったが、このアニメは作画の質が普通で、ストーリーも特に出色とは言えないのに、血腥い暴力シーンが意外と多く、主人公の純真な善さとの間に面白い対照を成している。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "宿舍",
+    "src": "K-1:69",
+    "id": "8bb928b0",
+    "cid": "旁白",
+    "line": "没想到这部动画虽然作画质量一般，剧情也谈不上好，但血腥暴力的桥段却意外的多，与主角的纯真善良之间形成了一种有趣的反差。"
+  },
+  {
+    "lineJP": "夢中になった私は気づかないうちに全話を見終えてしまい、寝る頃にはもう深夜になっていました。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "宿舍",
+    "src": "K-1:70",
+    "id": "c2057780",
+    "cid": "旁白",
+    "line": "看入迷了的我不知不觉就刷完了全集，结果睡觉的时候已经是深夜了。"
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "reset",
+        "src": "K-1:71",
+        "content": "move"
+      }
+    ]
+  },
+  {
+    "lineJP": "本当に、魔法少女がみんなあんなだったら、人類はとうに絶滅していたでしょう。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "宿舍",
+    "src": "K-1:72",
+    "id": "374b93e0",
+    "cid": "主角",
+    "line": "真是的，如果魔法少女都是那样的话，人类估计早就灭绝了。"
+  },
+  {
+    "lineJP": "私は軽く頭を振って、あの悪夢と呼べるかどうかも分からないシーンたちを頭から追い出そうとした。しかし、血の海に浸かりながらも純白の少女が与えた衝撃はやはり強すぎた。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "宿舍",
+    "src": "K-1:73",
+    "id": "559c3a10",
+    "cid": "旁白",
+    "line": "我甩了甩头，试图把那些不知道算不算得上噩梦的场景从脑海中驱逐出去。但沐浴在血浆里的纯白少女的冲击力果然还是太大了。"
+  },
+  {
+    "lineJP": "「時間もそろそろだよ、さっさと支度をして出かけよう。」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "宿舍",
+    "src": "K-1:74",
+    "id": "01ba0f50",
+    "cid": "主角",
+    "line": "——时间也不早了，赶紧收拾收拾出门吧。"
+  },
+  {
+    "lineJP": "その意味不明の夢の実際的な意味を考えるのをやめ、ベッドから降りて慌ただしく外出の準備を始めた。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "宿舍",
+    "src": "K-1:75",
+    "id": "9a45a850",
+    "cid": "旁白",
+    "line": "我不再思考这个不知所谓的梦境的实际意义，转而从床上爬下地面，开始匆忙做起出门的准备。"
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "transform",
+        "src": "K-1:76",
+        "content": "blackout"
+      },
+      {
+        "type": "background",
+        "src": "K-1:77",
+        "content": "道路"
+      }
+    ]
+  },
+  {
+    "lineJP": "簡易な洗面を終えた後、私は速足で寮を出て、キャンパス内の広い大道を約束の場所に向かって進んでいった。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "道路",
+    "src": "K-1:78",
+    "id": "c04a4440",
+    "cid": "旁白",
+    "line": "简单洗漱过后，我快步离开宿舍楼，走在校园里宽敞的大道上，向着那个约定好的地点前进。"
+  },
+  {
+    "lineJP": "道の両側には緑豊かな木々が植えられ、多くの学生たちが樹陰の下を忙しなく行き交っている。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "道路",
+    "src": "K-1:79",
+    "id": "9a598aa0",
+    "cid": "旁白",
+    "line": "道路的两侧种满了绿意葱茏的树木，许多学生们在树荫下忙碌地穿梭着。"
+  },
+  {
+    "lineJP": "（本当ににぎやかですね……）",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "道路",
+    "src": "K-1:80",
+    "id": "e34736c0",
+    "cid": "主角",
+    "line": "（还真是热闹啊……）"
+  },
+  {
+    "lineJP": "私は林陰の道を歩きながら、周囲を行き交う人々を観察し、思わずこの地に初めて訪れた時の光景が蘇ってきた。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "道路",
+    "src": "K-1:81",
+    "id": "0f1da090",
+    "cid": "旁白",
+    "line": "我一边走在林荫道上，一边观察着周围来来往往的人们，不禁回忆起了我刚刚来到这里时的景象。"
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "move",
+        "src": "K-1:82",
+        "content": "放大并横向"
+      }
+    ]
+  },
+  {
+    "lineJP": "昨年の今頃、私は前田拓也として、人生の一大関門である大学入試をようやく乗り越え、望み通り芳甲大学からの入学許可通知を受け取ることができました。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "道路",
+    "src": "K-1:82",
+    "id": "c93c0610",
+    "cid": "旁白",
+    "line": "一年前，我，前田拓也，终于捱过了高考这一人生大关，并如愿以偿地拿到了芳甲大学的录取通知书。"
+  },
+  {
+    "lineJP": "国内でもっとも賑やかな都市・帝都に位置する芳甲大学は、口伝される十字の校訓と、前任の学長による群を抜いた発言で全国的に知られており、その教育実力は広く認められている。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "道路",
+    "src": "K-1:83",
+    "id": "8db290b0",
+    "cid": "旁白",
+    "line": "坐落在国内最繁华的城市——帝都的芳甲大学以其口口相传的十字校训与前校长傲视群雄的发言而全国闻名，其办学实力得到了广泛的认可。"
+  },
+  {
+    "lineJP": "研究分野で次々と新しい突破口を切り開く一方、芳甲大学は多彩な学内活動も手挂け、多くの学生を惹きつけており、他の大学が競って模倣する対象となっています。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "道路",
+    "src": "K-1:85",
+    "id": "486cb510",
+    "cid": "旁白",
+    "line": "在引领科研界做出一个又一个新突破的同时，芳甲大学也因其丰富的校内活动吸引着无数学生前来报考，成为了其他大学争相模仿的对象。"
+  },
+  {
+    "lineJP": "今日、校内で開催されるイベントの賑わいは、さまざまな学生活動の中でもトップクラスに入るだろう。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "道路",
+    "src": "K-1:86",
+    "id": "8b3fd0f0",
+    "cid": "旁白",
+    "line": "而今天要在校内举办的活动，其热闹程度在各式各样的学生活动也能排进前列。"
+  },
+  {
+    "lineJP": "（また「百団大戦」の時期が来たか……）",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "道路",
+    "src": "K-1:87",
+    "id": "b82fcb00",
+    "cid": "主角",
+    "line": "（又到了“百团大战”的时间了啊……）"
+  },
+  {
+    "lineJP": "（こう計算すると、私はすでに方甲に一年間も滞在していることになる。時の流れは本当に早いものだ。）",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "道路",
+    "src": "K-1:88",
+    "id": "311c50a0",
+    "cid": "主角",
+    "line": "（这样算来我都已经在芳甲呆了一整年了。时间还过得真是快。）"
+  },
+  {
+    "lineJP": "（百団の当日、キャンパス内にはこのような雰囲気が漂っていたのに、昨年の私は全く気付いていなかった。）",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "道路",
+    "src": "K-1:89",
+    "id": "25500c10",
+    "cid": "主角",
+    "line": "（百团当天校园内原来是这样一种氛围，去年的我完全没有留意。）"
+  },
+  {
+    "lineJP": "（ただ、これも仕方ないことです。当時、私はまだ……という状況でしたから。）",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "道路",
+    "src": "K-1:90",
+    "id": "3b78f700",
+    "cid": "主角",
+    "line": "（不过这也没办法，毕竟那时候我还在……）"
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "reset",
+        "src": "K-1:91",
+        "content": "move"
+      },
+      {
+        "type": "sound",
+        "src": "K-1:91",
+        "content": "叮铃铃"
+      }
+    ]
+  },
+  {
+    "lineJP": "「あ、申し訳ありません。」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "道路",
+    "src": "K-1:92",
+    "id": "76601ed0",
+    "cid": "主角",
+    "line": "哦，抱歉。"
+  },
+  {
+    "lineJP": "私は横に身を避け、後ろに塞がれていた自転車を通すことにしました。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "道路",
+    "src": "K-1:93",
+    "id": "e4868420",
+    "cid": "旁白",
+    "line": "我侧身让过被我堵在身后的自行车。"
+  },
+  {
+    "lineJP": "自転車のカゴには派手な小物が詰められ、後ろにはおやつの入った箱が縛り付けられています。おそらくイベントで使うためのものなのでしょう。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "道路",
+    "src": "K-1:94",
+    "id": "bb826f30",
+    "cid": "旁白",
+    "line": "自行车的车筐里装着花里胡哨的小玩意，车后面还捆着一箱零食。大概是用在活动上的吧。"
+  },
+  {
+    "lineJP": "自転車がまっすぐ遠ざかって行くのを見送りながら、私はStill目的地へと進み続けた。そのとき、一滴の汗が額を伝って流れ落ちた。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "道路",
+    "src": "K-1:95",
+    "id": "ad1b8b20",
+    "cid": "旁白",
+    "line": "我一边目送着径直远去的自行车，一边继续向着目的地前进。一滴汗水从我的额头上流下。"
+  },
+  {
+    "lineJP": "（まだ少し暑いような気がするけど、これから始まるプロジェクトで汗をかきすぎないことを祈る只得です……）",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "道路",
+    "src": "K-1:96",
+    "id": "aa8e5d20",
+    "cid": "主角",
+    "line": "（天气好像还是有些热。希望之后的项目不会让我出一身汗……）"
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "move",
+        "src": "K-1:97",
+        "content": "放大并横向"
+      }
+    ]
+  },
+  {
+    "lineJP": "立秋こそ過ぎたものの、夏の熱波は引き込む気配もなく、依然としてこの都市を頑強に覆い続けていた。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "道路",
+    "src": "K-1:97",
+    "id": "29a61090",
+    "cid": "旁白",
+    "line": "虽然立秋已然过去，但夏天的热浪似乎毫无退缩的意思，仍然顽固地据守在这座城市中。"
+  },
+  {
+    "lineJP": "周囲のざわめく人群によって、もともと涼しいとは言えない秋の日がますます蒸し暑くなった。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "道路",
+    "src": "K-1:98",
+    "id": "c1cfcb20",
+    "cid": "旁白",
+    "line": "再加上周围吵吵嚷嚷的人群，让这个本就谈不上凉爽的秋日彻底地燥热了起来。"
+  },
+  {
+    "lineJP": "しかし、私は実際によくわかっている――心中で膨れ上がる期待と不安が、すでに身体が感じる暑さを上回っていたこと如果玩家。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "道路",
+    "src": "K-1:99",
+    "id": "9ed145c0",
+    "cid": "旁白",
+    "line": "不过，我实际上十分清楚——我内心中那份愈发膨大的期待与不安，早已盖过了身体所感受到的燥热。"
+  },
+  {
+    "lineJP": "（そういえば、本当に随分と長い間、葵に会っていないな……）",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "道路",
+    "src": "K-1:100",
+    "id": "cbc07500",
+    "cid": "主角",
+    "line": "（说起来，真的是好久好久，没见到葵了呢……）"
+  },
+  {
+    "lineJP": "葵は私が幼い頃に一緒に遊んだ仲間であり、かつての最も親しい友人でもあります。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "道路",
+    "src": "K-1:101",
+    "id": "381806d0",
+    "cid": "旁白",
+    "line": "葵是我幼年时的玩伴，也是我曾经最好的朋友。"
+  },
+  {
+    "lineJP": "我々二人は小学校からクラスメイトとして知り合い、よく一緒に遊んでいました。それだけでなく、近くに住んでいたこともあり、中学校から高校までずっと同じ学校、さらには同じクラスでした。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "道路",
+    "src": "K-1:102",
+    "id": "9015e160",
+    "cid": "旁白",
+    "line": "我们两个从小学开始便作为同学相识，常常在一起玩耍。不仅如此，或许是因为住得近的缘故，我们初高中都在同一所学校，甚至同一个班级。"
+  },
+  {
+    "lineJP": "葵はこの偶然を「運命的な奇跡」と呼んだ――一方で、私は葵の言い方に鼻を鳴らしながらも、内ではひそかに安堵していた。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "道路",
+    "src": "K-1:103",
+    "id": "435dabf0",
+    "cid": "旁白",
+    "line": "葵将这一巧合称之为命中注定的奇迹——而我则在一边对葵的说法嗤之以鼻，一边在背地里偷偷地感到心安。"
+  },
+  {
+    "lineJP": "しかし、偶然は結局のところ偶然に過ぎない。受験が終わり、私は幸運にも名門ほうか大学に合格したが、成績が芳しくなかった葵さんはどうやら浪人を選んだようだった。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "道路",
+    "src": "K-1:104",
+    "id": "802d7fd0",
+    "cid": "旁白",
+    "line": "不过，巧合终究只是巧合。高考后，我幸运地考上了著名的芳甲大学，而成绩本就不好的葵则似乎是选择了复读。"
+  },
+  {
+    "lineJP": "それ以降、俺たち二人はそれぞれの用事で忙しく、ほとんど連絡を取り合っていなかった。どうやら運命というものも、この程度のものらしい。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "道路",
+    "src": "K-1:105",
+    "id": "5eef66d0",
+    "cid": "旁白",
+    "line": "……那之后，我们两个都忙于自己的事，之间几乎没有再联系过。看来所谓命运也就是这等程度。"
+  },
+  {
+    "lineJP": "しかし、私の予想に反して、先週のことですが、葵から突然連絡があり、週末に一緒に「百団」のイベントに参加しないかと誘われました。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "道路",
+    "src": "K-1:106",
+    "id": "d60f0aa0",
+    "cid": "旁白",
+    "line": "不过，出乎我我意料的是，前几天葵突然又联系上了我，向我提出在周末一起参加百团的邀请。"
+  },
+  {
+    "lineJP": "彼女に再会できると思うと、私は直ちに喜んで承諾し、さらに彼女が初めて訪れる学校を案内することも自ら申し出た。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "道路",
+    "src": "K-1:107",
+    "id": "4e548700",
+    "cid": "旁白",
+    "line": "想到能再次见到她，我当即欣然应允，并也主动提出要给初来乍到的她介绍学校。"
+  },
+  {
+    "lineJP": "しかし、正直に言うと、電話で彼女も芳甲に合格したと聞いたとき、本当に大きな驚きを感じました。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "道路",
+    "src": "K-1:108",
+    "id": "b4b977e0",
+    "cid": "旁白",
+    "line": "不过说实话，当从电话里听到她也考上了芳甲的时候，我着实吓了一大跳。"
+  },
+  {
+    "lineJP": "（本当に驚いた……彼女までここに来られるなんて……今までずっとぼんやりとしていただけに）",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "道路",
+    "src": "K-1:109",
+    "id": "5a6d47e0",
+    "cid": "主角",
+    "line": "（真没想到，她也能来到这里啊……明明一直以来都呆呆的）"
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "reset",
+        "src": "K-1:110",
+        "content": "move"
+      }
+    ]
+  },
+  {
+    "lineJP": "記憶の中で、葵がぼんやりとしていながらもいつも真摯な表情を思い出し、思わず口元に微笑みが浮かんだ。先ほどまでの緊張感も、それとともに消え失せた。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "道路",
+    "src": "K-1:111",
+    "id": "cb00b4e0",
+    "cid": "旁白",
+    "line": "回想着记忆里葵那副呆呆的，却又总是那么真挚的模样，我的嘴角不禁浮现一丝微笑。刚才的紧张也随之烟消云散。"
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "background",
+        "src": "K-1:112",
+        "content": "操场"
+      }
+    ]
+  },
+  {
+    "lineJP": "約15分間の歩行の後、ようやく我は方甲大学の運動場に到着した。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:113",
+    "id": "0f5432d0",
+    "cid": "旁白",
+    "line": "在将近一刻钟的步行后，我终于来到了芳甲大学的操场上。"
+  },
+  {
+    "lineJP": "普段は広々として見える校庭が、今や色とりどりの出店で埋め尽くされ、それぞれの出店には見物人の学生たちが取り囲み、一歩も動けないほどになっていた。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:114",
+    "id": "bcc70780",
+    "cid": "旁白",
+    "line": "平时显得空旷的操场上如今被五颜六色的摊位点缀的满满当当，各个摊位旁边则是被看热闹的学生们围得水泄不通。"
+  },
+  {
+    "lineJP": "隣の屋台から歓声が上がり、多くの通行人が足を止めて見物しました。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:115",
+    "id": "87d585f0",
+    "cid": "旁白",
+    "line": "身旁的摊位传来一阵欢呼，惹得不少路人驻足观看。"
+  },
+  {
+    "lineJP": "しかし、今となってはそれどころではない。現在の最優先事項は彼女——平野葵を見つけることだ。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:116",
+    "id": "ad530a00",
+    "cid": "旁白",
+    "line": "不过我现在无暇顾及这些，现在的当务之急是要找到她——平野葵。"
+  },
+  {
+    "lineJP": "（どこだろうか——あ、見つけた）",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:117",
+    "id": "4cd33000",
+    "cid": "主角",
+    "line": "（会在哪里呢——哦，找到了）"
+  },
+  {
+    "lineJP": "周りを見回すと、まるで努力をしなくても目標を見つけ出した。いや、むしろ彼女を見つけられない方が難しいと言った方がいいだろう。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:118",
+    "id": "a6a7bca0",
+    "cid": "旁白",
+    "line": "我环顾四周，不会吹灰之力就发现了我的目标。不，不如说找不到她反而比较难吧。"
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "cg",
+        "src": "K-1:119",
+        "content": "aoi屹立于大地之上"
+      },
+      {
+        "type": "move",
+        "src": "K-1:120",
+        "content": "放大并纵向"
+      }
+    ]
+  },
+  {
+    "lineJP": "彼女の頭から腰まで垂れ下がるピンク色の長髪は、純白のドレスが引き立たせるその美しさをさらに強調していた。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "aoi屹立于大地之上",
+    "src": "K-1:120",
+    "id": "3ddc9c10",
+    "cid": "旁白",
+    "line": "粉色的长发从她的头上一直垂到腰间，一身洁白的洋装更是衬出了她的美丽。"
+  },
+  {
+    "lineJP": "さらに、顔に浮かぶ平静で少し神秘的な表情が加わり、彼女は周囲の人々の注目の的となっていた。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "aoi屹立于大地之上",
+    "src": "K-1:121",
+    "id": "ad284740",
+    "cid": "旁白",
+    "line": "再加上脸上展露出的平静而又带着些许空灵的神情，她已然成为了周围人注目的焦点。"
+  },
+  {
+    "lineJP": "しかし、その焦点となっている本人はそのことに気付いておらず、ただ静かに立ちながら遠くを眺めているだけだった。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "aoi屹立于大地之上",
+    "src": "K-1:122",
+    "id": "3d566a60",
+    "cid": "旁白",
+    "line": "不过，作为焦点的本人似乎并没有发现这一点，只是静静地站在那里，眺望着远处。"
+  },
+  {
+    "lineJP": "（この子は本当に长大了ね……）",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "aoi屹立于大地之上",
+    "src": "K-1:123",
+    "id": "34434130",
+    "cid": "主角",
+    "line": "（这孩子，还真是长大了呢……）"
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "background",
+        "src": "K-1:124",
+        "content": "playground"
+      },
+      {
+        "type": "move",
+        "src": "K-1:124",
+        "content": "放大背景"
+      },
+      {
+        "type": "tachie",
+        "src": "K-1:124",
+        "content": {
+          "cid": "葵",
+          "exp": "平静"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "一年前、葵はまだ少し笨拙で、いつも少しだけ不注意な、非常に普通の女の子だったはずだ――少なくとも私の記憶の中ではそうである。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "playground",
+    "src": "K-1:125",
+    "id": "93423ab0",
+    "cid": "旁白",
+    "line": "一年前，葵应该还是一个笨笨的、总是有点冒失的、十分普通的女生——至少在我的记忆里是这样。",
+    "charas": {
+      "葵": "平静"
+    }
+  },
+  {
+    "lineJP": "現在の彼女はすでに美しい少女に成長し、甚至於ある特有の気質まで漂わせ始めている。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "playground",
+    "src": "K-1:126",
+    "id": "69c8daf0",
+    "cid": "旁白",
+    "line": "而如今的她则已经出落成了一名漂亮的少女，甚至开始从身上散发出某种特有的气质。",
+    "charas": {
+      "葵": "平静"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:127",
+        "content": {
+          "cid": "葵",
+          "exp": "惊讶"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "「幼なじみの変化に我不禁と感嘆しているうちに、葵がようやく私の存在に気付いたようだった。」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "playground",
+    "src": "K-1:127",
+    "id": "192c1310",
+    "cid": "旁白",
+    "line": "在我不禁感叹起幼驯染变化的同时，葵似乎终于注意到了我。",
+    "charas": {
+      "葵": "惊讶"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:128",
+        "content": {
+          "cid": "葵",
+          "exp": "高兴"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "すると、彼女の顔にあった平静はたちまち消え去り、代わりに喜びに満ちた表情が浮かび上がった。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "playground",
+    "src": "K-1:128",
+    "id": "d832a4a0",
+    "cid": "旁白",
+    "line": "随即，她脸上的平静便消失不见，取而代之的是一副欣喜的神色。",
+    "charas": {
+      "葵": "高兴"
+    }
+  },
+  {
+    "lineJP": "彼女は嬉しそうに片手を上げ、私のほうに向かって振り始めた。先ほどまで彼女を包んでいた雰囲気は何処かへと消え失せていた。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "playground",
+    "src": "K-1:129",
+    "id": "94ca09f0",
+    "cid": "旁白",
+    "line": "她高兴地举起一只手，朝着我的方向挥舞起来。先前缠绕在身上的氛围如今则是无影无踪。",
+    "charas": {
+      "葵": "高兴"
+    }
+  },
+  {
+    "lineJP": "私が特に反応を示さないのを見て、彼女は両手を口元に持ち寄せ、高く声を上げて私に向かって叫んだ――。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "playground",
+    "src": "K-1:130",
+    "id": "8b42acc0",
+    "cid": "旁白",
+    "line": "见我似乎没有反应，她便将双手放在嘴边，向我高呼——",
+    "charas": {
+      "葵": "高兴"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:131",
+        "content": {
+          "cid": "葵",
+          "exp": "兴奋"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "「アトク———」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "playground",
+    "src": "K-1:131",
+    "id": "e20ca2c0",
+    "cid": "葵",
+    "line": "阿拓————",
+    "charas": {
+      "葵": "兴奋"
+    }
+  },
+  {
+    "lineJP": "「（……やはり変わらないですね。）」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "playground",
+    "src": "K-1:132",
+    "id": "c64692e0",
+    "cid": "主角",
+    "line": "（……果然还是没变啊。）",
+    "charas": {
+      "葵": "兴奋"
+    }
+  },
+  {
+    "lineJP": "私は軽く首を振って思考を整理し、周囲の他の学生たちの視線を感じながら、向日葵（葵）へと歩みを進めた。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "playground",
+    "src": "K-1:133",
+    "id": "e2aee0a0",
+    "cid": "旁白",
+    "line": "我摇了摇头，收起了思绪，顶着身旁其他学生的视线，向葵走去。",
+    "charas": {
+      "葵": "兴奋"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "transform",
+        "src": "K-1:134",
+        "content": "blackout"
+      },
+      {
+        "type": "background",
+        "src": "K-1:135",
+        "content": "操场"
+      },
+      {
+        "type": "tachie",
+        "src": "K-1:135",
+        "content": {
+          "cid": "葵",
+          "exp": "平静"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "簡潔なあいさつを交わした後、私たちは並んで運動場のトラックを歩いた。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:136",
+    "id": "cf809520",
+    "cid": "旁白",
+    "line": "在简短的寒暄过后，我们两人并排走在操场的跑道上。",
+    "charas": {
+      "葵": "平静"
+    }
+  },
+  {
+    "lineJP": "さっきアオイの声が少し小さな騒動を引き起こしたようだが、幸いなことに百団祭には目を引くものが多すぎて、すぐに誰も私たちに気を払わなくなった。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:137",
+    "id": "e8392570",
+    "cid": "旁白",
+    "line": "刚才葵的声音好像引起了一点小骚动。不过幸运的是百团上吸引人眼球的东西实在是太多了，很快便没人再注意我们。",
+    "charas": {
+      "葵": "平静"
+    }
+  },
+  {
+    "lineJP": "しかし、葵の突然の興奮は収まる気配を見せないようだった。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:138",
+    "id": "6b273350",
+    "cid": "旁白",
+    "line": "不过，葵那突如其来的兴奋势头似乎并没有就此收住。",
+    "charas": {
+      "葵": "平静"
+    }
+  },
+  {
+    "lineJP": "合流してからというもの、彼女は周りを探し回り続け、「これは何？」や「あれは何？」と次から次へと言葉を発し、まるで好奇心旺盛な子供のようだった。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:139",
+    "id": "8ae85570",
+    "cid": "旁白",
+    "line": "自从我们汇合后，她就不断地向四周张望，并不停地提出“这是什么”“那是什么”的问题，简直像一个好奇的孩子。",
+    "charas": {
+      "葵": "平静"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:140",
+        "content": {
+          "cid": "葵",
+          "exp": "兴奋"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "「アト、あのを見て！」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:140",
+    "id": "621a8d10",
+    "cid": "葵",
+    "line": "阿拓，快看那个！",
+    "charas": {
+      "葵": "兴奋"
+    }
+  },
+  {
+    "lineJP": "「ああ、ストリートダンスクラブの路上パフォーマンスだね。她们の準備は相当なものだよ。」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:141",
+    "id": "0dcceed0",
+    "cid": "主角",
+    "line": "哦哦，是街舞社的路演。她们这阵仗可不小啊。",
+    "charas": {
+      "葵": "兴奋"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "hide",
+        "src": "K-1:142",
+        "content": "全部"
+      },
+      {
+        "type": "effect",
+        "src": "K-1:142",
+        "content": "放大背景"
+      }
+    ]
+  },
+  {
+    "lineJP": "（あぁ……）",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:143",
+    "id": "403e3680",
+    "cid": "主角",
+    "line": "（唉……）"
+  },
+  {
+    "lineJP": "口頭での一致とは対照的に、私は心中で一声ため息をついた。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:144",
+    "id": "ad9b4870",
+    "cid": "旁白",
+    "line": "与口头的符合相反，我在心里默默叹了一口气。"
+  },
+  {
+    "lineJP": "ほんの数分前の私であれば、長らく会っていなかった後の会話で、どのような話題を振れば空気が凍らないかを考えていたが、今となってはそれが完全に過剰な心配であったことがわかる。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:145",
+    "id": "619ed8f0",
+    "cid": "旁白",
+    "line": "几分钟前的我还在思考久别重逢后提出什么话题才不会冷场，现在看来全部是杞人忧天。"
+  },
+  {
+    "lineJP": "葵の連珠炮のような質問攻めに、私は旧交を温める間もなく、ここへ来る道中で少しずつ募ってきた懐かしさや感慨も、いつの間にか消え失せていた。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:146",
+    "id": "ec4cc7e0",
+    "cid": "旁白",
+    "line": "葵如同连珠炮一般的发问让我连叙旧的机会都没有，而在来到这里的路上积蓄起来的怀念与感伤也早已化为乌有。"
+  },
+  {
+    "lineJP": "……しかし、そうであれば、彼女に去年一年間音信不通だった理由を尋ねても、きっと気にしてはもらいないだろう。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:147",
+    "id": "96af4420",
+    "cid": "旁白",
+    "line": "……不过既然如此，那我问下她过去一年里断绝音信的原因，想必她也不会介意的吧。"
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "reset",
+        "src": "K-1:148",
+        "content": "effect"
+      },
+      {
+        "type": "tachie",
+        "src": "K-1:148",
+        "content": {
+          "cid": "葵",
+          "exp": "平静"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "心中の余分な慎重さを振り払いようにして、私は軽く首を振った。そして、今ちょうど CLUB のパフォーマンスを興味津々で見ている葵に向かって、質問を投げかける準備をした。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:149",
+    "id": "88e4b940",
+    "cid": "旁白",
+    "line": "我如同要甩掉心中多余的谨慎一般摇了摇头，对着正津津有味看着社团表演的葵，准备向她发问。",
+    "charas": {
+      "葵": "平静"
+    }
+  },
+  {
+    "lineJP": "しかし、ちょうどその時、葵が突然振り向いた——",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:150",
+    "id": "9ba07500",
+    "cid": "旁白",
+    "line": "但正在这时，葵突然转过头来——",
+    "charas": {
+      "葵": "平静"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:151",
+        "content": {
+          "cid": "葵",
+          "exp": "上目遣い/担心"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "阿拓、大学での生活はいかがですか？",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:151",
+    "id": "778b1140",
+    "cid": "葵",
+    "line": "阿拓，大学生活过得如何？",
+    "charas": {
+      "葵": "上目遣い/担心"
+    }
+  },
+  {
+    "lineJP": "彼女はもしかして早已に私の心中の思いに気付いていたのか？それとも、ただ今更ながら私がさっきからずっと彼女を見つめていたことに気付いただけなのか？",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:152",
+    "id": "4760c000",
+    "cid": "旁白",
+    "line": "难道她早已经察觉到我心中的想法了吗？还是只是终于发现了我从刚才就一直在盯着她？",
+    "charas": {
+      "葵": "上目遣い/担心"
+    }
+  },
+  {
+    "lineJP": "一時的に驚いて対応に困り、結局、言い淀みながら这样答えました：",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:153",
+    "id": "62257570",
+    "cid": "旁白",
+    "line": "我一时被打了个措手不及，只好支支吾吾的回答到：",
+    "charas": {
+      "葵": "上目遣い/担心"
+    }
+  },
+  {
+    "lineJP": "「まあ、そこ那里そこそこです。普通の生活をしているだけですよ。」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:154",
+    "id": "cb3f8610",
+    "cid": "主角",
+    "line": "还，还行吧。也就是正常生活罢了。",
+    "charas": {
+      "葵": "上目遣い/担心"
+    }
+  },
+  {
+    "lineJP": "向日葵のように見える彼女は、この答えで満足した様子はありませんでした。さらに、彼女は私に続けて尋ねました。「",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:155",
+    "id": "d7a5caf0",
+    "cid": "旁白",
+    "line": "而葵似乎并没有满足于这个答案。她向我继续问到：",
+    "charas": {
+      "葵": "上目遣い/担心"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:156",
+        "content": {
+          "cid": "葵",
+          "exp": "平静"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "あのアトーロ、過去の一年間で、芳甲に来てここで学ぶことを後悔したことはあるかね？",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:156",
+    "id": "1a2f75a0",
+    "cid": "葵",
+    "line": "那阿拓，过去一年里，你有后悔过来到芳甲，在这里上学吗？",
+    "charas": {
+      "葵": "平静"
+    }
+  },
+  {
+    "lineJP": "「そんなこと、ありませんよ。」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:157",
+    "id": "4d583b00",
+    "cid": "主角",
+    "line": "怎么会呢。",
+    "charas": {
+      "葵": "平静"
+    }
+  },
+  {
+    "lineJP": "思わず微笑んでしまいました。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:158",
+    "id": "fe0f7ee0",
+    "cid": "旁白",
+    "line": "我不禁微笑了起来。",
+    "charas": {
+      "葵": "平静"
+    }
+  },
+  {
+    "lineJP": "ここに来たことを後悔するなんて、なぜこんなに思い浮かぶのだろうか。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:159",
+    "id": "6def5420",
+    "cid": "主角",
+    "line": "我怎么会后悔来这里呢。",
+    "charas": {
+      "葵": "平静"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:160",
+        "content": {
+          "cid": "葵",
+          "exp": "微笑"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "「そうですね。」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:160",
+    "id": "264b5e70",
+    "cid": "葵",
+    "line": "那就好。",
+    "charas": {
+      "葵": "微笑"
+    }
+  },
+  {
+    "lineJP": "私たちは一緒に笑い出しました。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:161",
+    "id": "ed64d020",
+    "cid": "旁白",
+    "line": "我们一起笑了起来。",
+    "charas": {
+      "葵": "微笑"
+    }
+  },
+  {
+    "lineJP": "葵は再び視線をステージに向け、クライマックスに向かうパフォーマンスに見入った。私も自分の疑問を胸の奥にしまい込み、葵と一緒に公演を堪能した。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:162",
+    "id": "a6641c30",
+    "cid": "旁白",
+    "line": "葵将视线转回台上正进行到高潮的表演，而我也将我的疑问吞回了肚里，与葵一起享受着演出。",
+    "charas": {
+      "葵": "微笑"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "transform",
+        "src": "K-1:163",
+        "content": "blackout"
+      }
+    ]
+  },
+  {
+    "lineJP": "私たち二人は、にぎやかな運動場を歩いていきました。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:164",
+    "id": "eadef680",
+    "cid": "旁白",
+    "line": "我们二人继续走在喧闹的操场上。"
+  },
+  {
+    "lineJP": "正午近くとなり、まばゆい日差しが屋外の CLUB ブースにそのまま降り注いでいたが、暑さにもかかわらず学生たちの熱意は少しも減じることなく炎のように燃え続けていた。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:165",
+    "id": "df2fbfe0",
+    "cid": "旁白",
+    "line": "时间已然接近中午。耀眼的阳光径直洒落在露天的社团摊位上，但学生们的热情并没有因炎热的气温而受挫。"
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:166",
+        "content": {
+          "cid": "葵",
+          "exp": "平静"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "そういえば、このサークルの数、本当に多いですね。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:167",
+    "id": "b4612020",
+    "cid": "主角",
+    "line": "说起来，这社团数量还真是多啊。",
+    "charas": {
+      "葵": "平静"
+    }
+  },
+  {
+    "lineJP": "私は葵と一緒にすでに一時間以上も校庭を散策していたが、それでもまだ半分ほどの出店しか見終えていなかった。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:168",
+    "id": "7394d2b0",
+    "cid": "旁白",
+    "line": "我和葵已经在操场上逛了一个多小时，饶是如此也只看完了一半的摊位。",
+    "charas": {
+      "葵": "平静"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:169",
+        "content": {
+          "cid": "葵",
+          "exp": "微笑"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "「うん、そうなんだ~以前から芳甲百団の賑わいは聞いていたけど、実際に現場がこんなににぎやかだとは思わなかった。」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:169",
+    "id": "49829d20",
+    "cid": "葵",
+    "line": "嗯，是啊~虽然之前听说过芳甲百团的盛况，但没想到现场会这么热闹。",
+    "charas": {
+      "葵": "微笑"
+    }
+  },
+  {
+    "lineJP": "「ただし、确实にとても面白いですね。今ほどあの、空で文字を拼むあれ——」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:170",
+    "id": "00f5a650",
+    "cid": "葵",
+    "line": "不过也确实很有趣呢。像刚才那个，在天上拼文字那个——",
+    "charas": {
+      "葵": "微笑"
+    }
+  },
+  {
+    "lineJP": "「ああ、君が言っているのはドローンのクラブのことね。それも学校の特色の一つだし、毎年行われているらしいよ。」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:171",
+    "id": "5f9809b0",
+    "cid": "主角",
+    "line": "哦，你说的是无人机那个社团是吧。那也算是学校特色了，据说每年都会有。",
+    "charas": {
+      "葵": "微笑"
+    }
+  },
+  {
+    "lineJP": "ほんの数分前、ドローンクラブが放った飛行機の編隊が空を切り抜けながら通過し、その度に歓声と驚きの叫声が湧き上がりました。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:172",
+    "id": "51f165d0",
+    "cid": "旁白",
+    "line": "就在几分钟前，无人机社团释放出的飞行器编队从天上划过，引来一阵阵尖叫与欢呼。",
+    "charas": {
+      "葵": "微笑"
+    }
+  },
+  {
+    "lineJP": "（市中心でドローンを飛ばしてYetiチェックされないなんて、このサークルも相当な腕があるようだ…）",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:173",
+    "id": "363a6e10",
+    "cid": "主角",
+    "line": "（能在市中心飞无人机，还不被查水表，这社团确实有几分本事…）",
+    "charas": {
+      "葵": "微笑"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:174",
+        "content": {
+          "cid": "葵",
+          "exp": "兴奋"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "「さっき、機械に動画を載せていた人も、とてもスゴいと感じました！」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:174",
+    "id": "1cd204d0",
+    "cid": "葵",
+    "line": "还有刚才那个在机器上放视频的，感觉也很厉害！",
+    "charas": {
+      "葵": "兴奋"
+    }
+  },
+  {
+    "lineJP": "「ああ、君が言っているのは電子通信協会のオシロスコープね。」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:175",
+    "id": "ef318820",
+    "cid": "主角",
+    "line": "哦，你说的是电子通信协会的那台示波器吧。",
+    "charas": {
+      "葵": "兴奋"
+    }
+  },
+  {
+    "lineJP": "電子通信協会はブースの前に大型のオシロスコープを設置し、その上で動画がループ再生されていた。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:176",
+    "id": "026b2ec0",
+    "cid": "旁白",
+    "line": "电子通信协会在摊位前面摆了一台大型示波器，上面循环播放着一段视频。",
+    "charas": {
+      "葵": "兴奋"
+    }
+  },
+  {
+    "lineJP": "責任者は得意満面で機械のそばに立ち、その口ぶりでは示波器に映し出されている黑白の人影が相当有名らしい。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:177",
+    "id": "f1a5f1f0",
+    "cid": "旁白",
+    "line": "负责人得意洋洋的站在机器旁边，听他的口气示波器上播放的那些黑白小人似乎很有名。",
+    "charas": {
+      "葵": "兴奋"
+    }
+  },
+  {
+    "lineJP": "……それでも、示波器でビデオを再生することに関してはまだ理解できない部分がある。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:178",
+    "id": "092481d0",
+    "cid": "旁白",
+    "line": "……虽然我还是对在示波器上播放视频这件事觉得不理解。",
+    "charas": {
+      "葵": "兴奋"
+    }
+  },
+  {
+    "lineJP": "あぁ、そうそう、あと向こうにいる幾個かの体育系のサークルなんだけど、外で立って cosplay してる先輩たち……",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:179",
+    "id": "2a8222b0",
+    "cid": "葵",
+    "line": "啊对，还有就是那边的几个体育社团，外面站着的那几个小哥哥小姐姐……",
+    "charas": {
+      "葵": "兴奋"
+    }
+  },
+  {
+    "lineJP": "葵はStill興奮しながら、先ほど見たこと聞いたことを話し続けていたが、足取りは自然と遅れていた。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:180",
+    "id": "6e457150",
+    "cid": "旁白",
+    "line": "葵继续兴奋地聊着我们之前的所见所闻，但她的脚步却不由自主地放缓了。",
+    "charas": {
+      "葵": "兴奋"
+    }
+  },
+  {
+    "lineJP": "これを察した私は、自ら彼女に声をかけた。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:181",
+    "id": "17fec8c0",
+    "cid": "旁白",
+    "line": "察觉到这一点的我主动向她搭话：",
+    "charas": {
+      "葵": "兴奋"
+    }
+  },
+  {
+    "lineJP": "「どこかで休憩しない？　もう朝からずっと歩いてるし。」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:182",
+    "id": "b601c740",
+    "cid": "主角",
+    "line": "要不要找个地方歇一歇？也走了一上午了。",
+    "charas": {
+      "葵": "兴奋"
+    }
+  },
+  {
+    "lineJP": "葵はまず一瞬驚いた表情を浮かべ、すぐにいつもの笑みを湛えた。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:183",
+    "id": "ea194b80",
+    "cid": "旁白",
+    "line": "葵先是愣了一下，接着露出了她那一如既往的笑容。",
+    "charas": {
+      "葵": "兴奋"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:184",
+        "content": {
+          "cid": "葵",
+          "exp": "微笑"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "「あぁ、いいですよ！」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场",
+    "src": "K-1:184",
+    "id": "6495fe10",
+    "cid": "葵",
+    "line": "嗯，好啊!",
+    "charas": {
+      "葵": "微笑"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "background",
+        "src": "K-1:185",
+        "content": "操场2"
+      }
+    ]
+  },
+  {
+    "lineJP": "私と葵はにぎやかな会場の中心を离れ、比較的静かな一角へと移動した。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:186",
+    "id": "4a0d84e0",
+    "cid": "旁白",
+    "line": "我和葵离开人声鼎沸的会场中心，来到相对冷清的一角。",
+    "charas": {
+      "葵": "微笑"
+    }
+  },
+  {
+    "lineJP": "ここも会場の一部と言えるかもしれませんが、こちらに割り当てられたブースはすべて無人の「幽霊ブース」のようでした。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:187",
+    "id": "ac963d30",
+    "cid": "旁白",
+    "line": "这里姑且也算是会场的一部分，但是被分配到这边的摊位似乎都是无人看管的“幽灵摊位”。",
+    "charas": {
+      "葵": "微笑"
+    }
+  },
+  {
+    "lineJP": "だからこそ、几乎誰もここには来ません。周囲の静けさは、先ほどのにぎやかさと鮮明な対比を成しています。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:188",
+    "id": "35214290",
+    "cid": "旁白",
+    "line": "也正因如此，几乎没什么人来到这边。四下的安静与方才的喧闹形成了鲜明的对比。",
+    "charas": {
+      "葵": "微笑"
+    }
+  },
+  {
+    "lineJP": "私は葵と一緒に奥まったところにある屋台を選んで、日除けのテントの下のプラスチック製の椅子に座り、休憩を始めた。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:189",
+    "id": "294c1a00",
+    "cid": "旁白",
+    "line": "我和葵挑了一个最里面的摊位，坐在遮阳棚下的塑料椅上开始休息。",
+    "charas": {
+      "葵": "微笑"
+    }
+  },
+  {
+    "lineJP": "「まさか芳甲里（ほうこうり）にもこんなに誰からも注目されないサークルがあるとは思わなかった。」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:190",
+    "id": "6fde3340",
+    "cid": "主角",
+    "line": "没想到芳甲里也有这种无人问津的社团。",
+    "charas": {
+      "葵": "微笑"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:191",
+        "content": {
+          "cid": "葵",
+          "exp": "微笑"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "「そうですね。でも、これらのクラブのおかげで、休む場所を見つけることができたんです。」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:191",
+    "id": "dd362130",
+    "cid": "葵",
+    "line": "是啊，不过也是多亏了这些社团，我们才能找到地方休息。",
+    "charas": {
+      "葵": "微笑"
+    }
+  },
+  {
+    "lineJP": "周りを見回してみたが、まだどの学生もここに近づいてはいなかった。やはり、これは休憩するのに良い場所のようだ。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:192",
+    "id": "a7f282b0",
+    "cid": "旁白",
+    "line": "我环顾了一下四周，仍然没有学生靠近这里。看来这确实是个休息的好地方。",
+    "charas": {
+      "葵": "微笑"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:193",
+        "content": {
+          "cid": "葵",
+          "exp": "疑问"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "しかし、不思議ですね。なぜこれらのサークルに人が来ないのでしょうか？",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:193",
+    "id": "2ae2b0d0",
+    "cid": "葵",
+    "line": "不过，好奇怪啊。为什么这些社团会没人来呢？",
+    "charas": {
+      "葵": "疑问"
+    }
+  },
+  {
+    "lineJP": "おそらく、出店できなかったのでしょう——",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:194",
+    "id": "be9302b0",
+    "cid": "主角",
+    "line": "我猜，要么就是没办法出摊——",
+    "charas": {
+      "葵": "疑问"
+    }
+  },
+  {
+    "lineJP": "近くの屋台を指した。屋台上には「芳甲尋星会」と書かれていた。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:195",
+    "id": "9d8f0e50",
+    "cid": "旁白",
+    "line": "我指向近处的一个摊位。摊位上贴着“芳甲寻星会”的字样。",
+    "charas": {
+      "葵": "疑问"
+    }
+  },
+  {
+    "lineJP": "葵は私が指差した方向を見てみたが、私の意図を理解できなかったようで、再び私の方に視線を戻した。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:196",
+    "id": "84cbd810",
+    "cid": "旁白",
+    "line": "葵顺着我手指的方向看去，但似乎没有明白我的意思，又转头看向我。",
+    "charas": {
+      "葵": "疑问"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:197",
+        "content": {
+          "cid": "葵",
+          "exp": "思考"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "「芳甲尋星会」というのは、天文サークルのような名前ですね。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:197",
+    "id": "9f65d5f0",
+    "cid": "葵",
+    "line": "“芳甲寻星会”是吗，听起来像是一个天文社团的名字。",
+    "charas": {
+      "葵": "思考"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:198",
+        "content": {
+          "cid": "葵",
+          "exp": "疑惑"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "詳しくは分からないんですが、何か問題でも起こったんですか？",
+    "emotion": "疑惑",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:198",
+    "id": "2f059920",
+    "cid": "葵",
+    "line": " 虽然不是很了解，不过是出了什么问题吗？",
+    "charas": {
+      "葵": "疑惑"
+    }
+  },
+  {
+    "lineJP": "こんな真夏日の下で、星を見たいと思うなら、少なくとも鋭い洞察力に満ちた目を養う必要があります。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:199",
+    "id": "e579dab0",
+    "cid": "主角",
+    "line": "这种大太阳天，如果有人想看星星的话，至少得先练就一双火眼金睛。",
+    "charas": {
+      "葵": "疑惑"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:200",
+        "content": {
+          "cid": "葵",
+          "exp": "微笑"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "そう言われてみれば、確かにこんな天気ではあまり適していないようですね。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:200",
+    "id": "9633d520",
+    "cid": "葵",
+    "line": "这么说来，这种天气好像确实不太适合。",
+    "charas": {
+      "葵": "微笑"
+    }
+  },
+  {
+    "lineJP": "葵は笑いながら額から滲み出た汗を拭き、手を勺状に曲げて自分に向かって風を起こした。その可愛らしい姿に、我不覚にも一瞬見惚れてしまった。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:201",
+    "id": "60911e50",
+    "cid": "旁白",
+    "line": "葵笑着抹去从额头上渗出的汗珠，并将手弯成勺状，给自己扇起风来。她那可爱的样子不禁令我一瞬间看入迷了。",
+    "charas": {
+      "葵": "微笑"
+    }
+  },
+  {
+    "lineJP": "彼女に気づかれまいと、私は無理やり視線をそらし、隣の幾個かの屋台を指した。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:202",
+    "id": "2dabf990",
+    "cid": "旁白",
+    "line": "为了不被她发觉，我强迫自己移开视线，并指向身旁的另外几个摊位。",
+    "charas": {
+      "葵": "微笑"
+    }
+  },
+  {
+    "lineJP": "あるいは、もう一つの可能性として、サークルそのもののテーマが実に奇妙すぎたということです。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:203",
+    "id": "8455acc0",
+    "cid": "主角",
+    "line": "要么，还有另一种可能，就是社团自身的主题实在是太奇怪了。",
+    "charas": {
+      "葵": "微笑"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:204",
+        "content": {
+          "cid": "葵",
+          "exp": "疑惑"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "「徳明养生社」……この団体は一体什么样的活動をしているのでしょうか？",
+    "emotion": "疑惑",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:204",
+    "id": "dab5ad40",
+    "cid": "葵",
+    "line": "“德明养生社”……这个社团是做些什么的呢？",
+    "charas": {
+      "葵": "疑惑"
+    }
+  },
+  {
+    "lineJP": "「私も分からないのですが、この名前の CLUB について知ってみたいと思いませんか？」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:205",
+    "id": "b850bd40",
+    "cid": "主角",
+    "line": "我也不知道，但是你会想要了解这个名字的社团吗？",
+    "charas": {
+      "葵": "疑惑"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:206",
+        "content": {
+          "cid": "葵",
+          "exp": "思考"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "うーん、多分そうではないと思います。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:206",
+    "id": "6e8ef0a0",
+    "cid": "葵",
+    "line": "嗯——我想不会。",
+    "charas": {
+      "葵": "思考"
+    }
+  },
+  {
+    "lineJP": "私たちは互いに微笑み合った。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:207",
+    "id": "590c1660",
+    "cid": "旁白",
+    "line": "我们相视而笑。",
+    "charas": {
+      "葵": "思考"
+    }
+  },
+  {
+    "lineJP": "暇反正もったいないし、私たち二人は近くの幽霊サークルについて口を挟み始めました。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:208",
+    "id": "af5f6910",
+    "cid": "旁白",
+    "line": "反正闲着也是闲着，我们两人开始对附近的幽灵社团评头论足起来。",
+    "charas": {
+      "葵": "思考"
+    }
+  },
+  {
+    "lineJP": "「麻雀研究協会」……こんなものも研究対象にできるのですか？",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:209",
+    "id": "9df82e00",
+    "cid": "主角",
+    "line": "“麻将研究协会”……这种东西原来也能研究的吗？",
+    "charas": {
+      "葵": "思考"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:210",
+        "content": {
+          "cid": "葵",
+          "exp": "思考"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "そんな名前の CLUB だと、活動内容が少し真面目でない気がしてしまいますね。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:210",
+    "id": "4aa04300",
+    "cid": "葵",
+    "line": "这种名字的社团，听起来总感觉活动内容会不太正经。",
+    "charas": {
+      "葵": "思考"
+    }
+  },
+  {
+    "lineJP": "芳甲大学のクラブ活動への監督は比較的厳格なので、問題が出ることはないでしょう……多分。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:211",
+    "id": "08e3d9c0",
+    "cid": "主角",
+    "line": "芳甲大学对社团的监管还是比较严格的，应该不会出问题的……大概。",
+    "charas": {
+      "葵": "思考"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:212",
+        "content": {
+          "cid": "葵",
+          "exp": "平静"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "「宿題互助グループ」……这个名字听起来实用多了。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:212",
+    "id": "9a03d2e0",
+    "cid": "葵",
+    "line": "“作业互助小组”……这个名字听起来就实用得多了。",
+    "charas": {
+      "葵": "平静"
+    }
+  },
+  {
+    "lineJP": "このサークルなら葵にとても合っていると思うよ。畢竟、高校からずっと宿題が終わらないで先生に叱られていただろう？",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:213",
+    "id": "e896e730",
+    "cid": "主角",
+    "line": "这个社团应该很适合葵呢。毕竟从高中开始你就总是因为写不完作业被老师批评。",
+    "charas": {
+      "葵": "平静"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:214",
+        "content": {
+          "cid": "葵",
+          "exp": ">_<"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "本当に、あれは随分前の話だ。もう触れないでほしい――と。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:214",
+    "id": "4dd22af0",
+    "cid": "葵",
+    "line": "真是的，那都是好久以前的过去了，不要再提了——",
+    "charas": {
+      "葵": ">_<"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "move",
+        "src": "K-1:215",
+        "content": "放大并横向"
+      }
+    ]
+  },
+  {
+    "lineJP": "近くにある奇妙な団体について、時折話しながら、その活動内容を想像してみました。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:215",
+    "id": "2184b5d0",
+    "cid": "旁白",
+    "line": "我们有一搭没一搭地聊着附近这些稀奇古怪的社团，试图猜出它们的活动内容。",
+    "charas": {
+      "葵": ">_<"
+    }
+  },
+  {
+    "lineJP": "私たちの体力がほぼ回復するまで、この愉快な会話は続き、ようやく一区切りを迎えました。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:216",
+    "id": "15a2d600",
+    "cid": "旁白",
+    "line": "直到我们的体力都恢复得差不多了，这场愉快的对话才告一段落。",
+    "charas": {
+      "葵": ">_<"
+    }
+  },
+  {
+    "lineJP": "「それでは、十分に休憩もできたようですので、続きをしましょう。」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:217",
+    "id": "bae74aa0",
+    "cid": "主角",
+    "line": "好了，休息的也差不多了，我们继续吧。",
+    "charas": {
+      "葵": ">_<"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:218",
+        "content": {
+          "cid": "葵",
+          "exp": "平静"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "「はいはい。少々お待ちを——」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:218",
+    "id": "aed7e650",
+    "cid": "葵",
+    "line": "嗯嗯。稍等——",
+    "charas": {
+      "葵": "平静"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:219",
+        "content": {
+          "cid": "葵",
+          "exp": "思考"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "「少し気になっているのですが、この私たちがいる場所、かなり隅っこの booth なので、一体どのサークルのものなんでしょうか？」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:219",
+    "id": "c53dc390",
+    "cid": "葵",
+    "line": "我有点在意，我们待着的这个摊位这么偏僻，会是哪个社团的呢？",
+    "charas": {
+      "葵": "思考"
+    }
+  },
+  {
+    "lineJP": "葵はまだこの話題について終わり Wants な様子がないようだ。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:220",
+    "id": "f0d95030",
+    "cid": "旁白",
+    "line": "葵似乎还没有结束这个话题的意思。",
+    "charas": {
+      "葵": "思考"
+    }
+  },
+  {
+    "lineJP": "彼女は両手を折りたたみテーブルに付き、頭を伸ばして日除けに貼られた横断幕を見ようとした――",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:221",
+    "id": "dce06570",
+    "cid": "旁白",
+    "line": "她双手撑在折叠桌上，探出头想要去看贴在遮阳棚上的横幅——",
+    "charas": {
+      "葵": "思考"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:222",
+        "content": {
+          "cid": "葵",
+          "exp": "思考"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "「ああ、確かにお名前は——」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:222",
+    "id": "f0ffe110",
+    "cid": "葵",
+    "line": "哦哦，好像是叫——",
+    "charas": {
+      "葵": "思考"
+    }
+  },
+  {
+    "lineJP": "「魔法研究部」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:223",
+    "id": "bd6e7180",
+    "cid": "葵",
+    "line": "“魔法研究部”。",
+    "charas": {
+      "葵": "思考"
+    }
+  },
+  {
+    "lineJP": "「……」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:224",
+    "id": "0d2f2640",
+    "cid": "旁白",
+    "line": "……",
+    "charas": {
+      "葵": "思考"
+    }
+  },
+  {
+    "lineJP": "この聞いたこともない不気味な CLUB の名前を聞いて、私と葵は一瞬言葉を失った。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:225",
+    "id": "fa0f55d0",
+    "cid": "旁白",
+    "line": "听到这个闻所未闻的诡异的社团名称，我和葵一时都陷入了沉默。",
+    "charas": {
+      "葵": "思考"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:226",
+        "content": {
+          "cid": "葵",
+          "exp": "兴奋"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "「魔法研究部」？本当に魔法が存在するんだね～",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:226",
+    "id": "7261e8e0",
+    "cid": "葵",
+    "line": "“魔法研究部”？原来真的有魔法啊~",
+    "charas": {
+      "葵": "兴奋"
+    }
+  },
+  {
+    "lineJP": "「さすがは芳甲大学（ほうこうだいがく）、魔法にまで触れていますね。ここを選んだのは間違いじゃなかった……」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:227",
+    "id": "6a5fca80",
+    "cid": "葵",
+    "line": "不愧是芳甲大学，连魔法都有所涉猎。当初选择这里真是选对了……",
+    "charas": {
+      "葵": "兴奋"
+    }
+  },
+  {
+    "lineJP": "「いやいやいや、ちょっと待ってください。」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:228",
+    "id": "1e4b1700",
+    "cid": "主角",
+    "line": "不不不，等一下等一下。",
+    "charas": {
+      "葵": "兴奋"
+    }
+  },
+  {
+    "lineJP": "葵の目に星が浮かび始め、その様子を見た私は慌てて彼女の言葉を遮った。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:229",
+    "id": "e1f882d0",
+    "cid": "旁白",
+    "line": "葵的眼睛里开始冒出星星，见到此情此景的我连忙打断她的话。",
+    "charas": {
+      "葵": "兴奋"
+    }
+  },
+  {
+    "lineJP": "「たとえ芳甲里（ほうこうり）であっても、魔法を研究する学科はどこにもない。」 \n\n更加自然和优美的表达可以是：  \n「芳甲里といえども、魔法を専門に研究する学科というものはないのだ。」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:230",
+    "id": "9c2d4550",
+    "cid": "主角",
+    "line": "就算是芳甲里，也没有哪个系是研究魔法的。",
+    "charas": {
+      "葵": "兴奋"
+    }
+  },
+  {
+    "lineJP": "高校生までホワイトデーのサンタクロースを信じていたタイプだった葵だが、今は成人しているし、きっと彼女は冗談を言っているだけだろう……よね？",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:231",
+    "id": "f1c2da10",
+    "cid": "旁白",
+    "line": "虽然直到高中葵都是那种会相信圣诞老人的类型，但如今都成年了，她应该只是在开玩笑……对吧？",
+    "charas": {
+      "葵": "兴奋"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:232",
+        "content": {
+          "cid": "葵",
+          "exp": "兴奋"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "しかし、この部署がとても面白いと思わないですか？",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:232",
+    "id": "5e108ec0",
+    "cid": "葵",
+    "line": "但是但是，不觉得这个部很有意思吗？",
+    "charas": {
+      "葵": "兴奋"
+    }
+  },
+  {
+    "lineJP": "「さっきパンフレットのようなものを見た気がするので、探してみます——」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:233",
+    "id": "d2024f70",
+    "cid": "葵",
+    "line": "刚才好像看到有一张传单，我找一下——",
+    "charas": {
+      "葵": "兴奋"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "hide",
+        "src": "K-1:234",
+        "content": "葵"
+      }
+    ]
+  },
+  {
+    "lineJP": "そう言うやいなや、葵はテーブルの下へと顔を傾げながら視線を落とした。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:235",
+    "id": "a9b9b0c0",
+    "cid": "旁白",
+    "line": "说罢，葵便低头探向桌子下面。"
+  },
+  {
+    "lineJP": "こうした状況での葵がそれを止めることはできないと WELL  Aware  だった私は、ただため息をつき、立ち上がり、屋台の正面へと歩いていった。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:236",
+    "id": "d396c050",
+    "cid": "旁白",
+    "line": "我深知这种情况下的葵无法阻止，只好叹了口气，站起身来，来到摊位的正面。"
+  },
+  {
+    "lineJP": "（「魔法研究部」…… 本当にこんな名前だね。相当変わってるよ。）",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:237",
+    "id": "f058eaf0",
+    "cid": "主角",
+    "line": "（“魔法研究部”…… 还真是叫这个名字啊。也是够奇怪的了。）"
+  },
+  {
+    "lineJP": "（しかし、そうはいかないはずだ。もしその部署が以前から存在していたなら、どうして私が知らないはずがない――）",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:238",
+    "id": "986e3380",
+    "cid": "主角",
+    "line": "（不过不应该啊。如果之前有这个部存在的话，我怎么可能会不知道——）"
+  },
+  {
+    "lineJP": "「あぁ、見つかりました！見つかりました！」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:239",
+    "id": "aca07e20",
+    "cid": "葵",
+    "line": "哦，找到了找到了！"
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:240",
+        "content": {
+          "cid": "葵",
+          "exp": "兴奋"
+        }
+      },
+      {
+        "type": "effect",
+        "src": "K-1:240",
+        "content": "立绘跳动"
+      }
+    ]
+  },
+  {
+    "lineJP": "葵は再び机の下から上半身を出し、手には埃で汚れたチラシを持っていた。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:241",
+    "id": "489cf240",
+    "cid": "旁白",
+    "line": "葵再次从桌下探出身来，手里拿着一张沾满灰尘的传单。",
+    "charas": {
+      "葵": "兴奋"
+    }
+  },
+  {
+    "lineJP": "チラシは印刷されたものではなく、手描きでした。用紙の上部には七大文字で「魔法研究部 新規募集」と書かれており、その下には個性溢れる文章が詰め込まれていました。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:242",
+    "id": "e761db40",
+    "cid": "旁白",
+    "line": "传单并非打印，而是手绘出来的。纸张的顶部写着七个大字“魔法研究部招新”，而下面则填满了个性极强的文字。",
+    "charas": {
+      "葵": "兴奋"
+    }
+  },
+  {
+    "lineJP": "「見てみましょうか……」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:243",
+    "id": "fef620e0",
+    "cid": "葵",
+    "line": "让我看看……",
+    "charas": {
+      "葵": "兴奋"
+    }
+  },
+  {
+    "lineJP": "「魔法研究社の2025年度新規メンバー募集が始まりました\\( 'ω')/!」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:244",
+    "id": "f00dcae0",
+    "cid": "$传单",
+    "line": "魔法研究社2025招新活动开始了\\( 'ω')/!",
+    "charas": {
+      "葵": "兴奋"
+    },
+    "alias": "传单"
+  },
+  {
+    "lineJP": "身長や体型、年齢や性別に関係なく、魔法を心から愛する気持ちがあれば、誰でも私たちの仲間に加わっていただけるのですよ(｢･ω･)｢！",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:245",
+    "id": "6974bd30",
+    "cid": "$传单",
+    "line": "无论高矮胖瘦，男女老少，只要你有一颗热爱魔法的心，我们便欢迎你的加入(｢･ω･)｢！",
+    "charas": {
+      "葵": "兴奋"
+    },
+    "alias": "传单"
+  },
+  {
+    "lineJP": "吉日を選ぶよりも偶然の日が良いもの。心で感じただけでは不十分、行動に移すべきです！魔法研究部はあなたの来访を心よりお待ちしております'ω')つ！",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:246",
+    "id": "b82e9310",
+    "cid": "$传单",
+    "line": "择日不如撞日，心动不如行动！魔法研究部期待您的光临'ω')つ！",
+    "charas": {
+      "葵": "兴奋"
+    },
+    "alias": "传单"
+  },
+  {
+    "lineJP": "「…………」  \n\n（注：中文中的省略号通常直接用日文的省略号表示，保持原有的语感和意境。如果需要根据上下文补充内容，请提供更多信息。）",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:247",
+    "id": "c215f940",
+    "cid": "主角",
+    "line": "…………",
+    "charas": {
+      "葵": "兴奋"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:248",
+        "content": {
+          "cid": "葵",
+          "exp": "平静"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "（ページをめくる）あぁ、背面にはサークル活動室の位置も記してある——",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:248",
+    "id": "ceb5d420",
+    "cid": "葵",
+    "line": "（翻页）哦，背面还标注了社团活动室的位置——",
+    "charas": {
+      "葵": "平静"
+    }
+  },
+  {
+    "lineJP": "入名楼（一番高い建物）のI棟10階へ行ってください。エレベーターを出て左に曲がり、また左、さらに左へと進んでください。⊂('ω`⊂",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:249",
+    "id": "0dbf54a0",
+    "cid": "$传单",
+    "line": "来到入名楼（最高的那个）I座10层，出电梯左拐左拐再左拐⊂('ω`⊂",
+    "charas": {
+      "葵": "平静"
+    },
+    "alias": "传单"
+  },
+  {
+    "lineJP": "「九つと四分之三個の教室を通り過ぎた後、右側の壁を軽くノックしてみてください.(*'ω')ノ」 \n\n注：日本語では「九又四分之三个」という表現は少し不自然に感じるかもしれないので、意味を損なわない範囲で「九つと四分之三個」のように調整しました。また、教室という単位も状況次第で具体的な表現が異なるかもしれませんが、ここでは一般的な「教室」を使用しています。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:250",
+    "id": "fe743390",
+    "cid": "$传单",
+    "line": "往前走九又四分之三个教室，然后轻敲右边的墙壁(*'ω')ノ",
+    "charas": {
+      "葵": "平静"
+    },
+    "alias": "传单"
+  },
+  {
+    "lineJP": "魔法の世界への扉はあなたの開くのを待っています|ω･)！",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:251",
+    "id": "997a43f0",
+    "cid": "$传单",
+    "line": "通向魔法世界的大门等待着你的开启|ω･)！",
+    "charas": {
+      "葵": "平静"
+    },
+    "alias": "传单"
+  },
+  {
+    "lineJP": "チラシの一番下には、親切にも色鉛筆で簡単な案内図が描かれており、活動室の場所には大きな六芒星（ろくぼうせい）が标记されていました。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:252",
+    "id": "7240bda0",
+    "cid": "旁白",
+    "line": "传单最下方还贴心的用彩笔画了一张简单的示意图，活动室的位置上标着一个大大的六芒星。",
+    "charas": {
+      "葵": "平静"
+    }
+  },
+  {
+    "lineJP": "いや、このコピーのパクリが明らかに過ぎない？",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:253",
+    "id": "482a28c0",
+    "cid": "主角",
+    "line": "不是，这文案抄袭得也太明显了吧！",
+    "charas": {
+      "葵": "平静"
+    }
+  },
+  {
+    "lineJP": "結局、私は皮肉を言いたいという衝動を抑え切れなかった。しかし、葵は彼女の鈍感さで私の発言を完全に無視してしまった。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:254",
+    "id": "df929ce0",
+    "cid": "旁白",
+    "line": "我终究还是没能忍住我吐槽的欲望。不过葵用她的粗神经完全忽视了我的发言。",
+    "charas": {
+      "葵": "平静"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:255",
+        "content": {
+          "cid": "葵",
+          "exp": "兴奋"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "「――アタシたち、見てみようか？アトゥオ。」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:255",
+    "id": "9ccb60a0",
+    "cid": "葵",
+    "line": "——要不我们去看看，阿拓？",
+    "charas": {
+      "葵": "兴奋"
+    }
+  },
+  {
+    "lineJP": "「いやいやいや、これ怎么说ても少しねぇ、怪し過ぎるでしょう——」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:256",
+    "id": "f9b5b4e0",
+    "cid": "主角",
+    "line": "不不不，这再怎么说也有点太可疑了吧——",
+    "charas": {
+      "葵": "兴奋"
+    }
+  },
+  {
+    "lineJP": "しかし、そこに書かれているのは、魔法の世界への扉が私たちを待っているということではないですか！",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:257",
+    "id": "90c27fa0",
+    "cid": "葵",
+    "line": "但是，上面写了通向魔法世界的大门在等着我们啊！",
+    "charas": {
+      "葵": "兴奋"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:258",
+        "content": {
+          "cid": "葵",
+          "exp": "疑问"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "「阿拓、気にならないのかい？」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:258",
+    "id": "234ca6d0",
+    "cid": "葵",
+    "line": "你难道不在意吗，阿拓？",
+    "charas": {
+      "葵": "疑问"
+    }
+  },
+  {
+    "lineJP": "「これ明らかなコピーですよね！それに、ここは三次元の世界です、どうして魔法なんてものが存在するんですか——」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:259",
+    "id": "62201210",
+    "cid": "主角",
+    "line": "这段很明显是抄袭的好吧！再说了，这里是三次元，又怎么会有魔法这种东西——",
+    "charas": {
+      "葵": "疑问"
+    }
+  },
+  {
+    "lineJP": "私たちが言い争いをしている最中、ある声が会話に割り込みました。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:260",
+    "id": "af1121e0",
+    "cid": "旁白",
+    "line": "正当我们争执不下的时候，一个声音插入了我们的对话。",
+    "charas": {
+      "葵": "疑问"
+    }
+  },
+  {
+    "lineJP": "「失礼ですが——」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:261",
+    "id": "f4cf5ab0",
+    "cid": "澪",
+    "line": "请问——",
+    "charas": {
+      "葵": "疑问"
+    },
+    "alias": "声音"
+  },
+  {
+    "lineJP": "やっと葵と私は議論から気付いて、声の方へ向き直った。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:262",
+    "id": "769bf5e0",
+    "cid": "旁白",
+    "line": "我和葵这才从辩论中回过神来，转向声音的方向。",
+    "charas": {
+      "葵": "疑问"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "hide",
+        "src": "K-1:263",
+        "content": "葵"
+      },
+      {
+        "type": "tachie",
+        "src": "K-1:263",
+        "content": {
+          "cid": "澪",
+          "exp": "疑问"
+        }
+      },
+      {
+        "type": "move",
+        "src": "K-1:264",
+        "content": "放大并纵向"
+      }
+    ]
+  },
+  {
+    "lineJP": "その声の主は、小柄な金髪の少女だった。一目見てわかる通り、間違いなく一年生である——畢竟、百団当日は中学生や小学生の校内立ち入りが許可されていないのだから。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:264",
+    "id": "c49a96c0",
+    "cid": "旁白",
+    "line": "声音的主人是一个身形娇小的金发少女，乍一看就知道肯定是大一新生——毕竟百团当天校园不对中小学生开放。",
+    "charas": {
+      "澪": "疑问"
+    }
+  },
+  {
+    "lineJP": "彼女は手に小さな冊子を持ち、眉をひそめていた。何かの団体を探しているのだろうか？",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:265",
+    "id": "b977a170",
+    "cid": "旁白",
+    "line": "她手里还拿着一本小册子，眉头紧蹙着。是在寻找某个社团吗？",
+    "charas": {
+      "澪": "疑问"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "reset",
+        "src": "K-1:266",
+        "content": "move"
+      }
+    ]
+  },
+  {
+    "lineJP": "ここが魔法研究部ですか？",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:267",
+    "id": "340f9070",
+    "cid": "澪",
+    "line": "这里就是魔法研究部吗？",
+    "charas": {
+      "澪": "疑问"
+    },
+    "alias": "女生"
+  },
+  {
+    "lineJP": "私が気付くよりも早く、葵はすでに一歩先んじて答えを口にしてしまっていた。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:268",
+    "id": "4b6aa050",
+    "cid": "旁白",
+    "line": "还没等我反应过来，葵就已经抢先一步做出了回答。",
+    "charas": {
+      "澪": "疑问"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:269",
+        "content": {
+          "cid": "葵",
+          "exp": "兴奋"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "「そうなんだ、ここが魔法研究部のブースだ！後輩も魔法に興味があるのかい？」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:269",
+    "id": "55ab41d0",
+    "cid": "葵",
+    "line": "是的，这儿就是魔法研究部的摊位！学妹你也对魔法感兴趣吗？",
+    "charas": {
+      "澪": "疑问",
+      "葵": "兴奋"
+    }
+  },
+  {
+    "lineJP": "「（……お前も一年生じゃないか、何を偉そうにしているんだ。）」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:270",
+    "id": "b9d16920",
+    "cid": "主角",
+    "line": "（……你不是也是大一新生吗，装什么蒜。）",
+    "charas": {
+      "澪": "疑问",
+      "葵": "兴奋"
+    }
+  },
+  {
+    "lineJP": "思わず心中でつぶやいてしまった。しかし、その女生徒は葵の熱意に応えることなく、ただ俯いて無言のままだった。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:271",
+    "id": "1befdae0",
+    "cid": "旁白",
+    "line": "我不禁在心中默默吐槽。然而，女生并没有对葵的热情做出回答，而是低下头去，一言不发。",
+    "charas": {
+      "澪": "疑问",
+      "葵": "兴奋"
+    }
+  },
+  {
+    "lineJP": "「……」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:272",
+    "id": "0d2f2641",
+    "cid": "澪",
+    "line": "……",
+    "charas": {
+      "澪": "疑问",
+      "葵": "兴奋"
+    },
+    "alias": "女生"
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:273",
+        "content": {
+          "cid": "葵",
+          "exp": "疑问"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "あのう、後輩さん——",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:273",
+    "id": "2793bcd0",
+    "cid": "葵",
+    "line": "那个，学妹——",
+    "charas": {
+      "澪": "疑问",
+      "葵": "疑问"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:274",
+        "content": {
+          "cid": "澪",
+          "exp": "平静"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "「了解しました。」または「よろしいですね。」  \n\n根据语境，也可以选择更自然的表达，例如：  \n「いいですよ。」（如果是回应提议或邀请时）  \n「承知しました。」（如果需要更礼貌一些）",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:274",
+    "id": "d0092990",
+    "cid": "澪",
+    "line": "好啊。",
+    "charas": {
+      "澪": "平静",
+      "葵": "疑问"
+    },
+    "alias": "女生"
+  },
+  {
+    "lineJP": "女の子の両肩が微かに震え始め、二つの長いツインテールも彼女の動きに合わせて上下に揺れ動いた。その瞬間、私は何となく事態が芳しくない予感を覚えた。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:275",
+    "id": "5661a600",
+    "cid": "旁白",
+    "line": "女孩的双肩微微颤动起来，两支长长的马尾辫也随着她的动作而上下晃动。我开始觉得事情有些不妙。",
+    "charas": {
+      "澪": "平静",
+      "葵": "疑问"
+    }
+  },
+  {
+    "lineJP": "彼女は突然顔を上げ、手にしていたもう紙くず同然の小冊子を舍て、葵をにらみつけながら吼えた――。",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:276",
+    "id": "bca14510",
+    "cid": "旁白",
+    "line": "她猛地抬起头来，丢掉手里已经被捏成一团的小册子，瞪向葵，吼到——",
+    "charas": {
+      "澪": "平静",
+      "葵": "疑问"
+    }
+  },
+  {
+    "type": "systems",
+    "contents": [
+      {
+        "type": "tachie",
+        "src": "K-1:277",
+        "content": {
+          "cid": "澪",
+          "exp": "異議あり"
+        }
+      },
+      {
+        "type": "tachie",
+        "src": "K-1:277",
+        "content": {
+          "cid": "葵",
+          "exp": "惊讶"
+        }
+      }
+    ]
+  },
+  {
+    "lineJP": "「やっとあなたたちを見つけることができました！」",
+    "cnAudioURL": "",
+    "cnAudioURLs": [],
+    "jpAudioURL": "",
+    "jpAudioURLs": [],
+    "type": "line",
+    "bg": "操场2",
+    "src": "K-1:277",
+    "id": "5db23d10",
+    "cid": "澪",
+    "line": "可算找到你们了！",
+    "charas": {
+      "澪": "異議あり",
+      "葵": "惊讶"
+    },
+    "alias": "女生"
+  }
+]
