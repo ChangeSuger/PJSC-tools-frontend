@@ -313,7 +313,7 @@ function openTTSCharacterConfigDialog() {
 }
 
 function generateAudioID(id: string, scriptName: string, lang: 'jp' | 'cn'): string {
-  return `${scriptName}:${id}_${lang}`;
+  return `${scriptName}_${id}_${lang}`;
 }
 </script>
 

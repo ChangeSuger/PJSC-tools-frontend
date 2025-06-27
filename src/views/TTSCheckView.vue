@@ -44,9 +44,10 @@
         v-for="(storyItem, index) in storyList"
         :key="storyItem.id"
         :story-item="storyItem"
+        class="tts-check-voice"
       >
         <template #cn v-if="storyItem.cnAudioURLs.length">
-          <el-radio-group v-model="checkListCN[index]" class="tts-check-voice-cn">
+          <el-radio-group v-model="checkListCN[index]">
             <template
               v-for="(url, index) in storyItem.cnAudioURLs"
               :key="url"
@@ -61,7 +62,7 @@
         </template>
 
         <template #jp v-if="storyItem.jpAudioURLs.length">
-          <el-radio-group v-model="checkListJP[index]" class="tts-check-voice-jp">
+          <el-radio-group v-model="checkListJP[index]">
             <template
               v-for="(url, index) in storyItem.jpAudioURLs"
               :key="url"
@@ -207,7 +208,7 @@ function exportScriptJSON() {
 function findFirstNoCheckItemCN() {
   const hasNoCheckItem = checkListCN.value.some((checked, index) => {
     if (checked === -1) {
-      document.querySelectorAll('.tts-check-voice-cn')[index].scrollIntoView();
+      document.querySelectorAll('.tts-check-voice')[index].scrollIntoView();
       return true;
     }
     return false;
@@ -221,7 +222,7 @@ function findFirstNoCheckItemCN() {
 function findFirstNoCheckItemJP() {
   const hasNoCheckItem = checkListJP.value.some((checked, index) => {
     if (checked === -1) {
-      document.querySelectorAll('.tts-check-voice-jp')[index].scrollIntoView();
+      document.querySelectorAll('.tts-check-voice')[index].scrollIntoView();
       return true;
     }
     return false;
