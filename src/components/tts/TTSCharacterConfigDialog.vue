@@ -1,4 +1,8 @@
 <template>
+  <el-button type="primary" text :icon="Setting" @click="open">
+    角色参数配置
+  </el-button>
+
   <el-dialog
     class="tts-character-config-dialog"
     v-model="visible"
@@ -31,10 +35,7 @@ import { cloneDeep } from 'lodash-es';
 
 import CharacterTabs from './CharacterTabs.vue';
 import TTSCharacterConfigForm from './TTSCharacterConfigForm.vue';
-
-defineExpose({
-  open,
-});
+import { Setting } from '@element-plus/icons-vue';
 
 const ttsCharacterStore = useTTSCharacterStore();
 

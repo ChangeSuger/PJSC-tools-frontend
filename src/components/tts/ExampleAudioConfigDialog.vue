@@ -1,4 +1,8 @@
 <template>
+  <el-button type="primary" text :icon="Setting" @click="open">
+    参考音频配置
+  </el-button>
+
   <el-dialog
     class="example-audio-config-dialog"
     v-model="visible"
@@ -33,10 +37,7 @@ import { EMOTIONS } from '@/datas';
 
 import ExampleAudioItem from '@/components/tts/ExampleAudioItem.vue';
 import CharacterTabs from './CharacterTabs.vue';
-
-defineExpose({
-  open,
-});
+import { Setting } from '@element-plus/icons-vue';
 
 const ttsCharacterStore = useTTSCharacterStore();
 

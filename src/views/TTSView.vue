@@ -40,13 +40,9 @@
           导出剧本
         </el-button>
 
-        <el-button type="primary" text :icon="Setting" @click="openExampleAudioConfigDialog">
-          参考音频配置
-        </el-button>
+        <ExampleAudioConfigDialog />
 
-        <el-button type="primary" text :icon="Setting" @click="openTTSCharacterConfigDialog">
-          角色参数配置
-        </el-button>
+        <TTSCharacterConfigDialog />
       </div>
     </div>
 
@@ -57,15 +53,17 @@
         :story-item="storyItem"
       >
         <el-space direction="vertical">
-          <el-button v-if="characterOptions.includes(storyItem.cid)" @click="ttsBatchGenerateCN(storyItem)">中文音频生成</el-button>
-          <el-button v-if="characterOptions.includes(storyItem.cid)" @click="ttsBatchGenerateJP(storyItem)">日文音频生成</el-button>
+          <el-button v-if="characterOptions.includes(storyItem.cid)" @click="ttsBatchGenerateCN(storyItem)">
+            中文音频生成
+          </el-button>
+
+          <el-button v-if="characterOptions.includes(storyItem.cid)" @click="ttsBatchGenerateJP(storyItem)">
+            日文音频生成
+          </el-button>
         </el-space>
       </StoryViewerItem>
     </div>
   </div>
-
-  <ExampleAudioConfigDialog ref="exampleAudioConfigDialogRef" />
-  <TTSCharacterConfigDialog ref="ttsCharacterConfigDialogRef" />
 </template>
 
 <script setup lang="ts">
@@ -76,7 +74,7 @@ import { computed, ref } from 'vue';
 import StoryViewerItem from '@/components/story/StoryViewerItem.vue';
 import ExampleAudioConfigDialog from '@/components/tts/ExampleAudioConfigDialog.vue';
 import TTSCharacterConfigDialog from '@/components/tts/TTSCharacterConfigDialog.vue';
-import { Upload, Download, Setting } from '@element-plus/icons-vue';
+import { Upload, Download } from '@element-plus/icons-vue';
 import { ElMessage } from 'element-plus';
 import type { StoryItem, StoryScriptFull, TTSGenerateSSEData } from '@/types';
 import { scriptAdaptIn } from '@/utils/scriptAdapter';
@@ -84,9 +82,6 @@ import { scriptAdaptIn } from '@/utils/scriptAdapter';
 const settingsStore = useSettingsStore();
 const audioDBStore = useAudioDBStore();
 const ttsCharacterStore = useTTSCharacterStore();
-
-const exampleAudioConfigDialogRef = ref<InstanceType<typeof ExampleAudioConfigDialog>>();
-const ttsCharacterConfigDialogRef = ref<InstanceType<typeof TTSCharacterConfigDialog>>();
 
 const characters = ref<string[]>([ ...ttsCharacterStore.characters ]);
 
@@ -302,14 +297,6 @@ function exportScriptJSON() {
   a.href = url;
   a.click();
   URL.revokeObjectURL(url);
-}
-
-function openExampleAudioConfigDialog() {
-  exampleAudioConfigDialogRef.value?.open();
-}
-
-function openTTSCharacterConfigDialog() {
-  ttsCharacterConfigDialogRef.value?.open();
 }
 
 function generateAudioID(id: string, scriptName: string, lang: 'jp' | 'cn'): string {
