@@ -46,7 +46,7 @@
         :story-item="storyItem"
       >
         <template #jp v-if="characters.includes(storyItem.cid)">
-          <div v-if="activeEditId === storyItem.id" class="flex-horizontal" style="gap: 0.5rem">
+          <div v-if="activeEditId === storyItem.id" class="flex-horizontal gap-x-2">
             <el-input type="textarea" autosize v-model="storyItem.lineJP" @blur="clearActiveEditId" />
             <el-button type="primary" circle plain :icon="Check" @click="clearActiveEditId" />
           </div>
