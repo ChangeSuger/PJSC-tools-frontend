@@ -1,5 +1,5 @@
 <template>
-  <div class="home-view fill-current">
+  <div class="home-view w-full h-full flex flex-col overflow-y-scroll pl-2.5">
 
   </div>
 </template>
@@ -7,12 +7,3 @@
 <script setup lang="ts">
 
 </script>
-
-<style lang="scss" scoped>
-.home-view {
-  display: flex;
-  flex-direction: column;
-  overflow-y: scroll;
-  padding-left: 20px;
-}
-</style>

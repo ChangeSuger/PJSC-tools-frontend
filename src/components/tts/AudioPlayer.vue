@@ -1,7 +1,7 @@
 <template>
   <div>
-    <audio :src="url" controls ref="audioRef"></audio>
-    <el-button type="info" size="large" plain class="audio-player" @click="audioPlay" :icon="icon"></el-button>
+    <audio class="w-0 h-0 invisible" :src="url" controls ref="audioRef"></audio>
+    <el-button type="info" size="large" plain class="text-3xl w-10 h-10 rounded-full" @click="audioPlay" :icon="icon"></el-button>
   </div>
 </template>
 
@@ -50,18 +50,3 @@ function pause() {
   isPlaying.value = false;
 }
 </script>
-
-<style lang="scss" scoped>
-audio {
-  width: 0px;
-  height: 0px;
-  visibility: hidden;
-}
-
-.audio-player {
-  font-size: 30px;
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-}
-</style>

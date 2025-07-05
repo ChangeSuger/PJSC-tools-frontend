@@ -13,6 +13,7 @@
   >
     <CharacterTabs>
       <el-tab-pane
+        class="flex flex-col gap-2"
         v-for="(character, index) of characters"
         :key="character"
         :label="character"
@@ -63,24 +64,3 @@ function saveTTSCharacterConfig(character: string, index: number) {
   });
 }
 </script>
-
-<style lang="scss">
-.tts-character-config-dialog {
-
-  .el-tabs__new-tab {
-    width: 90px;
-    height: 32px;
-    border: none;
-  }
-
-  .el-tabs__content {
-    overflow-y: scroll;
-
-    .el-tab-pane {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-  }
-}
-</style>

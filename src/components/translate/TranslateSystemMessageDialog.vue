@@ -2,19 +2,19 @@
   <el-dialog v-model="visible" append-to-body center width="80%" title="提示词设置">
     <el-form v-model="translateSystemMessageForm">
       <el-form-item
-        class="translate-form-item"
+        class="*:flex *:flex-row *:gap-2 *:items-start!"
         v-for="(item, index) of translateSystemMessageForm"
         :key="index"
       >
         <el-input
-          style="width: 200px"
+          class="w-50"
           v-model="item.character"
           :disabled="item.character === 'default'"
         />
 
-        <el-input style="flex: 1" type="textarea" autosize v-model="item.systemMessage" />
+        <el-input class="w-full" type="textarea" autosize v-model="item.systemMessage" />
 
-        <div style="width: 50px">
+        <div class="w-12.5">
           <el-button
             v-if="item.character !== 'default'"
             type="danger"
@@ -36,59 +36,48 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useTranslataStore } from '@/stores'
-import { cloneDeep } from 'lodash-es'
+import { ref } from 'vue';
+import { useTranslataStore } from '@/stores';
+import { cloneDeep } from 'lodash-es';
 
-import type { TranslateSystemMessageItem } from '@/types'
+import type { TranslateSystemMessageItem } from '@/types';
 
-import { Delete } from '@element-plus/icons-vue'
+import { Delete } from '@element-plus/icons-vue';
 
 defineExpose({
   open,
-})
+});
 
-const visible = ref(false)
-const translateStore = useTranslataStore()
+const visible = ref(false);
+const translateStore = useTranslataStore();
 
 const translateSystemMessageForm = ref<TranslateSystemMessageItem[]>(
   cloneDeep(translateStore.translateSystemMessageList),
-)
+);
 
 function open() {
-  translateSystemMessageForm.value = cloneDeep(translateStore.translateSystemMessageList)
+  translateSystemMessageForm.value = cloneDeep(translateStore.translateSystemMessageList);
 
-  visible.value = true
+  visible.value = true;
 }
 
 function close() {
-  visible.value = false
+  visible.value = false;
 }
 
 function addTranslateSystemMessageItem() {
   translateSystemMessageForm.value.push({
     character: '',
     systemMessage: '',
-  })
+  });
 }
 
 function deleteTranslateSystemMessageItem(index: number) {
-  translateSystemMessageForm.value.splice(index, 1)
+  translateSystemMessageForm.value.splice(index, 1);
 }
 
 function saveTranslateSystemMessageForm() {
-  translateStore.setTranslateSystemMessageList(translateSystemMessageForm.value)
-  close()
+  translateStore.setTranslateSystemMessageList(translateSystemMessageForm.value);
+  close();
 }
 </script>
-
-<style lang="scss">
-.translate-form-item {
-  .el-form-item__content {
-    display: flex;
-    flex-direction: row;
-    gap: 0.5rem;
-    align-items: start;
-  }
-}
-</style>

@@ -1,9 +1,9 @@
 <template>
-  <div class="tts-view fill-current">
-    <div class="tts-header fill-width">
-      <div class="tts-header-left">
+  <div class="w-full h-full flex flex-col pl-2.5">
+    <div class="w-full h-10 py-0 px-2.5 flex flex-row justify-between items-center">
+      <div class="flex gap-4">
         <el-select
-          style="width: 120px"
+          class="w-30"
           v-model="characterSelected"
           clearable
           placeholder="选择角色"
@@ -17,13 +17,13 @@
         </el-select>
 
         <el-form :inline="true" :model="form">
-          <el-form-item label="剧本名" style="margin-bottom: 0;">
-            <el-input style="width: 150px" v-model="form.scriptName" clearable />
+          <el-form-item label="剧本名" class="mb-0!">
+            <el-input class="w-37.5" v-model="form.scriptName" clearable />
           </el-form-item>
         </el-form>
       </div>
 
-      <div class="tts-header-right">
+      <div>
         <el-button type="primary" text @click="ttsGenerateAllJP" :loading="generateLoading" :disabled="generateLoading">
           批量生成日文音频
         </el-button>
@@ -46,7 +46,7 @@
       </div>
     </div>
 
-    <div class="tts-body">
+    <div class="h-[calc(100%-40px)] flex flex-col gap-2 overflow-y-scroll">
       <StoryViewerItem
         v-for="storyItem in storyListFilter"
         :key="storyItem.id"
@@ -303,33 +303,3 @@ function generateAudioID(id: string, scriptName: string, lang: 'jp' | 'cn'): str
   return `${scriptName}_${id}_${lang}`;
 }
 </script>
-
-<style lang="scss" scoped>
-.tts-view {
-  display: flex;
-  flex-direction: column;
-  padding-left: 10px;
-
-  .tts-header {
-    height: 40px;
-    padding: 0 10px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-
-    .tts-header-left {
-      display: flex;
-      gap: 1rem;
-    }
-  }
-
-  .tts-body {
-    height: calc(100% - 40px);
-    overflow-y: scroll;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-}
-</style>

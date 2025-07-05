@@ -1,5 +1,10 @@
 <template>
   <el-tabs
+    class="
+      [&_.el-tabs\_\_new-tab]:w-22.5!
+      [&_.el-tabs\_\_new-tab]:h-8!
+      [&_.el-tabs\_\_new-tab]:border-none!
+    "
     v-model="activeName"
     type="card"
     editable
@@ -20,7 +25,7 @@ import { computed, ref } from 'vue';
 import { useTTSCharacterStore } from '@/stores';
 
 import { type TabPaneName, ElMessageBox } from 'element-plus';
-import AddCharacterDialog from '@/views/AddCharacterDialog.vue';
+import AddCharacterDialog from '@/components/tts/AddCharacterDialog.vue';
 
 const ttsCharacterStore = useTTSCharacterStore();
 

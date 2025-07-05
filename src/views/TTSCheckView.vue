@@ -1,15 +1,15 @@
 <template>
-  <div class="tts-check-view fill-current">
-    <div class="tts-check-header fill-width">
-      <div class="tts-check-header-left">
+  <div class="w-full h-full flex flex-col pl-2.5">
+    <div class="w-full h-10 py-0 px-2.5 flex flex-row justify-between items-center">
+      <div>
         <el-form :inline="true" :model="form">
-          <el-form-item label="剧本名" style="margin-bottom: 0;">
-            <el-input style="width: 240px" v-model="form.scriptName" clearable />
+          <el-form-item label="剧本名" class="mb-0!">
+            <el-input class="w-60" v-model="form.scriptName" clearable />
           </el-form-item>
         </el-form>
       </div>
 
-      <div class="translate-header-center" v-if="totalCN || totalJP">
+      <div v-if="totalCN || totalJP">
         <el-space>
           <div v-if="totalCN">
             {{ checkedCountCN }} / {{ totalCN }}
@@ -20,7 +20,7 @@
         </el-space>
       </div>
 
-      <div class="tts-check-header-right">
+      <div>
         <el-button type="primary" text :icon="Search" @click="findFirstNoCheckItemCN">
           中文未校对项检查
         </el-button>
@@ -39,12 +39,12 @@
       </div>
     </div>
 
-    <div class="tts-check-body">
+    <div class="h-[calc(100%-40px)] flex flex-col gap-2 overflow-y-scroll">
       <TTSCheckItem
         v-for="(storyItem, index) in storyList"
         :key="storyItem.id"
         :story-item="storyItem"
-        class="tts-check-voice"
+        is-tts-check-item
       >
         <template #cn v-if="storyItem.cnAudioURLs.length">
           <el-radio-group v-model="checkListCN[index]">
@@ -52,9 +52,9 @@
               v-for="(url, index) in storyItem.cnAudioURLs"
               :key="url"
             >
-              <el-radio :value="index">{{ index }}</el-radio>
+              <el-radio class="mr-4.5" :value="index">{{ index }}</el-radio>
 
-              <AudioPlayer class="audio" :url="url" />
+              <AudioPlayer class="mr-4.5" :url="url" />
             </template>
 
             <el-radio :value="-2">都不行</el-radio>
@@ -67,9 +67,9 @@
               v-for="(url, index) in storyItem.jpAudioURLs"
               :key="url"
             >
-              <el-radio :value="index">{{ index }}</el-radio>
+              <el-radio class="mr-4.5" :value="index">{{ index }}</el-radio>
 
-              <AudioPlayer class="audio" :url="url" />
+              <AudioPlayer class="mr-4.5" :url="url" />
             </template>
 
             <el-radio :value="-2">都不行</el-radio>
@@ -208,7 +208,7 @@ function exportScriptJSON() {
 function findFirstNoCheckItemCN() {
   const hasNoCheckItem = checkListCN.value.some((checked, index) => {
     if (checked === -1) {
-      document.querySelectorAll('.tts-check-voice')[index].scrollIntoView();
+      document.querySelectorAll('[is-tts-check-item]')[index].scrollIntoView();
       return true;
     }
     return false;
@@ -222,7 +222,7 @@ function findFirstNoCheckItemCN() {
 function findFirstNoCheckItemJP() {
   const hasNoCheckItem = checkListJP.value.some((checked, index) => {
     if (checked === -1) {
-      document.querySelectorAll('.tts-check-voice')[index].scrollIntoView();
+      document.querySelectorAll('[is-tts-check-item]')[index].scrollIntoView();
       return true;
     }
     return false;
@@ -233,41 +233,3 @@ function findFirstNoCheckItemJP() {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.tts-check-view {
-  display: flex;
-  flex-direction: column;
-  overflow-y: scroll;
-  padding-left: 10px;
-
-  .tts-check-header {
-    height: 40px;
-    padding: 0 10px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .tts-check-body {
-    height: calc(100% - 40px);
-    overflow-y: scroll;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-}
-</style>
-
-<style lang="scss">
-.tts-check-body {
-  .el-radio {
-    margin-right: 18px;
-  }
-
-  .audio {
-    margin-right: 18px;
-  }
-}
-</style>

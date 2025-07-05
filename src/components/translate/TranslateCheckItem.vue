@@ -1,26 +1,26 @@
 <template>
-  <div class="translate-check-item rounded-medium">
-    <div class="translate-check-item-left">
-      <div class="character-name">
+  <div class="w-full p-2 flex flex-row justify-between items-center gap-1 bg-(--color-bg) rounded-2xl">
+    <div class="w-25 flex flex-col justify-center items-center">
+      <div class="py-1 px-2.5 bg-(--color-fill-3) rounded-2xl">
         <el-text>
           {{ storyItem.cid }}
         </el-text>
       </div>
     </div>
 
-    <div class="translate-check-item-center" style="flex: 1">
-      <div class="content-cn fill-width">
+    <div class="w-full p-2 flex flex-col justify-center items-start gap-2">
+      <div class="w-full">
         <el-text size="large">
           {{ storyItem.line }}
         </el-text>
       </div>
 
-      <div class="content-jp fill-width">
+      <div class="w-full">
         <slot name="jp"></slot>
       </div>
     </div>
 
-    <div class="translate-check-item-right">
+    <div>
       <slot></slot>
     </div>
   </div>
@@ -37,38 +37,3 @@ defineProps({
   },
 });
 </script>
-
-<style lang="scss" scoped>
-.translate-check-item {
-  width: 100%;
-  padding: 8px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  gap: 4px;
-  background-color: var(--color-bg);
-
-  .translate-check-item-left {
-    width: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .character-name {
-      padding: 4px 10px;
-      border-radius: 1rem;
-      background-color: var(--color-fill-3);
-    }
-  }
-
-  .translate-check-item-center {
-    padding: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 0.5rem;
-  }
-}
-</style>

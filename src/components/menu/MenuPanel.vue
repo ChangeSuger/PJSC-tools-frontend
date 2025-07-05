@@ -1,12 +1,17 @@
 <template>
-  <div class="menu-panel fill-height">
-    <div class="menu-container">
-      <div class="menu-title">PJSC Tools</div>
+  <div class="h-full flex flex-col justify-between p-2 pt-4">
+    <div>
+      <div class="text-2xl px-2.5 py-1 font-bold">
+        PJSC Tools
+      </div>
 
       <div
-        class="menu-item"
-        :class="{ 'menu-item__active': item.name === activeMenuName }"
+        class="
+          w-45 text-base cursor-pointer py-1.5 px-2.5 rounded-lg flex flex-row items-center gap-2
+          hover:bg-(--color-fill-4) data-[active=true]:font-bold data-[active=true]:underline
+        "
         v-for="item in MENU_LIST"
+        :data-active="item.name === activeMenuName"
         :key="item.name"
         @click="goTo(item.name)"
       >
@@ -18,7 +23,7 @@
       </div>
     </div>
 
-    <div class="menu-footer flex-horizontal fill-width">
+    <div class="w-full flex flex-row">
       <ToggleThemeButton />
     </div>
   </div>
@@ -38,57 +43,3 @@ function goTo(menuName: string) {
   router.push({ name: `${menuName}` });
 }
 </script>
-
-<style scoped lang="scss">
-.menu-panel {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 0.5rem;
-  padding-top: 1rem;
-
-  .menu-title {
-    font-size: 24px;
-    font-weight: 700;
-    padding: 0 10px;
-  }
-
-  .menu-item {
-    width: 180px;
-    font-size: 16px;
-    cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 0.5rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 0.5rem;
-
-    &:hover {
-      background-color: var(--color-fill-4);
-    }
-
-    &__active {
-      font-weight: 700;
-    }
-  }
-
-  .menu-footer {
-    justify-content: left;
-
-    button {
-      width: 40px;
-      height: 40px;
-      background-color: transparent;
-
-      &:hover {
-        background-color: var(--color-fill-4);
-      }
-
-      svg {
-        color: var(--color-text-1);
-      }
-    }
-  }
-}
-</style>

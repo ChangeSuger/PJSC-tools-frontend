@@ -1,23 +1,23 @@
 <template>
-  <div class="setting-view fill-current">
-    <div class="setting-header">
+  <div class="w-full h-full flex flex-col pl-2.5 gap-2">
+    <div>
       <el-text>
-        <h1>设置</h1>
+        <h1 class="text-3xl">设置</h1>
       </el-text>
     </div>
 
-    <div class="setting-body">
-      <div class="setting-form-wrapper">
+    <div class="overflow-y-scroll">
+      <div class="w-150 flex flex-col gap-2">
         <div>
           <el-text>
-            <h2>LLM Config</h2>
+            <h2 class="text-xl">LLM Config</h2>
           </el-text>
         </div>
 
         <el-form :model="llmConfigForm" :label-width="LABEL_WIDTH">
           <el-form-item label="baseURL">
             <el-input
-              style="max-width: 500px"
+              class="max-w-125"
               v-model="llmConfigForm.baseURL"
               clearable
             />
@@ -25,7 +25,7 @@
 
           <el-form-item label="model">
             <el-input
-              style="max-width: 500px"
+              class="max-w-125"
               v-model="llmConfigForm.model"
               clearable
             />
@@ -33,7 +33,7 @@
 
           <el-form-item label="apiKey">
             <el-input
-              style="max-width: 500px"
+              class="max-w-125"
               v-model="llmConfigForm.apiKey"
               clearable
               show-password
@@ -43,15 +43,15 @@
 
         <div>
           <el-text>
-            <h2>TTS Config</h2>
+            <h2 class="text-xl">TTS Config</h2>
           </el-text>
         </div>
 
-        <div class="fill-width">
+        <div class="w-full">
           <el-form :model="ttsConfigForm" :label-width="LABEL_WIDTH">
             <el-form-item label="baseURL">
               <el-input
-                style="max-width: 500px"
+                class="max-w-125"
                 v-model="ttsConfigForm.baseURL"
                 clearable
               />
@@ -59,7 +59,7 @@
 
             <el-form-item label="batchSize">
               <el-slider
-                style="max-width: 500px"
+                class="max-w-125"
                 v-model="ttsConfigForm.batchSize"
                 :min="3"
                 :max="10"
@@ -78,14 +78,14 @@
 
         <div>
           <el-text>
-            <h2>OSS Config</h2>
+            <h2 class="text-xl">OSS Config</h2>
           </el-text>
         </div>
 
         <el-form :model="ossConfigForm" :label-width="LABEL_WIDTH">
           <el-form-item label="region">
             <el-input
-              style="max-width: 500px"
+              class="max-w-125"
               v-model="ossConfigForm.region"
               clearable
             />
@@ -93,7 +93,7 @@
 
           <el-form-item label="accessKeyId">
             <el-input
-              style="max-width: 500px"
+              class="max-w-125"
               v-model="ossConfigForm.accessKeyId"
               clearable
               show-password
@@ -102,7 +102,7 @@
 
           <el-form-item label="accessKeySecret">
             <el-input
-              style="max-width: 500px"
+              class="max-w-125"
               v-model="ossConfigForm.accessKeySecret"
               clearable
               show-password
@@ -111,7 +111,7 @@
 
           <el-form-item label="bucket">
             <el-input
-              style="max-width: 500px"
+              class="max-w-125"
               v-model="ossConfigForm.bucket"
               clearable
             />
@@ -120,7 +120,7 @@
       </div>
     </div>
 
-    <div class="setting-footer">
+    <div class="flex flex-row items-center">
       <el-button type="primary" @click=saveSettings>保存设置</el-button>
       <el-button type="danger" @click=initSettings>恢复初始化设置</el-button>
     </div>
@@ -180,29 +180,3 @@ function initSettings() {
   ElMessage.success('配置初始化成功~');
 }
 </script>
-
-<style scoped lang="scss">
-.setting-view {
-  display: flex;
-  flex-direction: column;
-  padding-left: 20px;
-  gap: 0.5rem;
-
-  .setting-body {
-    overflow-y: scroll;
-
-    .setting-form-wrapper {
-      width: 600px;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-  }
-
-  .setting-footer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-}
-</style>

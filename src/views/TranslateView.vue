@@ -1,19 +1,19 @@
 <template>
-  <div class="translate-view fill-current">
-    <div class="translate-header fill-width">
-      <div class="translate-header-left">
+  <div class="w-full h-full flex flex-col pl-2.5">
+    <div class="w-full h-10 py-0 px-2.5 flex flex-row justify-between items-center">
+      <div>
         <el-form :inline="true" :model="form">
-          <el-form-item label="剧本名" style="margin-bottom: 0;">
-            <el-input style="width: 240px" v-model="form.scriptName" clearable />
+          <el-form-item label="剧本名" class="mb-0!">
+            <el-input class="w-60" v-model="form.scriptName" clearable />
           </el-form-item>
         </el-form>
       </div>
 
-      <div class="translate-header-center" v-if="translateLoading">
+      <div v-if="translateLoading">
         {{ count }} / {{ total }}
       </div>
 
-      <div class="translate-header-right">
+      <div>
         <el-button type="primary" text @click="translateAll" :loading="translateLoading" :disabled="translateLoading">
           批量翻译
         </el-button>
@@ -32,7 +32,7 @@
       </div>
     </div>
 
-    <div class="translate-body">
+    <div class="h-[calc(100%-40px)] flex flex-col gap-2 overflow-y-scroll">
       <StoryViewerItem
         v-for="storyItem in storyList"
         :key="storyItem.id"
@@ -167,29 +167,3 @@ function openDialog() {
   translateSystemMessageDialogFef.value?.open();
 }
 </script>
-
-<style scoped lang="scss">
-.translate-view {
-  display: flex;
-  flex-direction: column;
-  padding-left: 10px;
-  gap: 8px;
-
-  .translate-header {
-    height: 40px;
-    padding: 0 10px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .translate-body {
-    height: calc(100% - 40px);
-    overflow-y: scroll;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-}
-</style>

@@ -1,10 +1,10 @@
 <template>
-  <div class="translate-check-view fill-current">
-    <div class="translate-check-header fill-width">
-      <div class="translate-check-header-left">
+  <div class="w-full h-full flex flex-col pl-2.5 gap-2">
+    <div class="w-full h-10 px-2.5 py-0 flex flex-row justify-between items-center">
+      <div class="flex items-center">
         <el-form :inline="true" :model="form">
-          <el-form-item label="剧本名" style="margin-bottom: 0;">
-            <el-input style="width: 150px" v-model="form.scriptName" clearable />
+          <el-form-item label="剧本名" class="mb-0!">
+            <el-input class="w-37.5" v-model="form.scriptName" clearable />
           </el-form-item>
         </el-form>
 
@@ -20,11 +20,11 @@
         </el-dropdown>
       </div>
 
-      <div class="translate-header-center" v-if="total">
+      <div v-if="total">
         {{ checkedCount }} / {{ total }}
       </div>
 
-      <div class="translate-check-header-right">
+      <div>
         <el-button type="primary" text :icon="Search" @click="findFirstNoCheckItem">
           未校对项检查
         </el-button>
@@ -39,26 +39,33 @@
       </div>
     </div>
 
-    <div class="translate-check-body">
+    <div class="h-[calc(100%-40px)] flex flex-col gap-2 overflow-y-scroll">
       <TranslateCheckItem
         v-for="(storyItem, index) in storyList"
         :key="storyItem.id"
         :story-item="storyItem"
+        is-translate-check-item
       >
         <template #jp v-if="characters.includes(storyItem.cid)">
-          <div v-if="activeEditId === storyItem.id" class="flex-horizontal gap-x-2">
+          <div v-if="activeEditId === storyItem.id" class="flex flex-row items-center gap-x-2">
             <el-input type="textarea" autosize v-model="storyItem.lineJP" @blur="clearActiveEditId" />
             <el-button type="primary" circle plain :icon="Check" @click="clearActiveEditId" />
           </div>
 
-          <el-space v-else>
+          <div v-else class="flex flex-row items-center gap-x-2">
             <el-text size="large">{{ storyItem.lineJP }}</el-text>
             <el-button type="primary" circle plain :icon="Edit" @click="setActiveEditId(storyItem.id)" />
-          </el-space>
+          </div>
         </template>
 
-        <div class="translate-item-check-button">
+        <div class="w-12.5 h-8">
           <el-rate
+            class="
+              [&_.el-icon.el-rate\_\_icon]:w-10!
+              [&_.el-icon.el-rate\_\_icon]:h-10!
+              [&_svg]:w-full!
+              [&_svg]:h-full!
+            "
             v-if="checkListMap[index] !== undefined"
             v-model="checkList[checkListMap[index]]"
             :icons="[CircleCheck, CircleCheck, CircleCheck]"
@@ -172,7 +179,7 @@ function findFirstNoCheckItem() {
     if (!checked) {
       Object.entries(checkListMap.value).some(([key, value]) => {
         if (value === index) {
-          document.querySelectorAll('.translate-check-item')[Number(key)].scrollIntoView();
+          document.querySelectorAll('[is-translate-check-item]')[Number(key)].scrollIntoView();
           return true;
         } else {
           return false;
@@ -211,55 +218,3 @@ function clearActiveEditId() {
   setActiveEditId('');
 }
 </script>
-
-<style lang="scss" scoped>
-.translate-check-view {
-  display: flex;
-  flex-direction: column;
-  padding-left: 10px;
-  gap: 8px;
-
-  .translate-check-header {
-    height: 40px;
-    padding: 0 10px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-
-    .translate-check-header-left {
-      display: flex;
-      align-items: center;
-    }
-  }
-
-  .translate-check-body {
-    height: calc(100% - 40px);
-    overflow-y: scroll;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-
-    .translate-item-check-button {
-      width: 50px;
-      height: 32px;
-    }
-  }
-}
-</style>
-
-<style lang="scss">
-.translate-check-body {
-  .el-rate {
-    .el-icon.el-rate__icon {
-      width: 40px;
-      height: 40px;
-    }
-
-    svg {
-      width: 100%;
-      height: 100%;
-    }
-  }
-}
-</style>

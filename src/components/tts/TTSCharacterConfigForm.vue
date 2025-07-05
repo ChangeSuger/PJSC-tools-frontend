@@ -25,7 +25,7 @@
 
     <el-form-item label="语速">
       <el-slider
-        style="max-width: 500px"
+        class="max-w-125"
         v-model="ttsCharacterConfigForm.speed"
         :min="0.6"
         :max="1.65"
@@ -36,7 +36,7 @@
 
     <el-form-item label="句间停顿秒数">
       <el-slider
-        style="max-width: 500px"
+        class="max-w-125"
         v-model="ttsCharacterConfigForm.pauseBetweenSentences"
         :min="0.1"
         :max="0.5"
@@ -47,7 +47,7 @@
 
     <el-form-item label="top_k">
       <el-slider
-        style="max-width: 500px"
+        class="max-w-125"
         v-model="ttsCharacterConfigForm.topK"
         :min="1"
         :max="100"
@@ -58,7 +58,7 @@
 
     <el-form-item label="top_p">
       <el-slider
-        style="max-width: 500px"
+        class="max-w-125"
         v-model="ttsCharacterConfigForm.topP"
         :min="0"
         :max="1"
@@ -69,7 +69,7 @@
 
     <el-form-item label="temperature">
       <el-slider
-        style="max-width: 500px"
+        class="max-w-125"
         v-model="ttsCharacterConfigForm.temperature"
         :min="0"
         :max="1"

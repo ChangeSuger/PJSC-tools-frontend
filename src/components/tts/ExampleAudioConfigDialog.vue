@@ -4,7 +4,7 @@
   </el-button>
 
   <el-dialog
-    class="example-audio-config-dialog"
+    class="example-audio-config-dialog h-[95vh]"
     v-model="visible"
     append-to-body
     center
@@ -19,12 +19,14 @@
         :label="character"
         :name="character"
       >
-        <ExampleAudioItem
-          v-for="characterEmotion of generateCharacterEmotionList(character)"
-          :key="`${characterEmotion.character}-${characterEmotion.emotion}`"
-          :id="`${characterEmotion.character}-${characterEmotion.emotion}`"
-          :emotion="characterEmotion.emotion"
-        />
+        <div class="max-h-[78vh] flex flex-col gap-2 overflow-y-scroll">
+          <ExampleAudioItem
+            v-for="characterEmotion of generateCharacterEmotionList(character)"
+            :key="`${characterEmotion.character}-${characterEmotion.emotion}`"
+            :id="`${characterEmotion.character}-${characterEmotion.emotion}`"
+            :emotion="characterEmotion.emotion"
+          />
+        </div>
       </el-tab-pane>
     </CharacterTabs>
   </el-dialog>
@@ -60,26 +62,3 @@ function generateCharacterEmotionList(character: string) {
   });
 }
 </script>
-
-<style lang="scss">
-.example-audio-config-dialog {
-  height: 95vh;
-
-  .el-tabs__new-tab {
-    width: 90px;
-    height: 32px;
-    border: none;
-  }
-
-  .el-tabs__content {
-    max-height: 78vh;
-    overflow-y: scroll;
-
-    .el-tab-pane {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-  }
-}
-</style>

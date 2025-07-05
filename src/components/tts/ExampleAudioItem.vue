@@ -1,20 +1,20 @@
 <template>
-  <div class="example-audio-item rounded-medium">
-    <div class="example-audio-item-left">
+  <div class="w-full p-2 rounded-2xl flex flex-row justify-between items-center gap-2 bg-(--color-bg)">
+    <div class="w-20 flex justify-center items-center">
       <EmotionTag :text="emotion" />
     </div>
 
-    <div class="example-audio-item-center">
-      <div class="example-audio-player">
-        <audio v-if="exampleAudioURL" controls :src="exampleAudioURL"></audio>
+    <div class="w-full flex flex-col justify-around gap-2">
+      <div class="flex items-center gap-2">
+        <audio class="h-8" v-if="exampleAudioURL" controls :src="exampleAudioURL"></audio>
       </div>
 
-      <div class="example-audio-text">
+      <div>
         <el-input v-model="exampleAudioObject.text" />
       </div>
     </div>
 
-    <div class="example-audio-item-right">
+    <div>
       <el-space direction="vertical">
         <el-button type="primary" @click="uploadExampleAudio">上传音频</el-button>
         <el-button type="primary" @click="putExampleAudioObject">更新音频</el-button>
@@ -96,43 +96,4 @@ function uploadExampleAudio() {
 onMounted(() => {
   getExampleAudioObject();
 });
-
 </script>
-
-<style lang="scss" scoped>
-.example-audio-item {
-  width: 100%;
-  padding: 0.5rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.5rem;
-  background-color: var(--color-bg);
-
-  .example-audio-item-left {
-    width: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .example-audio-item-center {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    gap: 0.5rem;
-
-    .example-audio-player {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-
-      audio {
-        height: 32px;
-      }
-    }
-  }
-}
-</style>

@@ -1,9 +1,9 @@
 <template>
   <button
-    class="toggle-theme-button center rounded-small"
+    class="w-10 h-10 bg-transparent center rounded-lg hover:bg-(--color-fill-4)"
     @click="settingsStore.toggleTheme()"
   >
-    <el-icon :size="30">
+    <el-icon :size="30" class="*:text-(--color-text-1)">
       <Sunny v-if="settingsStore.getTheme === 'light'" />
       <Moon v-else />
     </el-icon>
@@ -16,19 +16,3 @@ import { Sunny, Moon } from '@element-plus/icons-vue'
 
 const settingsStore = useSettingsStore();
 </script>
-
-<style scoped lang="scss">
-.toggle-theme-button {
-  width: 40px;
-  height: 40px;
-  background-color: transparent;
-
-  &:hover {
-    background-color: var(--color-fill-4);
-  }
-
-  svg {
-    color: var(--color-text-1);
-  }
-}
-</style>

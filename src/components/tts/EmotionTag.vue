@@ -1,5 +1,5 @@
 <template>
-  <el-tag class="emotion-tag" :type="getEmotionType(text)">
+  <el-tag class="h-8! text-sm! *:px-2 *:py-1 *:font-bold" :type="getEmotionType(text)">
     {{ text }}
   </el-tag>
 </template>
@@ -26,15 +26,3 @@ function getEmotionType(emotion: string) {
   }
 }
 </script>
-
-<style lang="scss">
-.emotion-tag {
-  height: 32px;
-  font-size: 14px;
-
-  .el-tag__content {
-    padding: 4px 8px;
-    font-weight: 700;
-  }
-}
-</style>
