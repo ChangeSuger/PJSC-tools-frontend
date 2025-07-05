@@ -46,7 +46,15 @@
         :story-item="storyItem"
       >
         <template #jp v-if="characters.includes(storyItem.cid)">
-          <el-input type="textarea" autosize v-model="storyItem.lineJP" />
+          <div v-if="activeEditId === storyItem.id" class="flex-horizontal" style="gap: 0.5rem">
+            <el-input type="textarea" autosize v-model="storyItem.lineJP" @blur="clearActiveEditId" />
+            <el-button type="primary" circle plain :icon="Check" @click="clearActiveEditId" />
+          </div>
+
+          <el-space v-else>
+            <el-text size="large">{{ storyItem.lineJP }}</el-text>
+            <el-button type="primary" circle plain :icon="Edit" @click="setActiveEditId(storyItem.id)" />
+          </el-space>
         </template>
 
         <div class="translate-item-check-button">
@@ -65,7 +73,7 @@
 </template>
 
 <script setup lang="ts">
-import { Upload, Download, CircleCheck, Search, ArrowDown } from '@element-plus/icons-vue';
+import { Upload, Download, CircleCheck, Search, ArrowDown, Edit, Check } from '@element-plus/icons-vue';
 
 import { ref, computed, watch } from 'vue';
 import { scriptAdaptIn } from '@/utils/scriptAdapter';
@@ -91,6 +99,8 @@ const storyList = computed(() => {
 
 const checkList = ref<number[]>([]);
 const checkListMap = ref<Record<number, number>>({});
+
+const activeEditId = ref('');
 
 const total = computed(() => {
   return checkList.value.length;
@@ -191,6 +201,14 @@ async function handleCommand(command: string) {
   reader.readAsText(await file.blob());
 
   form.value.scriptName = command;
+}
+
+function setActiveEditId(id: string) {
+  activeEditId.value = id;
+}
+
+function clearActiveEditId() {
+  setActiveEditId('');
 }
 </script>
 
