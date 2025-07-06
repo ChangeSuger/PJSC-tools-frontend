@@ -4,27 +4,16 @@
       <div class="flex items-center">
         <el-form :inline="true" :model="form">
           <el-form-item label="剧本名" class="mb-0!">
-            <el-input class="w-37.5" v-model="form.scriptName" clearable />
+            <el-input class="w-37.5!" v-model="form.scriptName" clearable />
           </el-form-item>
         </el-form>
-
-        <el-dropdown @command="handleCommand">
-          <el-button>
-            选择内置剧本 <el-icon><arrow-down /></el-icon>
-          </el-button>
-
-          <template #dropdown>
-            <el-dropdown-item command="K-1">K-1</el-dropdown-item>
-            <el-dropdown-item command="K-2">K-2</el-dropdown-item>
-          </template>
-        </el-dropdown>
       </div>
 
       <div v-if="total">
         {{ checkedCount }} / {{ total }}
       </div>
 
-      <div>
+      <el-button-group>
         <el-button type="primary" text :icon="Search" @click="findFirstNoCheckItem">
           未校对项检查
         </el-button>
@@ -36,7 +25,7 @@
         <el-button type="primary" text :icon="Download" @click="exportScriptJSON">
           导出剧本
         </el-button>
-      </div>
+      </el-button-group>
     </div>
 
     <div class="h-[calc(100%-40px)] flex flex-col gap-2 overflow-y-scroll">
@@ -80,7 +69,7 @@
 </template>
 
 <script setup lang="ts">
-import { Upload, Download, CircleCheck, Search, ArrowDown, Edit, Check } from '@element-plus/icons-vue';
+import { Upload, Download, CircleCheck, Search, Edit, Check } from '@element-plus/icons-vue';
 
 import { ref, computed, watch } from 'vue';
 import { scriptAdaptIn } from '@/utils/scriptAdapter';
@@ -194,20 +183,6 @@ function findFirstNoCheckItem() {
   if (!hasNoCheckItem) {
     ElMessage.success('已全部校对完成~');
   }
-}
-
-async function handleCommand(command: string) {
-  const file = await fetch(`/${command}.json`);
-
-  const reader = new FileReader();
-  reader.onload = () => {
-    const jsonstring = reader.result as string;
-    const scriptData = JSON.parse(jsonstring) as StoryScript;
-    storyScript.value = scriptAdaptIn(scriptData);
-  }
-  reader.readAsText(await file.blob());
-
-  form.value.scriptName = command;
 }
 
 function setActiveEditId(id: string) {

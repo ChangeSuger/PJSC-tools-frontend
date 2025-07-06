@@ -20,7 +20,7 @@
         </el-space>
       </div>
 
-      <div>
+      <el-button-group>
         <el-button type="primary" text :icon="Search" @click="findFirstNoCheckItemCN">
           中文未校对项检查
         </el-button>
@@ -36,7 +36,7 @@
         <el-button type="primary" text :icon="Download" @click="exportScriptJSON">
           导出剧本
         </el-button>
-      </div>
+      </el-button-group>
     </div>
 
     <div class="h-[calc(100%-40px)] flex flex-col gap-2 overflow-y-scroll">
@@ -52,9 +52,9 @@
               v-for="(url, index) in storyItem.cnAudioURLs"
               :key="url"
             >
-              <el-radio class="mr-4.5" :value="index">{{ index }}</el-radio>
+              <el-radio class="mr-4.5!" :value="index">{{ index }}</el-radio>
 
-              <AudioPlayer class="mr-4.5" :url="url" />
+              <AudioPlayer class="mr-4.5!" :url="url" />
             </template>
 
             <el-radio :value="-2">都不行</el-radio>
@@ -67,9 +67,9 @@
               v-for="(url, index) in storyItem.jpAudioURLs"
               :key="url"
             >
-              <el-radio class="mr-4.5" :value="index">{{ index }}</el-radio>
+              <el-radio class="mr-4.5!" :value="index">{{ index }}</el-radio>
 
-              <AudioPlayer class="mr-4.5" :url="url" />
+              <AudioPlayer class="mr-4.5!" :url="url" />
             </template>
 
             <el-radio :value="-2">都不行</el-radio>

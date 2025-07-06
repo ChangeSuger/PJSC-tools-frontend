@@ -3,7 +3,7 @@
     <div class="w-full h-10 py-0 px-2.5 flex flex-row justify-between items-center">
       <div class="flex gap-4">
         <el-select
-          class="w-30"
+          class="w-30!"
           v-model="characterSelected"
           clearable
           placeholder="选择角色"
@@ -18,12 +18,12 @@
 
         <el-form :inline="true" :model="form">
           <el-form-item label="剧本名" class="mb-0!">
-            <el-input class="w-37.5" v-model="form.scriptName" clearable />
+            <el-input class="w-37.5!" v-model="form.scriptName" clearable />
           </el-form-item>
         </el-form>
       </div>
 
-      <div>
+      <el-button-group>
         <el-button type="primary" text @click="ttsGenerateAllJP" :loading="generateLoading" :disabled="generateLoading">
           批量生成日文音频
         </el-button>
@@ -43,7 +43,7 @@
         <ExampleAudioConfigDialog />
 
         <TTSCharacterConfigDialog />
-      </div>
+      </el-button-group>
     </div>
 
     <div class="h-[calc(100%-40px)] flex flex-col gap-2 overflow-y-scroll">

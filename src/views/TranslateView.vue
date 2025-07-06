@@ -4,7 +4,7 @@
       <div>
         <el-form :inline="true" :model="form">
           <el-form-item label="剧本名" class="mb-0!">
-            <el-input class="w-60" v-model="form.scriptName" clearable />
+            <el-input class="w-60!" v-model="form.scriptName" clearable />
           </el-form-item>
         </el-form>
       </div>
@@ -13,7 +13,7 @@
         {{ count }} / {{ total }}
       </div>
 
-      <div>
+      <el-button-group>
         <el-button type="primary" text @click="translateAll" :loading="translateLoading" :disabled="translateLoading">
           批量翻译
         </el-button>
@@ -29,7 +29,7 @@
         <el-button type="primary" text :icon="Setting" @click="openDialog">
           提示词设置
         </el-button>
-      </div>
+      </el-button-group>
     </div>
 
     <div class="h-[calc(100%-40px)] flex flex-col gap-2 overflow-y-scroll">

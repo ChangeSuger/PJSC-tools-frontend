@@ -1,6 +1,6 @@
 <template>
   <button
-    class="w-10 h-10 bg-transparent center rounded-lg hover:bg-(--color-fill-4)"
+    class="w-10 h-10 bg-transparent rounded-lg flex justify-center items-center hover:bg-(--color-fill-4)"
     @click="settingsStore.toggleTheme()"
   >
     <el-icon :size="30" class="*:text-(--color-text-1)">
