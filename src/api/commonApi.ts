@@ -34,4 +34,22 @@ export class CommonApi {
       } as Response<string>;
     }
   }
+
+  static async getChoices(url: string) {
+    type ChoicesResponse = [
+      { choices: string[] },
+      { choices: string[] }
+    ]
+    try {
+      const res = await axiosInstance.post<Response<ChoicesResponse>>('/change_choices', { url });
+      return successWrapper(res.data.data);
+    } catch(error) {
+      console.log(error);
+
+      return {
+        code: 500,
+        msg: '网络错误'
+      } as Response<ChoicesResponse>;
+    }
+  }
 }
