@@ -2,17 +2,17 @@
   <div class="w-full p-2 flex flex-row justify-between items-center gap-1 bg-(--color-bg) rounded-2xl">
     <div class="w-25 flex flex-col justify-center items-center">
       <div class="py-1 px-2.5 bg-(--color-fill-3) rounded-2xl">
-        <el-text>
+        <a-typography>
           {{ storyItem.cid }}
-        </el-text>
+        </a-typography>
       </div>
     </div>
 
     <div class="w-full p-2 flex flex-col justify-center items-start gap-2">
       <div class="w-full">
-        <el-text size="large">
+        <a-typography size="large">
           {{ storyItem.line }}
-        </el-text>
+        </a-typography>
       </div>
 
       <div class="w-full">

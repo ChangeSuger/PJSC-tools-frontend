@@ -1,25 +1,22 @@
 <template>
-  <el-button type="primary" text :icon="Setting" @click="open">
+  <a-button type="text" @click="open">
     参考音频配置
-  </el-button>
+  </a-button>
 
-  <el-dialog
-    class="example-audio-config-dialog h-[95vh]"
-    v-model="visible"
-    append-to-body
-    center
-    align-center
+  <a-modal
+    modal-class="h-[95vh]"
+    v-model:visible="visible"
     width="80%"
     title="参考音频设置"
+    :footer="false"
   >
     <CharacterTabs>
-      <el-tab-pane
+      <a-tab-pane
         v-for="character of characters"
         :key="character"
-        :label="character"
-        :name="character"
+        :title="character"
       >
-        <div class="max-h-[78vh] flex flex-col gap-2 overflow-y-scroll">
+        <div class="max-h-[calc(95vh-150px)] flex flex-col gap-2 overflow-y-scroll">
           <ExampleAudioItem
             v-for="characterEmotion of generateCharacterEmotionList(character)"
             :key="`${characterEmotion.character}-${characterEmotion.emotion}`"
@@ -27,9 +24,9 @@
             :emotion="characterEmotion.emotion"
           />
         </div>
-      </el-tab-pane>
+      </a-tab-pane>
     </CharacterTabs>
-  </el-dialog>
+  </a-modal>
 </template>
 
 <script setup lang="ts">
@@ -39,7 +36,6 @@ import { EMOTIONS } from '@/datas';
 
 import ExampleAudioItem from '@/components/tts/ExampleAudioItem.vue';
 import CharacterTabs from './CharacterTabs.vue';
-import { Setting } from '@element-plus/icons-vue';
 
 const ttsCharacterStore = useTTSCharacterStore();
 

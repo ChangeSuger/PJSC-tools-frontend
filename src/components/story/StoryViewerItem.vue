@@ -2,18 +2,18 @@
   <div class="w-full p-2 rounded-2xl flex flex-row justify-between items-center gap-1 bg-(--color-bg)">
     <div class="w-25 flex flex-col justify-center items-center gap-2">
       <div class="px-2.5 py-1 bg-(--color-fill-3) rounded-2xl">
-        <el-text>
+        <a-typography>
           {{ storyItem.cid }}
-        </el-text>
+        </a-typography>
       </div>
       <EmotionTag :text="storyItem.emotion" />
     </div>
 
     <div class="w-full p-2 flex flex-col justify-center items-start gap-2">
       <div>
-        <el-text size="large">
+        <a-typography size="large">
           {{ storyItem.line }}
-        </el-text>
+        </a-typography>
       </div>
 
       <div class="flex gap-2" v-if="storyItem.cnAudioURLs.length">
@@ -25,9 +25,9 @@
       </div>
 
       <div v-if="storyItem.lineJP">
-        <el-text size="large">
+        <a-typography size="large">
           {{ storyItem.lineJP }}
-        </el-text>
+        </a-typography>
       </div>
 
       <div class="flex gap-2" v-if="storyItem.jpAudioURLs.length">

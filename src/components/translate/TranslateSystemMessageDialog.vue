@@ -1,38 +1,43 @@
 <template>
-  <el-dialog v-model="visible" append-to-body center width="80%" title="提示词设置">
-    <el-form v-model="translateSystemMessageForm">
-      <el-form-item
-        class="*:flex *:flex-row *:gap-2 *:items-start!"
+  <a-modal v-model:visible="visible" width="80%" title="提示词设置" body-class="py-4!">
+    <a-form v-model:model="translateSystemMessageForm" layout="vertical">
+      <a-form-item
+        class="mb-0!"
+        content-class="flex flex-row gap-2 items-start!"
         v-for="(item, index) of translateSystemMessageForm"
         :key="index"
       >
-        <el-input
-          class="w-50"
+        <a-input
+          class="w-50!"
           v-model="item.character"
+          placeholder="请输入角色名称"
           :disabled="item.character === 'default'"
         />
 
-        <el-input class="w-full" type="textarea" autosize v-model="item.systemMessage" />
+        <a-textarea class="w-full" type="textarea" autosize v-model="item.systemMessage" />
 
         <div class="w-12.5">
-          <el-button
-            v-if="item.character !== 'default'"
-            type="danger"
+          <a-button
+            status="danger"
             plain
-            :icon="Delete"
+            :disabled="item.character === 'default'"
             @click="deleteTranslateSystemMessageItem(index)"
-          ></el-button>
+          >
+            <template #icon>
+              <IconDelete />
+            </template>
+          </a-button>
         </div>
-      </el-form-item>
-    </el-form>
+      </a-form-item>
+    </a-form>
 
-    <el-button type="primary" plain @click="addTranslateSystemMessageItem">添加配置</el-button>
+    <a-button type="primary" plain @click="addTranslateSystemMessageItem">添加配置</a-button>
 
     <template #footer>
-      <el-button type="primary" plain @click="saveTranslateSystemMessageForm">保存</el-button>
-      <el-button type="info" plain @click="close">取消</el-button>
+      <a-button type="primary" plain @click="saveTranslateSystemMessageForm">保存</a-button>
+      <a-button status="normal" plain @click="close">取消</a-button>
     </template>
-  </el-dialog>
+  </a-modal>
 </template>
 
 <script setup lang="ts">
@@ -42,7 +47,7 @@ import { cloneDeep } from 'lodash-es';
 
 import type { TranslateSystemMessageItem } from '@/types';
 
-import { Delete } from '@element-plus/icons-vue';
+import { IconDelete } from '@arco-design/web-vue/es/icon';
 
 defineExpose({
   open,

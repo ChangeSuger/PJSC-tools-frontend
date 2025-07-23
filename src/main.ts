@@ -4,9 +4,9 @@ import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
 
 import App from './App.vue';
 import router from './router';
-import ElementPlus from 'element-plus';
-import 'element-plus/dist/index.css';
-import 'element-plus/theme-chalk/dark/css-vars.css';
+
+import ArcoVue from '@arco-design/web-vue';
+import '@arco-design/web-vue/dist/arco.css';
 import './assets/style.scss';
 
 const app = createApp(App);
@@ -16,6 +16,6 @@ pinia.use(piniaPluginPersistedstate);
 
 app.use(pinia);
 app.use(router);
-app.use(ElementPlus);
+app.use(ArcoVue);
 
 app.mount('#app');

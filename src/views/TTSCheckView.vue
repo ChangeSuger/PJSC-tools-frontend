@@ -2,41 +2,41 @@
   <div class="w-full h-full flex flex-col pl-2.5">
     <div class="w-full h-10 py-0 px-2.5 flex flex-row justify-between items-center">
       <div>
-        <el-form :inline="true" :model="form">
-          <el-form-item label="剧本名" class="mb-0!">
-            <el-input class="w-60" v-model="form.scriptName" clearable />
-          </el-form-item>
-        </el-form>
+        <a-form :inline="true" :model="form" auto-label-width>
+          <a-form-item label="剧本名" class="mb-0!">
+            <a-input class="w-60" v-model="form.scriptName" allow-clear />
+          </a-form-item>
+        </a-form>
       </div>
 
       <div v-if="totalCN || totalJP">
-        <el-space>
+        <a-space>
           <div v-if="totalCN">
             {{ checkedCountCN }} / {{ totalCN }}
           </div>
           <div v-if="totalJP">
             {{ checkedCountJP }} / {{ totalJP }}
           </div>
-        </el-space>
+        </a-space>
       </div>
 
-      <el-button-group>
-        <el-button type="primary" text :icon="Search" @click="findFirstNoCheckItemCN">
+      <a-button-group>
+        <a-button type="text" @click="findFirstNoCheckItemCN">
           中文未校对项检查
-        </el-button>
+        </a-button>
 
-        <el-button type="primary" text :icon="Search" @click="findFirstNoCheckItemJP">
+        <a-button type="text" @click="findFirstNoCheckItemJP">
           日文未校对项检查
-        </el-button>
+        </a-button>
 
-        <el-button type="primary" text :icon="Upload" @click="importScriptJSON">
+        <a-button type="text" @click="importScriptJSON">
           导入剧本
-        </el-button>
+        </a-button>
 
-        <el-button type="primary" text :icon="Download" @click="exportScriptJSON">
+        <a-button type="text" @click="exportScriptJSON">
           导出剧本
-        </el-button>
-      </el-button-group>
+        </a-button>
+      </a-button-group>
     </div>
 
     <div class="h-[calc(100%-40px)] flex flex-col gap-2 overflow-y-scroll">
@@ -47,33 +47,33 @@
         is-tts-check-item
       >
         <template #cn v-if="storyItem.cnAudioURLs.length">
-          <el-radio-group v-model="checkListCN[index]">
+          <a-radio-group v-model="checkListCN[index]" class="flex! items-center">
             <template
               v-for="(url, index) in storyItem.cnAudioURLs"
               :key="url"
             >
-              <el-radio class="mr-4.5!" :value="index">{{ index }}</el-radio>
+              <a-radio class="mr-4.5!" :value="index">{{ index }}</a-radio>
 
-              <AudioPlayer class="mr-4.5!" :url="url" />
+              <AudioPlayer class="mr-4.5! inline-flex" :url="url" />
             </template>
 
-            <el-radio :value="-2">都不行</el-radio>
-          </el-radio-group>
+            <a-radio :value="-2">都不行</a-radio>
+          </a-radio-group>
         </template>
 
         <template #jp v-if="storyItem.jpAudioURLs.length">
-          <el-radio-group v-model="checkListJP[index]">
+          <a-radio-group v-model="checkListJP[index]" class="flex! items-center">
             <template
               v-for="(url, index) in storyItem.jpAudioURLs"
               :key="url"
             >
-              <el-radio class="mr-4.5!" :value="index">{{ index }}</el-radio>
+              <a-radio class="mr-4.5!" :value="index">{{ index }}</a-radio>
 
-              <AudioPlayer class="mr-4.5!" :url="url" />
+              <AudioPlayer class="mr-4.5! inline-flex" :url="url" />
             </template>
 
-            <el-radio :value="-2">都不行</el-radio>
-          </el-radio-group>
+            <a-radio :value="-2">都不行</a-radio>
+          </a-radio-group>
         </template>
       </TTSCheckItem>
     </div>
@@ -84,12 +84,11 @@
 import { ref, computed, watch } from 'vue';
 
 import type { StoryItem, StoryScriptFull } from '@/types';
-import { Upload, Download, Search } from '@element-plus/icons-vue';
 import TTSCheckItem from '@/components/tts/TTSCheckItem.vue';
 import AudioPlayer from '@/components/tts/AudioPlayer.vue';
 import { scriptAdaptIn } from '@/utils/scriptAdapter';
 import { cloneDeep } from 'lodash-es';
-import { ElMessage } from 'element-plus';
+import { Message } from '@arco-design/web-vue';
 
 const storyScript = ref<StoryScriptFull>();
 
@@ -215,7 +214,7 @@ function findFirstNoCheckItemCN() {
   });
 
   if (!hasNoCheckItem) {
-    ElMessage.success('中文音频校对完成~');
+    Message.success('中文音频校对完成~');
   }
 }
 
@@ -229,7 +228,7 @@ function findFirstNoCheckItemJP() {
   });
 
   if (!hasNoCheckItem) {
-    ElMessage.success('日文音频校对完成~');
+    Message.success('日文音频校对完成~');
   }
 }
 </script>

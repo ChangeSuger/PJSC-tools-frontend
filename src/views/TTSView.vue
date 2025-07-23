@@ -2,48 +2,43 @@
   <div class="w-full h-full flex flex-col pl-2.5">
     <div class="w-full h-10 py-0 px-2.5 flex flex-row justify-between items-center">
       <div class="flex gap-4">
-        <el-select
-          class="w-30!"
+        <a-select
+          class="w-40!"
           v-model="characterSelected"
-          clearable
+          allow-clear
+          allow-search
           placeholder="选择角色"
-        >
-          <el-option
-            v-for="character of characterOptions"
-            :key="character"
-            :label="character"
-            :value="character"
-          />
-        </el-select>
+          :options="characterOptions"
+        />
 
-        <el-form :inline="true" :model="form">
-          <el-form-item label="剧本名" class="mb-0!">
-            <el-input class="w-37.5!" v-model="form.scriptName" clearable />
-          </el-form-item>
-        </el-form>
+        <a-form :inline="true" :model="form" auto-label-width>
+          <a-form-item label="剧本名" class="mb-0!">
+            <a-input class="w-37.5!" v-model="form.scriptName" allow-clear />
+          </a-form-item>
+        </a-form>
       </div>
 
-      <el-button-group>
-        <el-button type="primary" text @click="ttsGenerateAllJP" :loading="generateLoading" :disabled="generateLoading">
+      <a-button-group>
+        <a-button type="text" @click="ttsGenerateAllJP" :loading="generateLoading" :disabled="generateLoading">
           批量生成日文音频
-        </el-button>
+        </a-button>
 
-        <el-button type="primary" text @click="ttsGenerateAllCN" :loading="generateLoading" :disabled="generateLoading">
+        <a-button type="text" @click="ttsGenerateAllCN" :loading="generateLoading" :disabled="generateLoading">
           批量生成中文音频
-        </el-button>
+        </a-button>
 
-        <el-button type="primary" text :icon="Upload" @click="importScriptJSON">
+        <a-button type="text" @click="importScriptJSON">
           导入剧本
-        </el-button>
+        </a-button>
 
-        <el-button type="primary" text :icon="Download" @click="exportScriptJSON">
+        <a-button type="text" @click="exportScriptJSON">
           导出剧本
-        </el-button>
+        </a-button>
 
         <ExampleAudioConfigDialog />
 
         <TTSCharacterConfigDialog />
-      </el-button-group>
+      </a-button-group>
     </div>
 
     <div class="h-[calc(100%-40px)] flex flex-col gap-2 overflow-y-scroll">
@@ -52,15 +47,15 @@
         :key="storyItem.id"
         :story-item="storyItem"
       >
-        <el-space direction="vertical">
-          <el-button v-if="characterOptions.includes(storyItem.cid)" @click="ttsBatchGenerateCN(storyItem)">
+        <a-space direction="vertical">
+          <a-button v-if="characterOptions.includes(storyItem.cid)" @click="ttsBatchGenerateCN(storyItem)">
             中文音频生成
-          </el-button>
+          </a-button>
 
-          <el-button v-if="characterOptions.includes(storyItem.cid)" @click="ttsBatchGenerateJP(storyItem)">
+          <a-button v-if="characterOptions.includes(storyItem.cid)" @click="ttsBatchGenerateJP(storyItem)">
             日文音频生成
-          </el-button>
-        </el-space>
+          </a-button>
+        </a-space>
       </StoryViewerItem>
     </div>
   </div>
@@ -74,8 +69,7 @@ import { computed, ref } from 'vue';
 import StoryViewerItem from '@/components/story/StoryViewerItem.vue';
 import ExampleAudioConfigDialog from '@/components/tts/ExampleAudioConfigDialog.vue';
 import TTSCharacterConfigDialog from '@/components/tts/TTSCharacterConfigDialog.vue';
-import { Upload, Download } from '@element-plus/icons-vue';
-import { ElMessage } from 'element-plus';
+import { Message } from '@arco-design/web-vue';
 import type { StoryItem, StoryScriptFull, TTSGenerateSSEData } from '@/types';
 import { scriptAdaptIn } from '@/utils/scriptAdapter';
 
@@ -249,7 +243,7 @@ async function ttsGenerateAllJP() {
       }
     }
   } else {
-    ElMessage.error('请选择角色');
+    Message.error('请选择角色');
   }
 }
 
@@ -261,7 +255,7 @@ async function ttsGenerateAllCN() {
       }
     }
   } else {
-    ElMessage.error('请选择角色');
+    Message.error('请选择角色');
   }
 }
 

@@ -1,31 +1,29 @@
 <template>
-  <el-dialog
-    v-model="visible"
-    append-to-body
-    center
-    width="40%"
+  <a-button @click="open">
+    新增角色
+  </a-button>
+
+  <a-modal
+    v-model:visible="visible"
+    width="500px"
     title="新增角色"
   >
-    <el-form v-model="addCharacterForm">
-      <el-form-item label="角色名">
-        <el-input v-model="addCharacterForm.name" />
-      </el-form-item>
-    </el-form>
+    <a-form v-model="addCharacterForm" auto-label-width>
+      <a-form-item label="角色名" class="mb-0!">
+        <a-input v-model="addCharacterForm.name" allow-clear />
+      </a-form-item>
+    </a-form>
 
     <template #footer>
-      <el-button type="primary" plain @click="addCharacter">确定</el-button>
-      <el-button type="info" plain @click="close">取消</el-button>
+      <a-button type="primary" plain @click="addCharacter">确定</a-button>
+      <a-button plain @click="close">取消</a-button>
     </template>
-  </el-dialog>
+  </a-modal>
 </template>
 
 <script setup lang="ts">
 import { useTTSCharacterStore } from '@/stores';
 import { ref } from 'vue';
-
-defineExpose({
-  open,
-});
 
 const ttsCharacterStore = useTTSCharacterStore();
 
@@ -39,7 +37,8 @@ const addCharacterForm = ref({
 
 function open() {
   addCharacterForm.value.name = '';
-  
+  characters.value = [ ...ttsCharacterStore.characters ];
+
   visible.value = true;
 }
 

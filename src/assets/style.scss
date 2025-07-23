@@ -22,7 +22,7 @@ body {
   --color-border: rgb(229,230,235);
 }
 
-body[class*="dark"] {
+body[arco-theme="dark"] {
   --kokomi-purple: #767ABA;
   --kokomi-pink: #DE9EBA;
   --color-bg-0: #24252680;
@@ -80,17 +80,6 @@ a {
 
 p {
   width: 100%;
-}
-
-#app {
-  width: 96vw;
-  height: 96vh;
-  overflow: hidden;
-  border: var(--color-border) solid 5px;
-  border-radius: 2rem;
-  background-color: var(--color-bg);
-
-  display: flex;
 }
 
 // consistent scrollbar style on all desktop browsers

@@ -1,7 +1,7 @@
 <template>
-  <el-tag class="h-8! text-sm! *:px-2 *:py-1 *:font-bold" :type="getEmotionType(text)">
+  <a-tag class="h-8! text-sm! *:px-2 *:py-1 *:font-bold" bordered :color="getEmotionColor(text)">
     {{ text }}
-  </el-tag>
+  </a-tag>
 </template>
 
 <script setup lang="ts">
@@ -12,17 +12,17 @@ defineProps({
   },
 });
 
-function getEmotionType(emotion: string) {
+function getEmotionColor(emotion: string) {
   if (['开心', '吃惊'].includes(emotion)) {
-    return 'primary';
+    return 'green';
   } else if (['难过', '疑惑', '担忧'].includes(emotion)) {
-    return 'success';
+    return 'blue';
   } else if (['紧张', '恐惧'].includes(emotion)) {
-    return 'warning';
+    return 'orange';
   } else if (['生气'].includes(emotion)) {
-    return 'danger';
+    return 'red';
   } else {
-    return 'info';
+    return 'gray';
   }
 }
 </script>

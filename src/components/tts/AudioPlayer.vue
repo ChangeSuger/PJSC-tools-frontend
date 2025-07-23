@@ -1,14 +1,18 @@
 <template>
   <div>
     <audio class="w-0 h-0 invisible" :src="url" controls ref="audioRef"></audio>
-    <el-button type="info" size="large" plain class="text-3xl! w-10 h-10! rounded-full!" @click="audioPlay" :icon="icon"></el-button>
+    <a-button size="large" plain class="text-3xl! w-10 h-10! rounded-full!" @click="audioPlay">
+      <template #icon>
+        <IconPlayCircle v-if="!isPlaying" />
+        <IconPauseCircle v-else />
+      </template>
+    </a-button>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
-
-import { VideoPlay, VideoPause } from '@element-plus/icons-vue';
+import { ref } from 'vue';
+import { IconPlayCircle, IconPauseCircle } from '@arco-design/web-vue/es/icon';
 
 defineProps({
   url: {
@@ -21,10 +25,6 @@ let timer: NodeJS.Timeout | null = null;
 
 const audioRef = ref<HTMLAudioElement>();
 const isPlaying = ref(false);
-
-const icon = computed(() => {
-  return isPlaying.value ? VideoPause : VideoPlay;
-});
 
 function audioPlay() {
   if (isPlaying.value) {

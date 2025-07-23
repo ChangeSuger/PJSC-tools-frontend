@@ -1,32 +1,29 @@
 <template>
-  <el-button type="primary" text :icon="Setting" @click="open">
+  <a-button type="text" @click="open">
     角色参数配置
-  </el-button>
+  </a-button>
 
-  <el-dialog
-    class="tts-character-config-dialog"
-    v-model="visible"
-    append-to-body
-    center
+  <a-modal
+    body-class="p-4!"
+    v-model:visible="visible"
     width="40%"
     title="角色音频生成参数设置"
+    :footer="false"
   >
     <CharacterTabs>
-      <el-tab-pane
-        class="flex flex-col gap-2"
+      <a-tab-pane
         v-for="(character, index) of characters"
         :key="character"
-        :label="character"
-        :name="character"
+        :title="character"
       >
         <TTSCharacterConfigForm
           :ttsCharacterConfig="ttsCharacterConfigMap[character]"
           :ref="`ttsCharacterConfigFormRefs`"
         />
-        <el-button @click="saveTTSCharacterConfig(character, index)">保存配置</el-button>
-      </el-tab-pane>
+        <a-button type="primary" long @click="saveTTSCharacterConfig(character, index)">保存配置</a-button>
+      </a-tab-pane>
     </CharacterTabs>
-  </el-dialog>
+  </a-modal>
 </template>
 
 <script setup lang="ts">
@@ -36,7 +33,6 @@ import { cloneDeep } from 'lodash-es';
 
 import CharacterTabs from './CharacterTabs.vue';
 import TTSCharacterConfigForm from './TTSCharacterConfigForm.vue';
-import { Setting } from '@element-plus/icons-vue';
 
 const ttsCharacterStore = useTTSCharacterStore();
 

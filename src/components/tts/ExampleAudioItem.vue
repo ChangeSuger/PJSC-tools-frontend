@@ -10,15 +10,15 @@
       </div>
 
       <div>
-        <el-input v-model="exampleAudioObject.text" />
+        <a-input v-model="exampleAudioObject.text" />
       </div>
     </div>
 
     <div>
-      <el-space direction="vertical">
-        <el-button type="primary" @click="uploadExampleAudio">上传音频</el-button>
-        <el-button type="primary" @click="putExampleAudioObject">更新音频</el-button>
-      </el-space>
+      <a-space direction="vertical">
+        <a-button type="primary" @click="uploadExampleAudio">上传音频</a-button>
+        <a-button type="primary" @click="putExampleAudioObject">更新音频</a-button>
+      </a-space>
     </div>
   </div>
 </template>

@@ -1,21 +1,21 @@
 import {
-  HomeFilled,
-  Setting,
-  EditPen,
-  Microphone,
-  Checked,
-  CollectionTag,
-} from "@element-plus/icons-vue";
+  IconHome,
+  IconLanguage,
+  IconSettings,
+  IconCheckSquare,
+  IconSubscribed,
+  IconMusic,
+} from "@arco-design/web-vue/es/icon";
 
 import type { Emotion } from "@/types";
 
 export const MENU_LIST = [
-  { name: 'home', label: '首页', icon: HomeFilled },
-  { name: 'translate', label: '中译日', icon: EditPen },
-  { name: 'translate-check', label: '中译日校对', icon: CollectionTag },
-  { name: 'tts', label: '音频生成', icon: Microphone },
-  { name: 'tts-check', label: '音频校对', icon: Checked },
-  { name: 'setting', label: '设置', icon: Setting },
+  { name: 'home', label: '首页', icon: IconHome },
+  { name: 'translate', label: '中译日', icon: IconLanguage },
+  { name: 'translate-check', label: '中译日校对', icon: IconSubscribed },
+  { name: 'tts', label: '音频生成', icon: IconMusic },
+  { name: 'tts-check', label: '音频校对', icon: IconCheckSquare },
+  { name: 'setting', label: '设置', icon: IconSettings },
 ];
 
 export const EMOTIONS: Emotion[] = [

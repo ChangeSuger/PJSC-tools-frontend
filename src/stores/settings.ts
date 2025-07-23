@@ -29,19 +29,16 @@ export const useSettingsStore = defineStore(
       () => getTheme.value,
       (theme) => {
         if (theme === 'light') {
-          document.body.removeAttribute('class');
-          document.documentElement.removeAttribute('class');
+          document.body.removeAttribute('arco-theme');
         } else {
-          document.body.setAttribute('class', 'dark');
-          document.documentElement.setAttribute('class', 'dark');
+          document.body.setAttribute('arco-theme', 'dark');
         }
       }
     );
 
     onMounted(() => {
       if (getTheme.value === 'dark') {
-        document.body.setAttribute('class', 'dark');
-        document.documentElement.setAttribute('class', 'dark');
+        document.body.setAttribute('arco-theme', 'dark');
       }
     });
 

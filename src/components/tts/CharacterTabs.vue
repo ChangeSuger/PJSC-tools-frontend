@@ -1,35 +1,25 @@
 <template>
-  <el-tabs
-    class="
-      [&_.el-tabs\_\_new-tab]:w-22.5!
-      [&_.el-tabs\_\_new-tab]:h-8!
-      [&_.el-tabs\_\_new-tab]:border-none!
-    "
-    v-model="activeName"
-    type="card"
+  <a-tabs
+    v-model:active-key="activeName"
     editable
-    @edit="handleTabEdit"
+    @delete="checkDeleteCharacter"
   >
-    <template #add-icon>
-      <el-button plain>新增角色</el-button>
+    <template #extra>
+      <AddCharacterDialog />
     </template>
 
     <slot></slot>
-  </el-tabs>
-
-  <AddCharacterDialog ref="addCharacterDialogRef" />
+  </a-tabs>
 </template>
 
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import { useTTSCharacterStore } from '@/stores';
 
-import { type TabPaneName, ElMessageBox } from 'element-plus';
+import { Modal } from '@arco-design/web-vue';
 import AddCharacterDialog from '@/components/tts/AddCharacterDialog.vue';
 
 const ttsCharacterStore = useTTSCharacterStore();
-
-const addCharacterDialogRef = ref<InstanceType<typeof AddCharacterDialog>>();
 
 const characters = computed(() => {
   return ttsCharacterStore.characters;
@@ -37,25 +27,16 @@ const characters = computed(() => {
 
 const activeName = ref(characters.value[0]);
 
-function handleTabEdit(
-  targetName: TabPaneName | undefined,
-  action: 'remove' | 'add'
-) {
-  if (action === 'add') {
-    addCharacterDialogRef.value?.open();
-  } else if (action === 'remove') {
-    ElMessageBox.confirm(
-      '确认删除该角色？',
-      '删除确认',
-      {
-        confirmButtonText: '删除',
-        cancelButtonText: '取消',
-        type: 'warning',
-      }
-    ).then(() => {
-      removeCharacter(targetName as string);
-    });
-  }
+function checkDeleteCharacter(character: string) {
+  Modal.confirm({
+    title: '删除确认',
+    content: '确认删除该角色？',
+    okText: '删除',
+    cancelText: '取消',
+    onOk: () => {
+      removeCharacter(character);
+    }
+  });
 }
 
 function removeCharacter(character: string) {

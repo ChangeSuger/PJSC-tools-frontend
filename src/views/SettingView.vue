@@ -1,73 +1,73 @@
 <template>
   <div class="w-full h-full flex flex-col pl-2.5 gap-2">
     <div>
-      <el-text>
+      <a-typography>
         <h1 class="text-3xl">设置</h1>
-      </el-text>
+      </a-typography>
     </div>
 
     <div class="overflow-y-scroll">
       <div class="w-150 flex flex-col gap-2">
         <div>
-          <el-text>
+          <a-typography>
             <h2 class="text-xl">LLM Config</h2>
-          </el-text>
+          </a-typography>
         </div>
 
-        <el-form :model="llmConfigForm" :label-width="LABEL_WIDTH">
-          <el-form-item label="baseURL">
-            <el-input
+        <a-form :model="llmConfigForm" :label-width="LABEL_WIDTH">
+          <a-form-item label="baseURL">
+            <a-input
               class="max-w-125"
               v-model="llmConfigForm.baseURL"
-              clearable
+              allow-clear
             />
-          </el-form-item>
+          </a-form-item>
 
-          <el-form-item label="model">
-            <el-input
+          <a-form-item label="model">
+            <a-input
               class="max-w-125"
               v-model="llmConfigForm.model"
-              clearable
+              allow-clear
             />
-          </el-form-item>
+          </a-form-item>
 
-          <el-form-item label="apiKey">
-            <el-input
+          <a-form-item label="apiKey">
+            <a-input
               class="max-w-125"
               v-model="llmConfigForm.apiKey"
-              clearable
+              allow-clear
               show-password
             />
-          </el-form-item>
-        </el-form>
+          </a-form-item>
+        </a-form>
 
         <div>
-          <el-text>
+          <a-typography>
             <h2 class="text-xl">TTS Config</h2>
-          </el-text>
+          </a-typography>
         </div>
 
         <div class="w-full">
-          <el-form :model="ttsConfigForm" :label-width="LABEL_WIDTH">
-            <el-form-item label="baseURL">
-              <el-input
+          <a-form :model="ttsConfigForm" :label-width="LABEL_WIDTH">
+            <a-form-item label="baseURL">
+              <a-input
                 class="max-w-125"
                 v-model="ttsConfigForm.baseURL"
-                clearable
+                allow-clear
               />
-            </el-form-item>
+            </a-form-item>
 
-            <el-form-item label="batchSize">
-              <el-slider
-                class="max-w-125"
+            <a-form-item label="batchSize">
+              <a-slider
+                class="max-w-125 inline-flex!"
                 v-model="ttsConfigForm.batchSize"
                 :min="3"
                 :max="10"
                 :step="1"
                 show-input
               />
-            </el-form-item>
-          </el-form>
+            </a-form-item>
+          </a-form>
 
           <TTSCharacterConfigForm
             ref="ttsCharacterConfigFormRef"
@@ -77,53 +77,53 @@
         </div>
 
         <div>
-          <el-text>
+          <a-typography>
             <h2 class="text-xl">OSS Config</h2>
-          </el-text>
+          </a-typography>
         </div>
 
-        <el-form :model="ossConfigForm" :label-width="LABEL_WIDTH">
-          <el-form-item label="region">
-            <el-input
+        <a-form :model="ossConfigForm" :label-width="LABEL_WIDTH">
+          <a-form-item label="region">
+            <a-input
               class="max-w-125"
               v-model="ossConfigForm.region"
-              clearable
+              allow-clear
             />
-          </el-form-item>
+          </a-form-item>
 
-          <el-form-item label="accessKeyId">
-            <el-input
+          <a-form-item label="accessKeyId">
+            <a-input
               class="max-w-125"
               v-model="ossConfigForm.accessKeyId"
-              clearable
+              allow-clear
               show-password
             />
-          </el-form-item>
+          </a-form-item>
 
-          <el-form-item label="accessKeySecret">
-            <el-input
+          <a-form-item label="accessKeySecret">
+            <a-input
               class="max-w-125"
               v-model="ossConfigForm.accessKeySecret"
-              clearable
+              allow-clear
               show-password
             />
-          </el-form-item>
+          </a-form-item>
 
-          <el-form-item label="bucket">
-            <el-input
+          <a-form-item label="bucket">
+            <a-input
               class="max-w-125"
               v-model="ossConfigForm.bucket"
-              clearable
+              allow-clear
             />
-          </el-form-item>
-        </el-form>
+          </a-form-item>
+        </a-form>
       </div>
     </div>
 
-    <div class="flex flex-row items-center">
-      <el-button type="primary" @click=saveSettings>保存设置</el-button>
-      <el-button type="danger" @click=initSettings>恢复初始化设置</el-button>
-    </div>
+    <a-space>
+      <a-button type="primary" @click=saveSettings>保存设置</a-button>
+      <a-button type="primary" status="danger" @click=initSettings>恢复初始化设置</a-button>
+    </a-space>
   </div>
 </template>
 
@@ -139,11 +139,12 @@ import type {
 } from '@/types';
 
 import TTSCharacterConfigForm from '@/components/tts/TTSCharacterConfigForm.vue';
-import { ElMessage } from 'element-plus';
+import { Message } from '@arco-design/web-vue';
 
 const LABEL_WIDTH = 120;
 
 const settingsStore = useSettingsStore();
+
 const llmConfigForm = ref<LLMConfig>({ ...settingsStore.getLLMConfig });
 const ttsConfigForm = ref<TTSConfig>({ ...settingsStore.getTTSConfig });
 const ossConfigForm = ref<OSSConfig>({ ...settingsStore.getOSSConfig });
@@ -163,7 +164,7 @@ function saveSettings() {
   settingsStore.setTTSConfig(ttsConfigForm.value);
   settingsStore.setOSSConfig(ossConfigForm.value);
 
-  ElMessage.success('配置已保存~');
+  Message.success('配置已保存~');
 }
 
 function initSettings() {
@@ -177,6 +178,6 @@ function initSettings() {
   settingsStore.setTTSConfig(ttsConfigForm.value);
   settingsStore.setOSSConfig(ossConfigForm.value);
 
-  ElMessage.success('配置初始化成功~');
+  Message.success('配置初始化成功~');
 }
 </script>

@@ -15,9 +15,7 @@
         :key="item.name"
         @click="goTo(item.name)"
       >
-        <el-icon>
-          <component :is="item.icon"></component>
-        </el-icon>
+        <component :is="item.icon" />
 
         {{ item.label }}
       </div>
