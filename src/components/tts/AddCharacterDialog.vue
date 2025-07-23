@@ -8,7 +8,7 @@
     width="500px"
     title="新增角色"
   >
-    <a-form v-model="addCharacterForm" auto-label-width>
+    <a-form :model="addCharacterForm" auto-label-width>
       <a-form-item label="角色名" class="mb-0!">
         <a-input v-model="addCharacterForm.name" allow-clear />
       </a-form-item>

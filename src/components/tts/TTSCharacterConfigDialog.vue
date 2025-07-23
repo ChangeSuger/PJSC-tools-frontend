@@ -18,7 +18,7 @@
       >
         <TTSCharacterConfigForm
           :ttsCharacterConfig="ttsCharacterConfigMap[character]"
-          :ref="`ttsCharacterConfigFormRefs`"
+          ref="ttsCharacterConfigFormRefs"
         />
         <a-button type="primary" long @click="saveTTSCharacterConfig(character, index)">保存配置</a-button>
       </a-tab-pane>
@@ -33,6 +33,7 @@ import { cloneDeep } from 'lodash-es';
 
 import CharacterTabs from './CharacterTabs.vue';
 import TTSCharacterConfigForm from './TTSCharacterConfigForm.vue';
+import { Message } from '@arco-design/web-vue';
 
 const ttsCharacterStore = useTTSCharacterStore();
 
@@ -56,7 +57,9 @@ function saveTTSCharacterConfig(character: string, index: number) {
   const config = ttsCharacterConfigFormRefs.value[index].getTTSCharacterConfig();
 
   ttsCharacterStore.setTTSCharacterConfig(character, {
-    ...config
+    ...config,
   });
+
+  Message.success('配置已保存~');
 }
 </script>
