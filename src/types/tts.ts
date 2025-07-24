@@ -38,3 +38,16 @@ export type TTSGenerateSSEData = {
   code: number,
   url: string,
 }
+
+export type GetChoicesResponse = [
+  { choices: string[] },
+  { choices: string[] }
+]
+
+export type ChangeModelRequest = {
+  url: string;
+  sovitsModel: string;
+  gptModel: string;
+  originLang: string;
+  targetLang: string;
+}

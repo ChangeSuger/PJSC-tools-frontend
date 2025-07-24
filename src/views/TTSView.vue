@@ -11,7 +11,7 @@
           :options="characterOptions"
         />
 
-        <a-form :inline="true" :model="form" auto-label-width>
+        <a-form :model="form" auto-label-width>
           <a-form-item label="剧本名" class="mb-0!">
             <a-input class="w-37.5!" v-model="form.scriptName" allow-clear />
           </a-form-item>
@@ -41,7 +41,33 @@
       </a-button-group>
     </div>
 
-    <div class="h-[calc(100%-40px)] flex flex-col gap-2 overflow-y-scroll">
+    <div class="w-full h-10 py-0 px-2.5 flex flex-row justify-between items-center">
+      <div class="flex gap-4">
+        <a-form :model="modelForm" auto-label-width layout="inline">
+          <a-form-item label="SoVITS 模型" class="mb-0!">
+            <a-select
+              class="w-100!"
+              v-model="modelForm.sovitsModel"
+              :options="ttsModelStore.getSovitsOptions"
+              allow-search
+            />
+          </a-form-item>
+
+          <a-form-item label="GPT 模型" class="mb-0!">
+            <a-select
+              class="w-100!"
+              v-model="modelForm.gptModel"
+              :options="ttsModelStore.getGptOptions"
+              allow-search
+            />
+          </a-form-item>
+
+          <a-button @click="changeModel" :disabled="changeModelDisabled" :loading="modelChangeLoading">更换模型</a-button>
+        </a-form>
+      </div>
+    </div>
+
+    <div class="h-[calc(100%-80px)] flex flex-col gap-2 overflow-y-scroll">
       <StoryViewerItem
         v-for="storyItem in storyListFilter"
         :key="storyItem.id"
@@ -63,7 +89,7 @@
 
 <script setup lang="ts">
 import { CommonApi } from '@/api';
-import { useSettingsStore, useAudioDBStore, useTTSCharacterStore } from '@/stores';
+import { useSettingsStore, useAudioDBStore, useTTSCharacterStore, useTTSModelStore } from '@/stores';
 import { computed, ref } from 'vue';
 
 import StoryViewerItem from '@/components/story/StoryViewerItem.vue';
@@ -76,6 +102,7 @@ import { scriptAdaptIn } from '@/utils/scriptAdapter';
 const settingsStore = useSettingsStore();
 const audioDBStore = useAudioDBStore();
 const ttsCharacterStore = useTTSCharacterStore();
+const ttsModelStore = useTTSModelStore();
 
 const characters = ref<string[]>([ ...ttsCharacterStore.characters ]);
 
@@ -84,6 +111,20 @@ const characterSelected = ref('');
 
 const form = ref({
   scriptName: '',
+});
+
+const modelForm = ref({
+  sovitsModel: ttsModelStore.getSovitsModelSelected,
+  gptModel: ttsModelStore.getGptmodelSelected,
+});
+
+const modelChangeLoading = ref(false);
+
+const changeModelDisabled = computed(() => {
+  return (
+    modelForm.value.sovitsModel === ttsModelStore.getSovitsModelSelected &&
+    modelForm.value.gptModel === ttsModelStore.getGptmodelSelected
+  );
 });
 
 const storyScript = ref<StoryScriptFull>();
@@ -295,5 +336,27 @@ function exportScriptJSON() {
 
 function generateAudioID(id: string, scriptName: string, lang: 'jp' | 'cn'): string {
   return `${scriptName}_${id}_${lang}`;
+}
+
+async function changeModel() {
+  modelChangeLoading.value = true;
+
+  const { sovitsModel, gptModel } = modelForm.value;
+  const res = await CommonApi.changeModel({
+    url: settingsStore.getTTSConfig.baseURL,
+    sovitsModel,
+    gptModel,
+    originLang: '日文',
+    targetLang: '日文',
+  });
+
+  if (res.code === 200) {
+    ttsModelStore.setSovitsModelSelected(sovitsModel);
+    ttsModelStore.setGptModelSelected(gptModel);
+    modelChangeLoading.value = false;
+    Message.success('模型更换成功');
+  } else {
+    Message.error('更换模型失败，请重试');
+  }
 }
 </script>
