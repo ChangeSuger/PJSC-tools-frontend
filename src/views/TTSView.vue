@@ -11,11 +11,11 @@
           :options="characterOptions"
         />
 
-        <a-form :model="form" auto-label-width>
-          <a-form-item label="剧本名" class="mb-0!">
-            <a-input class="w-37.5!" v-model="form.scriptName" allow-clear />
-          </a-form-item>
-        </a-form>
+        <ManageScriptJSON
+          suffix="tts"
+          :story-script="storyScript"
+          :onReaderLoad="onReaderLoad"
+        />
       </div>
 
       <a-button-group>
@@ -27,14 +27,6 @@
           批量生成中文音频
         </a-button>
 
-        <a-button type="text" @click="importScriptJSON">
-          导入剧本
-        </a-button>
-
-        <a-button type="text" @click="exportScriptJSON">
-          导出剧本
-        </a-button>
-
         <ExampleAudioConfigDialog />
 
         <TTSCharacterConfigDialog />
@@ -43,27 +35,7 @@
 
     <div class="w-full h-10 py-0 px-2.5 flex flex-row justify-between items-center">
       <div class="flex gap-4">
-        <a-form :model="modelForm" auto-label-width layout="inline">
-          <a-form-item label="SoVITS 模型" class="mb-0!">
-            <a-select
-              class="w-100!"
-              v-model="modelForm.sovitsModel"
-              :options="ttsModelStore.getSovitsOptions"
-              allow-search
-            />
-          </a-form-item>
-
-          <a-form-item label="GPT 模型" class="mb-0!">
-            <a-select
-              class="w-100!"
-              v-model="modelForm.gptModel"
-              :options="ttsModelStore.getGptOptions"
-              allow-search
-            />
-          </a-form-item>
-
-          <a-button @click="changeModel" :disabled="changeModelDisabled" :loading="modelChangeLoading">更换模型</a-button>
-        </a-form>
+        <ChangeModelForm />
       </div>
     </div>
 
@@ -89,7 +61,7 @@
 
 <script setup lang="ts">
 import { CommonApi } from '@/api';
-import { useSettingsStore, useAudioDBStore, useTTSCharacterStore, useTTSModelStore } from '@/stores';
+import { useSettingsStore, useAudioDBStore, useTTSCharacterStore } from '@/stores';
 import { computed, ref } from 'vue';
 
 import StoryViewerItem from '@/components/story/StoryViewerItem.vue';
@@ -98,11 +70,12 @@ import TTSCharacterConfigDialog from '@/components/tts/TTSCharacterConfigDialog.
 import { Message } from '@arco-design/web-vue';
 import type { StoryItem, StoryScriptFull, TTSGenerateSSEData } from '@/types';
 import { scriptAdaptIn } from '@/utils/scriptAdapter';
+import ChangeModelForm from '@/components/tts/ChangeModelForm.vue';
+import ManageScriptJSON from '@/components/common/ManageScriptJSON.vue';
 
 const settingsStore = useSettingsStore();
 const audioDBStore = useAudioDBStore();
 const ttsCharacterStore = useTTSCharacterStore();
-const ttsModelStore = useTTSModelStore();
 
 const characters = ref<string[]>([ ...ttsCharacterStore.characters ]);
 
@@ -113,21 +86,7 @@ const form = ref({
   scriptName: '',
 });
 
-const modelForm = ref({
-  sovitsModel: ttsModelStore.getSovitsModelSelected,
-  gptModel: ttsModelStore.getGptmodelSelected,
-});
-
-const modelChangeLoading = ref(false);
-
-const changeModelDisabled = computed(() => {
-  return (
-    modelForm.value.sovitsModel === ttsModelStore.getSovitsModelSelected &&
-    modelForm.value.gptModel === ttsModelStore.getGptmodelSelected
-  );
-});
-
-const storyScript = ref<StoryScriptFull>();
+const storyScript = ref<StoryScriptFull>([]);
 const storyList = computed(() => {
   return storyScript.value?.filter((item) => {
     return item.type === 'line';
@@ -300,63 +259,13 @@ async function ttsGenerateAllCN() {
   }
 }
 
-function importScriptJSON() {
-  const input = document.createElement('input');
-  input.type = 'file';
-  input.accept = '.json';
-  input.onchange = () => {
-    const file = input.files?.[0];
-    if (file) {
-      form.value.scriptName = file.name.split('.')[0];
-
-      const reader = new FileReader();
-      reader.onload = () => {
-        const jsonstring = reader.result as string;
-        const scriptData = JSON.parse(jsonstring) as StoryItem[];
-        storyScript.value = scriptAdaptIn(scriptData);
-      }
-      reader.readAsText(file);
-    }
-  }
-  input.click();
-}
-
-function exportScriptJSON() {
-  const scriptdata = storyScript.value;
-
-  const json = JSON.stringify(scriptdata);
-  const blob = new Blob([json], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.download = `${form.value.scriptName}.tts.json`;
-  a.href = url;
-  a.click();
-  URL.revokeObjectURL(url);
+function onReaderLoad(reader: FileReader) {
+  const jsonstring = reader.result as string;
+  const scriptData = JSON.parse(jsonstring) as StoryItem[];
+  storyScript.value = scriptAdaptIn(scriptData);
 }
 
 function generateAudioID(id: string, scriptName: string, lang: 'jp' | 'cn'): string {
   return `${scriptName}_${id}_${lang}`;
-}
-
-async function changeModel() {
-  modelChangeLoading.value = true;
-
-  const { sovitsModel, gptModel } = modelForm.value;
-  const res = await CommonApi.changeModel({
-    url: settingsStore.getTTSConfig.baseURL,
-    sovitsModel,
-    gptModel,
-    originLang: '日文',
-    targetLang: '日文',
-  });
-
-  if (res.code === 200) {
-    ttsModelStore.setSovitsModelSelected(sovitsModel);
-    ttsModelStore.setGptModelSelected(gptModel);
-    modelChangeLoading.value = false;
-    Message.success('模型更换成功');
-  } else {
-    Message.error('更换模型失败，请重试');
-  }
 }
 </script>

@@ -2,11 +2,11 @@
   <div class="w-full h-full flex flex-col pl-2.5 gap-2">
     <div class="w-full h-10 px-2.5 py-0 flex flex-row justify-between items-center">
       <div class="flex items-center">
-        <a-form :inline="true" :model="form" auto-label-width>
-          <a-form-item label="剧本名" class="mb-0!">
-            <a-input class="w-37.5!" v-model="form.scriptName" allow-clear />
-          </a-form-item>
-        </a-form>
+        <ManageScriptJSON
+          suffix="translate.checked"
+          :story-script="storyScript"
+          :onReaderLoad="onReaderLoad"
+        />
       </div>
 
       <div v-if="total">
@@ -16,14 +16,6 @@
       <a-button-group>
         <a-button type="text" @click="findFirstNoCheckItem">
           未校对项检查
-        </a-button>
-
-        <a-button type="text" @click="importScriptJSON">
-          导入剧本
-        </a-button>
-
-        <a-button type="text" @click="exportScriptJSON">
-          导出剧本
         </a-button>
       </a-button-group>
     </div>
@@ -57,17 +49,15 @@
 
         <div class="w-12.5 h-8">
           <a-rate
-            class="
-              [&_.el-icon.el-rate\_\_icon]:w-10!
-              [&_.el-icon.el-rate\_\_icon]:h-10!
-              [&_svg]:w-full!
-              [&_svg]:h-full!
-            "
             v-if="checkListMap[index] !== undefined"
             v-model="checkList[checkListMap[index]]"
-            :max="1"
+            :count="1"
             allow-clear
-          />
+          >
+            <template #character>
+              <IconCheckCircle :size="40" />
+            </template>
+          </a-rate>
         </div>
       </TranslateCheckItem>
     </div>
@@ -79,18 +69,18 @@ import { ref, computed, watch } from 'vue';
 import { scriptAdaptIn } from '@/utils/scriptAdapter';
 
 import type { StoryScript, StoryScriptFull } from '@/types';
+import { useTTSCharacterStore } from '@/stores';
 
 import TranslateCheckItem from '@/components/translate/TranslateCheckItem.vue';
 import { Message } from '@arco-design/web-vue';
 import { IconEdit, IconCheckCircle } from '@arco-design/web-vue/es/icon';
+import ManageScriptJSON from '@/components/common/ManageScriptJSON.vue';
 
-const characters = [ '灯', '缘', '澪', '葵' ];
+const ttsCharacterStore = useTTSCharacterStore();
 
-const form = ref({
-  scriptName: '',
-});
+const characters = computed(() => ttsCharacterStore.characters);
 
-const storyScript = ref<StoryScriptFull>();
+const storyScript = ref<StoryScriptFull>([]);
 
 const storyList = computed(() => {
   return storyScript.value?.filter((item) => {
@@ -120,7 +110,7 @@ watch(
     let count = 0;
 
     checkList.value = storyList.value.filter((item, index) => {
-      if (characters.includes(item.cid)) {
+      if (characters.value.includes(item.cid)) {
         checkListMap.value[index] = count;
         count ++;
 
@@ -134,38 +124,10 @@ watch(
   }
 )
 
-function importScriptJSON() {
-  const input = document.createElement('input');
-  input.type = 'file';
-  input.accept = '.json';
-  input.onchange = () => {
-    const file = input.files?.[0];
-    if (file) {
-      form.value.scriptName = file.name.split('.')[0];
-
-      const reader = new FileReader();
-      reader.onload = () => {
-        const jsonstring = reader.result as string;
-        const scriptData = JSON.parse(jsonstring) as StoryScript;
-        storyScript.value = scriptAdaptIn(scriptData);
-      }
-      reader.readAsText(file);
-    }
-  }
-  input.click();
-}
-
-function exportScriptJSON() {
-  const scriptdata = storyScript.value;
-
-  const json = JSON.stringify(scriptdata);
-  const blob = new Blob([json], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.download = `${form.value.scriptName}.translate.checked.json`;
-  a.href = url;
-  a.click();
-  URL.revokeObjectURL(url);
+function onReaderLoad(reader: FileReader) {
+  const jsonstring = reader.result as string;
+  const scriptData = JSON.parse(jsonstring) as StoryScript;
+  storyScript.value = scriptAdaptIn(scriptData);
 }
 
 function findFirstNoCheckItem() {

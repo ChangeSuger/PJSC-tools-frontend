@@ -2,11 +2,11 @@
   <div class="w-full h-full flex flex-col pl-2.5">
     <div class="w-full h-10 py-0 px-2.5 flex flex-row justify-between items-center">
       <div>
-        <a-form :inline="true" :model="form">
-          <a-form-item label="剧本名" class="mb-0!">
-            <a-input class="w-60!" v-model="form.scriptName" allow-clear />
-          </a-form-item>
-        </a-form>
+        <ManageScriptJSON
+          suffix="translate"
+          :story-script="storyScript"
+          :onReaderLoad="onReaderLoad"
+        />
       </div>
 
       <div v-if="translateLoading">
@@ -14,21 +14,16 @@
       </div>
 
       <a-button-group>
-        <a-button type="text" @click="translateAll" :loading="translateLoading" :disabled="translateLoading">
+        <a-button
+          type="text"
+          @click="translateAll"
+          :loading="translateLoading"
+          :disabled="translateLoading"
+        >
           批量翻译
         </a-button>
 
-        <a-button type="text" @click="importScriptJSON">
-          导入剧本
-        </a-button>
-
-        <a-button type="text" @click="exportScriptJSON">
-          导出剧本
-        </a-button>
-
-        <a-button type="text" @click="openDialog">
-          提示词设置
-        </a-button>
+        <TranslateSystemMessageDialog />
       </a-button-group>
     </div>
 
@@ -42,8 +37,6 @@
       </StoryViewerItem>
     </div>
   </div>
-
-  <TranslateSystemMessageDialog ref="translateSystemMessageDialogFef" />
 </template>
 
 <script setup lang="ts">
@@ -57,22 +50,16 @@ import type { StoryItem, StoryScript, StoryScriptFull } from '@/types';
 import StoryViewerItem from '@/components/story/StoryViewerItem.vue';
 import TranslateSystemMessageDialog from '@/components/translate/TranslateSystemMessageDialog.vue';
 import { Message } from '@arco-design/web-vue';
+import ManageScriptJSON from '@/components/common/ManageScriptJSON.vue';
 
 const settingsStore = useSettingsStore();
 const translateStore = useTranslataStore();
-
-const translateSystemMessageDialogFef = ref<InstanceType<typeof TranslateSystemMessageDialog>>();
-
-const form = ref({
-  scriptName: '',
-});
-
 const total = ref(0);
 const count = ref(0);
 
 const translateLoading = ref(false);
 
-const storyScript = ref<StoryScriptFull>();
+const storyScript = ref<StoryScriptFull>([]);
 
 const storyList = computed(() => {
   return storyScript.value?.filter((item) => {
@@ -128,41 +115,9 @@ async function translateAll() {
   Message.success('批量翻译完成');
 }
 
-function importScriptJSON() {
-  const input = document.createElement('input');
-  input.type = 'file';
-  input.accept = '.json';
-  input.onchange = () => {
-    const file = input.files?.[0];
-    if (file) {
-      form.value.scriptName = file.name.split('.')[0];
-
-      const reader = new FileReader();
-      reader.onload = () => {
-        const jsonstring = reader.result as string;
-        const scriptData = JSON.parse(jsonstring) as StoryScript;
-        storyScript.value = scriptAdaptIn(scriptData);
-      }
-      reader.readAsText(file);
-    }
-  }
-  input.click();
-}
-
-function exportScriptJSON() {
-  const scriptdata = storyScript.value;
-
-  const json = JSON.stringify(scriptdata);
-  const blob = new Blob([json], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.download = `${form.value.scriptName}.translate.json`;
-  a.href = url;
-  a.click();
-  URL.revokeObjectURL(url);
-}
-
-function openDialog() {
-  translateSystemMessageDialogFef.value?.open();
+function onReaderLoad(reader: FileReader) {
+  const jsonstring = reader.result as string;
+  const scriptData = JSON.parse(jsonstring) as StoryScript;
+  storyScript.value = scriptAdaptIn(scriptData);
 }
 </script>

@@ -1,4 +1,8 @@
 <template>
+  <a-button type="text" @click="open">
+    提示词设置
+  </a-button>
+
   <a-modal v-model:visible="visible" width="80%" title="提示词设置" body-class="py-4!">
     <a-form v-model:model="translateSystemMessageForm" layout="vertical">
       <a-form-item

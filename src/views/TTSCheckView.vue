@@ -2,11 +2,12 @@
   <div class="w-full h-full flex flex-col pl-2.5">
     <div class="w-full h-10 py-0 px-2.5 flex flex-row justify-between items-center">
       <div>
-        <a-form :inline="true" :model="form" auto-label-width>
-          <a-form-item label="剧本名" class="mb-0!">
-            <a-input class="w-60" v-model="form.scriptName" allow-clear />
-          </a-form-item>
-        </a-form>
+        <ManageScriptJSON
+          suffix="tts.checked"
+          :story-script="storyScript"
+          :onReaderLoad="onReaderLoad"
+          :preprocess-story-script="preprocessStoryScript"
+        />
       </div>
 
       <div v-if="totalCN || totalJP">
@@ -27,14 +28,6 @@
 
         <a-button type="text" @click="findFirstNoCheckItemJP">
           日文未校对项检查
-        </a-button>
-
-        <a-button type="text" @click="importScriptJSON">
-          导入剧本
-        </a-button>
-
-        <a-button type="text" @click="exportScriptJSON">
-          导出剧本
         </a-button>
       </a-button-group>
     </div>
@@ -89,17 +82,14 @@ import AudioPlayer from '@/components/tts/AudioPlayer.vue';
 import { scriptAdaptIn } from '@/utils/scriptAdapter';
 import { cloneDeep } from 'lodash-es';
 import { Message } from '@arco-design/web-vue';
+import ManageScriptJSON from '@/components/common/ManageScriptJSON.vue';
 
-const storyScript = ref<StoryScriptFull>();
+const storyScript = ref<StoryScriptFull>([]);
 
 const storyList = computed(() => {
   return storyScript.value?.filter((item) => {
     return item.type === 'line';
   }) ?? [];
-});
-
-const form = ref({
-  scriptName: '',
 });
 
 const checkListCN = ref<number[]>([]);
@@ -154,29 +144,8 @@ watch(
   }
 )
 
-function importScriptJSON() {
-  const input = document.createElement('input');
-  input.type = 'file';
-  input.accept = '.json';
-  input.onchange = () => {
-    const file = input.files?.[0];
-    if (file) {
-      form.value.scriptName = file.name.split('.')[0];
-
-      const reader = new FileReader();
-      reader.onload = () => {
-        const jsonstring = reader.result as string;
-        const scriptData = JSON.parse(jsonstring) as StoryItem[];
-        storyScript.value = scriptAdaptIn(scriptData);
-      }
-      reader.readAsText(file);
-    }
-  }
-  input.click();
-}
-
-function exportScriptJSON() {
-  const scriptdata = cloneDeep(storyScript.value);
+function preprocessStoryScript(storyScript: StoryScriptFull) {
+  const scriptdata = cloneDeep(storyScript);
   const list = scriptdata?.filter((item) => {
     return item.type === 'line';
   });
@@ -194,14 +163,13 @@ function exportScriptJSON() {
     }
   });
 
-  const json = JSON.stringify(scriptdata);
-  const blob = new Blob([json], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.download = `${form.value.scriptName}.tts.checked.json`;
-  a.href = url;
-  a.click();
-  URL.revokeObjectURL(url);
+  return scriptdata;
+}
+
+function onReaderLoad(reader: FileReader) {
+  const jsonstring = reader.result as string;
+  const scriptData = JSON.parse(jsonstring) as StoryItem[];
+  storyScript.value = scriptAdaptIn(scriptData);
 }
 
 function findFirstNoCheckItemCN() {
