@@ -30,6 +30,8 @@
         <ExampleAudioConfigDialog />
 
         <TTSCharacterConfigDialog />
+
+        <CharacterModelConfigDialog />
       </a-button-group>
     </div>
 
@@ -67,6 +69,7 @@ import { computed, ref } from 'vue';
 import StoryViewerItem from '@/components/story/StoryViewerItem.vue';
 import ExampleAudioConfigDialog from '@/components/tts/exampleAudio/ExampleAudioConfigDialog.vue';
 import TTSCharacterConfigDialog from '@/components/tts/TTSCharacterConfigDialog.vue';
+import CharacterModelConfigDialog from '@/components/tts/CharacterModelConfigDialog.vue';
 import { Message } from '@arco-design/web-vue';
 import type { StoryItem, StoryScriptFull, TTSGenerateSSEData } from '@/types';
 import { scriptAdaptIn } from '@/utils/scriptAdapter';

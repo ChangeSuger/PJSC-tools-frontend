@@ -7,7 +7,7 @@ import {
   IconMusic,
 } from "@arco-design/web-vue/es/icon";
 
-import type { Emotion } from "@/types";
+import type { CharacterModelConfig, Emotion, EmotionClass } from "@/types";
 
 export const MENU_LIST = [
   { name: 'home', label: '首页', icon: IconHome },
@@ -29,3 +29,36 @@ export const EMOTIONS: Emotion[] = [
   '恐惧',
   '吃惊',
 ];
+
+export const EMOTION_CLASS: EmotionClass[] = [
+  '中立',
+  '哀伤',
+  '喜悦',
+  '恐惧',
+  '愤怒',
+];
+
+export function getCharacterModelConfigInit(): CharacterModelConfig {
+  return {
+    '中立': {
+      sovitsModel: '',
+      gptModel: ''
+    },
+    '哀伤': {
+      sovitsModel: '',
+      gptModel: ''
+    },
+    '喜悦': {
+      sovitsModel: '',
+      gptModel: ''
+    },
+    '恐惧': {
+      sovitsModel: '',
+      gptModel: ''
+    },
+    '愤怒': {
+      sovitsModel: '',
+      gptModel: ''
+    },
+  };
+}

@@ -34,6 +34,13 @@ export type Emotion =
 | '恐惧'
 | '吃惊'
 
+export type EmotionClass =
+| '中立'
+| '喜悦'
+| '愤怒'
+| '哀伤'
+| '恐惧'
+
 export type TTSGenerateSSEData = {
   code: number,
   url: string,
@@ -51,3 +58,11 @@ export type ChangeModelRequest = {
   originLang: string;
   targetLang: string;
 }
+
+export type CharacterModelConfig = Record<
+  EmotionClass,
+  {
+    sovitsModel: string;
+    gptModel: string;
+  }
+>

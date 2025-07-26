@@ -4,21 +4,52 @@
       <EmotionTag :text="emotion" />
     </div>
 
-    <div class="w-full flex flex-col justify-around gap-2">
-      <div class="flex items-center gap-2">
-        <audio class="h-8" v-if="exampleAudioURL" controls :src="exampleAudioURL"></audio>
-      </div>
+    <div class="w-full flex flex-row items-center justify-between gap-4">
+      <template v-if="exampleAudioURL">
+        <AudioPlayer :url="exampleAudioURL" />
 
-      <div>
-        <a-input v-model="exampleAudioObject.text" />
-      </div>
+        <a-typography class="w-full *:mb-0! mt-[5px]!">
+          <a-typography-paragraph class="h-[27px]! w-full" editable v-model:editText="exampleAudioObject.text">
+            {{ exampleAudioObject.text }}
+          </a-typography-paragraph>
+        </a-typography>
+      </template>
     </div>
 
     <div>
-      <a-space direction="vertical">
-        <a-button type="primary" @click="uploadExampleAudio">上传音频</a-button>
-        <a-button type="primary" @click="putExampleAudioObject">更新音频</a-button>
-      </a-space>
+      <a-button-group type="text">
+        <a-tooltip content="上传参考音频">
+          <a-button @click="uploadExampleAudio">
+            <template #icon>
+              <IconUpload />
+            </template>
+          </a-button>
+        </a-tooltip>
+
+        <a-tooltip content="更新参考音频">
+          <a-button @click="putExampleAudioObject" :disabled="!putable">
+            <template #icon>
+              <IconCheck />
+            </template>
+          </a-button>
+        </a-tooltip>
+
+        <a-tooltip content="重置参考音频">
+          <a-button @click="resetExampleAudioObject" :disabled="!putable">
+            <template #icon>
+              <IconRefresh />
+            </template>
+          </a-button>
+        </a-tooltip>
+
+        <a-tooltip content="删除参考音频">
+          <a-button status="danger" @click="clearExampleAudioObject">
+            <template #icon>
+              <IconDelete />
+            </template>
+          </a-button>
+        </a-tooltip>
+      </a-button-group>
     </div>
   </div>
 </template>
@@ -29,7 +60,15 @@ import { useAudioDBStore } from '@/stores';
 
 import type { ExampleAudioObject, Emotion } from '@/types';
 
+import { IconUpload, IconDelete, IconCheck, IconRefresh } from '@arco-design/web-vue/es/icon';
+import AudioPlayer from '@/components/common/AudioPlayer.vue';
 import EmotionTag from '@/components/common/EmotionTag.vue';
+import { Message } from '@arco-design/web-vue';
+
+const exampleAudioObjectInit = {
+  audio: undefined,
+  text: '',
+};
 
 const props = defineProps({
   id: {
@@ -46,8 +85,15 @@ const audioDBStore = useAudioDBStore();
 
 const exampleAudioObject = ref<Pick<ExampleAudioObject, 'id' | 'text'> & Partial<Pick<ExampleAudioObject, 'audio'>>>({
   id: props.id,
-  audio: undefined,
-  text: '',
+  ...exampleAudioObjectInit,
+});
+
+const exampleAudioObjectTemp = ref(exampleAudioObject.value);
+
+const putable = computed(() => {
+  const { audio: audioTemp , text: textTemp } = exampleAudioObjectTemp.value;
+  const { audio, text } = exampleAudioObject.value;
+  return audio !== audioTemp || text !== textTemp;
 });
 
 const exampleAudioURL = computed(() => {
@@ -66,15 +112,19 @@ async function getExampleAudioObject() {
       ...exampleAudioObject.value,
       ...object,
     };
+    exampleAudioObjectTemp.value = { ...exampleAudioObject.value };
   }
 }
 
 async function putExampleAudioObject() {
   try {
     await audioDBStore.getExampleAudioDB.addExampleAudio(exampleAudioObject.value as ExampleAudioObject);
-    console.log('success');
+    Message.success('参考音频更新成功。');
+
+    exampleAudioObjectTemp.value = { ...exampleAudioObject.value };
   } catch (error) {
     console.log(error);
+    Message.error('参考音频更新失败，请重试。');
   }
 }
 
@@ -91,6 +141,19 @@ function uploadExampleAudio() {
   }
 
   input.click();
+}
+
+function resetExampleAudioObject() {
+  exampleAudioObject.value = {
+    ...exampleAudioObjectTemp.value
+  };
+}
+
+async function clearExampleAudioObject() {
+  exampleAudioObject.value = {
+    id: props.id,
+    ...exampleAudioObjectInit,
+  }
 }
 
 onMounted(() => {

@@ -1,7 +1,7 @@
 <template>
   <div>
     <audio class="w-0 h-0 invisible" :src="url" controls ref="audioRef"></audio>
-    <a-button size="large" plain class="text-3xl! w-10 h-10! rounded-full!" @click="audioPlay">
+    <a-button size="large" plain class="text-3xl! w-10! h-10! rounded-full!" @click="audioPlay">
       <template #icon>
         <IconPlayCircle v-if="!isPlaying" />
         <IconPauseCircle v-else />

@@ -75,7 +75,7 @@ async function changeModel() {
 async function refreshModelList() {
   const result = await ttsModelStore.refreshChoices();
   if (result) {
-    Message.success('');
+    Message.success('模型列表已更新');
   } else {
     Message.error('获取模型列表失败，请重试。');
   }
