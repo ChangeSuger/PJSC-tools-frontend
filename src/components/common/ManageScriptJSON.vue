@@ -8,17 +8,17 @@
           allow-clear
         />
       </a-form-item>
+
+      <a-button-group>
+        <a-button type="text" @click="importScriptJSON">
+          导入剧本
+        </a-button>
+
+        <a-button type="text" @click="exportScriptJSON" :disabled="exportDisabled">
+          导出剧本
+        </a-button>
+      </a-button-group>
     </a-form>
-
-    <a-button-group>
-      <a-button type="text" @click="importScriptJSON">
-        导入剧本
-      </a-button>
-
-      <a-button type="text" @click="exportScriptJSON" :disabled="exportDisabled">
-        导出剧本
-      </a-button>
-    </a-button-group>
   </a-space>
 </template>
 

@@ -40,7 +40,7 @@
 import { type PropType } from 'vue';
 import type { StoryItem } from '@/types';
 
-import EmotionTag from '../tts/EmotionTag.vue';
+import EmotionTag from '../common/EmotionTag.vue';
 
 defineProps({
   storyItem: {

@@ -34,8 +34,8 @@ import { computed, ref } from 'vue';
 import { useTTSCharacterStore } from '@/stores';
 import { EMOTIONS } from '@/datas';
 
-import ExampleAudioItem from '@/components/tts/ExampleAudioItem.vue';
-import CharacterTabs from './CharacterTabs.vue';
+import ExampleAudioItem from '@/components/tts/exampleAudio/ExampleAudioItem.vue';
+import CharacterTabs from '@/components/tts/CharacterTabs.vue';
 
 const ttsCharacterStore = useTTSCharacterStore();
 

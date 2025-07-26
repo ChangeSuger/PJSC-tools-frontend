@@ -28,23 +28,15 @@
         is-translate-check-item
       >
         <template #jp v-if="characters.includes(storyItem.cid)">
-          <div v-if="activeEditId === storyItem.id" class="flex flex-row items-center gap-x-2">
-            <a-textarea autosize v-model="storyItem.lineJP" @blur="clearActiveEditId" />
-            <a-button type="text" @click="clearActiveEditId">
-              <template #icon>
-                <IconCheckCircle :size="30" />
-              </template>
-            </a-button>
-          </div>
-
-          <div v-else class="flex flex-row items-center gap-x-2">
-            <a-typography size="large">{{ storyItem.lineJP }}</a-typography>
-            <a-button type="text" shape="circle" @click="setActiveEditId(storyItem.id)">
-              <template #icon>
-                <IconEdit :size="20" />
-              </template>
-            </a-button>
-          </div>
+          <a-typography class="*:mb-0!">
+            <a-typography-paragraph
+              class="h-[27px]!"
+              editable
+              v-model:editText="storyItem.lineJP"
+            >
+              {{ storyItem.lineJP }}
+            </a-typography-paragraph>
+          </a-typography>
         </template>
 
         <div class="w-12.5 h-8">
@@ -73,7 +65,7 @@ import { useTTSCharacterStore } from '@/stores';
 
 import TranslateCheckItem from '@/components/translate/TranslateCheckItem.vue';
 import { Message } from '@arco-design/web-vue';
-import { IconEdit, IconCheckCircle } from '@arco-design/web-vue/es/icon';
+import { IconCheckCircle } from '@arco-design/web-vue/es/icon';
 import ManageScriptJSON from '@/components/common/ManageScriptJSON.vue';
 
 const ttsCharacterStore = useTTSCharacterStore();
@@ -90,8 +82,6 @@ const storyList = computed(() => {
 
 const checkList = ref<number[]>([]);
 const checkListMap = ref<Record<number, number>>({});
-
-const activeEditId = ref('');
 
 const total = computed(() => {
   return checkList.value.length;
@@ -150,13 +140,5 @@ function findFirstNoCheckItem() {
   if (!hasNoCheckItem) {
     Message.success('已全部校对完成~');
   }
-}
-
-function setActiveEditId(id: string) {
-  activeEditId.value = id;
-}
-
-function clearActiveEditId() {
-  setActiveEditId('');
 }
 </script>

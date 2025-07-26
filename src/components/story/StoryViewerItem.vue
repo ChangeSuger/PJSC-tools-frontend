@@ -49,8 +49,8 @@
 import { type PropType } from 'vue';
 import type { StoryItem } from '@/types';
 
-import AudioPlayer from '../tts/AudioPlayer.vue';
-import EmotionTag from '../tts/EmotionTag.vue';
+import AudioPlayer from '@/components/common/AudioPlayer.vue';
+import EmotionTag from '@/components/common/EmotionTag.vue';
 
 defineProps({
   storyItem: {

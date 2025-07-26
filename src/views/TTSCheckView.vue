@@ -78,7 +78,7 @@ import { ref, computed, watch } from 'vue';
 
 import type { StoryItem, StoryScriptFull } from '@/types';
 import TTSCheckItem from '@/components/tts/TTSCheckItem.vue';
-import AudioPlayer from '@/components/tts/AudioPlayer.vue';
+import AudioPlayer from '@/components/common/AudioPlayer.vue';
 import { scriptAdaptIn } from '@/utils/scriptAdapter';
 import { cloneDeep } from 'lodash-es';
 import { Message } from '@arco-design/web-vue';

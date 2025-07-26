@@ -18,7 +18,10 @@
       />
     </a-form-item>
 
-    <a-button @click="changeModel" :disabled="changeModelDisabled" :loading="modelChangeLoading">更换模型</a-button>
+    <a-button-group>
+      <a-button @click="changeModel" :disabled="changeModelDisabled" :loading="modelChangeLoading">更换模型</a-button>
+      <a-button @click="refreshModelList" :disabled="refreshLoading" :loading="refreshLoading">更新列表</a-button>
+    </a-button-group>
   </a-form>
 </template>
 
@@ -38,9 +41,10 @@ const modelForm = ref({
 });
 
 const modelChangeLoading = ref(false);
+const refreshLoading = ref(false);
 
 const changeModelDisabled = computed(() => {
-  return (
+  return modelChangeLoading.value || (
     modelForm.value.sovitsModel === ttsModelStore.getSovitsModelSelected &&
     modelForm.value.gptModel === ttsModelStore.getGptmodelSelected
   );
@@ -65,6 +69,15 @@ async function changeModel() {
     Message.success('模型更换成功');
   } else {
     Message.error('更换模型失败，请重试');
+  }
+}
+
+async function refreshModelList() {
+  const result = await ttsModelStore.refreshChoices();
+  if (result) {
+    Message.success('');
+  } else {
+    Message.error('获取模型列表失败，请重试。');
   }
 }
 </script>

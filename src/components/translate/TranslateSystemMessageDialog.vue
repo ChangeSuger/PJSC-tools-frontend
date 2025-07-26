@@ -23,7 +23,6 @@
         <div class="w-12.5">
           <a-button
             status="danger"
-            plain
             :disabled="item.character === 'default'"
             @click="deleteTranslateSystemMessageItem(index)"
           >
@@ -35,11 +34,11 @@
       </a-form-item>
     </a-form>
 
-    <a-button type="primary" plain @click="addTranslateSystemMessageItem">添加配置</a-button>
+    <a-button type="primary" @click="addTranslateSystemMessageItem">添加配置</a-button>
 
     <template #footer>
-      <a-button type="primary" plain @click="saveTranslateSystemMessageForm">保存</a-button>
-      <a-button status="normal" plain @click="close">取消</a-button>
+      <a-button type="primary" @click="saveTranslateSystemMessageForm">保存</a-button>
+      <a-button status="normal" @click="close">取消</a-button>
     </template>
   </a-modal>
 </template>

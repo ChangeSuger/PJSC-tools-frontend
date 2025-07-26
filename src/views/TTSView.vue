@@ -65,7 +65,7 @@ import { useSettingsStore, useAudioDBStore, useTTSCharacterStore } from '@/store
 import { computed, ref } from 'vue';
 
 import StoryViewerItem from '@/components/story/StoryViewerItem.vue';
-import ExampleAudioConfigDialog from '@/components/tts/ExampleAudioConfigDialog.vue';
+import ExampleAudioConfigDialog from '@/components/tts/exampleAudio/ExampleAudioConfigDialog.vue';
 import TTSCharacterConfigDialog from '@/components/tts/TTSCharacterConfigDialog.vue';
 import { Message } from '@arco-design/web-vue';
 import type { StoryItem, StoryScriptFull, TTSGenerateSSEData } from '@/types';

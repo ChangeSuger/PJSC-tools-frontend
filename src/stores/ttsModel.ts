@@ -2,7 +2,6 @@ import { defineStore } from 'pinia';
 import { ref, computed, onMounted } from 'vue';
 import { useSettingsStore } from '@/stores';
 import { CommonApi } from '@/api';
-import { Message } from '@arco-design/web-vue';
 
 export const useTTSModelStore = defineStore(
   'tts-model-store',
@@ -39,10 +38,13 @@ export const useTTSModelStore = defineStore(
 
           sovitsOptions.value = sovitsChoices.map((choice) => choice[0]);
           gptOptions.value = gptChoices.map((choice) => choice[0]);
+
+          return true;
         } else {
-          Message.error('获取模型列表失败，请重试。')
+          return false;
         }
       }
+      return false;
     }
 
     onMounted(() => {

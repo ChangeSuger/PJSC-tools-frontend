@@ -29,7 +29,7 @@ import { useAudioDBStore } from '@/stores';
 
 import type { ExampleAudioObject, Emotion } from '@/types';
 
-import EmotionTag from './EmotionTag.vue';
+import EmotionTag from '@/components/common/EmotionTag.vue';
 
 const props = defineProps({
   id: {
