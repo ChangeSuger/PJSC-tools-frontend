@@ -5,7 +5,7 @@
 
   <a-modal
     body-class="p-4!"
-    modal-class="h-[95vh]"
+    modal-class="max-h-[95vh]"
     v-model:visible="visible"
     width="40%"
     title="角色模型配置"

@@ -23,23 +23,14 @@ export type ExampleAudioObject = {
 /**
  * 情感分类，共 9 种
  */
-export type Emotion =
-| '中立'
-| '开心'
-| '生气'
-| '难过'
-| '紧张'
-| '担忧'
-| '疑惑'
-| '恐惧'
-| '吃惊'
-
 export type EmotionClass =
 | '中立'
 | '喜悦'
 | '愤怒'
 | '哀伤'
 | '恐惧'
+
+export type EmotionConfig = Record<EmotionClass, string[]>
 
 export type TTSGenerateSSEData = {
   code: number,

@@ -1,13 +1,14 @@
-import type { Emotion, ScriptTypeMap, StoryItem, StoryScript, StoryScriptFull } from "@/types";
+import type { ScriptTypeMap, StoryItem, StoryScript, StoryScriptFull } from "@/types";
 
-import { EMOTIONS, EMOTION_MAP } from "@/datas";
+import { useTTSCharacterStore } from "@/stores";
 
-function getEmotion(storyItem: ScriptTypeMap['line']): Emotion {
+function getEmotion(storyItem: ScriptTypeMap['line']): string {
   if (storyItem.charas) {
-    const emotion = EMOTION_MAP[storyItem.charas[storyItem.cid]];
+    const emotion = storyItem.charas[storyItem.cid];
+    const emotionList = useTTSCharacterStore().getEmotionList()
 
-    if (emotion && EMOTIONS.includes(emotion as Emotion)) {
-      return emotion as Emotion;
+    if (emotion && emotionList.includes(emotion)) {
+      return emotion;
     }
   }
 

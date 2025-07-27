@@ -32,6 +32,8 @@
         <TTSCharacterConfigDialog />
 
         <CharacterModelConfigDialog />
+
+        <ManageEmotionDialog />
       </a-button-group>
     </div>
 
@@ -75,6 +77,7 @@ import type { StoryItem, StoryScriptFull, TTSGenerateSSEData } from '@/types';
 import { scriptAdaptIn } from '@/utils/scriptAdapter';
 import ChangeModelForm from '@/components/tts/ChangeModelForm.vue';
 import ManageScriptJSON from '@/components/common/ManageScriptJSON.vue';
+import ManageEmotionDialog from '@/components/tts/manageEmition/ManageEmotionDialog.vue';
 
 const settingsStore = useSettingsStore();
 const audioDBStore = useAudioDBStore();

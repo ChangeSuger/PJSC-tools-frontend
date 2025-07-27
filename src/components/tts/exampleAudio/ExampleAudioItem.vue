@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full p-2 rounded-2xl flex flex-row justify-between items-center gap-2 bg-(--color-bg)">
+  <div class="w-full min-h-15 p-2 rounded-2xl flex flex-row justify-between items-center gap-2 bg-(--color-bg)">
     <div class="w-20 flex justify-center items-center">
       <EmotionTag :text="emotion" />
     </div>
@@ -55,10 +55,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, computed, type PropType } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import { useAudioDBStore } from '@/stores';
 
-import type { ExampleAudioObject, Emotion } from '@/types';
+import type { ExampleAudioObject } from '@/types';
 
 import { IconUpload, IconDelete, IconCheck, IconRefresh } from '@arco-design/web-vue/es/icon';
 import AudioPlayer from '@/components/common/AudioPlayer.vue';
@@ -76,7 +76,7 @@ const props = defineProps({
     required: true,
   },
   emotion: {
-    type: String as PropType<Emotion>,
+    type: String,
     required: true,
   },
 });
@@ -88,7 +88,7 @@ const exampleAudioObject = ref<Pick<ExampleAudioObject, 'id' | 'text'> & Partial
   ...exampleAudioObjectInit,
 });
 
-const exampleAudioObjectTemp = ref(exampleAudioObject.value);
+const exampleAudioObjectTemp = ref({ ...exampleAudioObject.value });
 
 const putable = computed(() => {
   const { audio: audioTemp , text: textTemp } = exampleAudioObjectTemp.value;

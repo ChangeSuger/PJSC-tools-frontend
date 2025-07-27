@@ -1,5 +1,3 @@
-import type { Emotion } from "./tts";
-
 type SystemContent = {
   type: string;
   src: string;
@@ -80,7 +78,7 @@ export type StoryItem = ScriptTypeMap['line'] & {
   /**
    * 情感
    */
-  emotion: Emotion;
+  emotion: string;
 
   /**
    * 中文音频资源 URL

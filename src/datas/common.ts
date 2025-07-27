@@ -7,7 +7,7 @@ import {
   IconMusic,
 } from "@arco-design/web-vue/es/icon";
 
-import type { CharacterModelConfig, Emotion, EmotionClass } from "@/types";
+import type { CharacterModelConfig, EmotionClass, EmotionConfig } from "@/types";
 
 export const MENU_LIST = [
   { name: 'home', label: '首页', icon: IconHome },
@@ -16,18 +16,6 @@ export const MENU_LIST = [
   { name: 'tts', label: '音频生成', icon: IconMusic },
   { name: 'tts-check', label: '音频校对', icon: IconCheckSquare },
   { name: 'setting', label: '设置', icon: IconSettings },
-];
-
-export const EMOTIONS: Emotion[] = [
-  '中立',
-  '开心',
-  '生气',
-  '难过',
-  '紧张',
-  '担忧',
-  '疑惑',
-  '恐惧',
-  '吃惊',
 ];
 
 export const EMOTION_CLASS: EmotionClass[] = [
@@ -61,4 +49,12 @@ export function getCharacterModelConfigInit(): CharacterModelConfig {
       gptModel: ''
     },
   };
-}
+};
+
+export const EMOTION_CONFIG_INIT: EmotionConfig = {
+  '中立': [],
+  '哀伤': [],
+  '喜悦': [],
+  '恐惧': [],
+  '愤怒': [],
+};
