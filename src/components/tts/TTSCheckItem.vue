@@ -16,10 +16,6 @@
         </a-typography>
       </div>
 
-      <div class="w-full">
-        <slot name="cn"></slot>
-      </div>
-
       <div v-if="storyItem.lineJP">
         <a-typography size="large">
           {{ storyItem.lineJP }}
