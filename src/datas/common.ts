@@ -26,6 +26,8 @@ export const EMOTION_CLASS: EmotionClass[] = [
   '愤怒',
 ];
 
+export const DEFAULT_EMOTION_CLASS: EmotionClass = '中立';
+
 export function getCharacterModelConfigInit(): CharacterModelConfig {
   return {
     '中立': {

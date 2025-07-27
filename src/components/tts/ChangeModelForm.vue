@@ -26,14 +26,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 
-import { useTTSModelStore, useSettingsStore } from '@/stores';
-import { CommonApi } from '@/api';
+import { useTTSModelStore } from '@/stores';
 import { Message } from '@arco-design/web-vue';
 
 const ttsModelStore = useTTSModelStore();
-const settingsStore = useSettingsStore();
 
 const modelForm = ref({
   sovitsModel: ttsModelStore.getSovitsModelSelected,
@@ -50,26 +48,33 @@ const changeModelDisabled = computed(() => {
   );
 });
 
+watch(
+  () => ttsModelStore.getSovitsModelSelected,
+  (newVal) => {
+    modelForm.value.sovitsModel = newVal;
+  }
+);
+
+watch(
+  () => ttsModelStore.getGptmodelSelected,
+  (newVal) => {
+    modelForm.value.gptModel = newVal;
+  }
+);
+
 async function changeModel() {
   modelChangeLoading.value = true;
 
   const { sovitsModel, gptModel } = modelForm.value;
-  const res = await CommonApi.changeModel({
-    url: settingsStore.getTTSConfig.baseURL,
-    sovitsModel,
-    gptModel,
-    originLang: '日文',
-    targetLang: '日文',
-  });
+  const result = await ttsModelStore.changeModel(sovitsModel, gptModel);
 
-  if (res.code === 200) {
-    ttsModelStore.setSovitsModelSelected(sovitsModel);
-    ttsModelStore.setGptModelSelected(gptModel);
-    modelChangeLoading.value = false;
+  if (result) {
     Message.success('模型更换成功');
   } else {
     Message.error('更换模型失败，请重试');
   }
+
+  modelChangeLoading.value = false;
 }
 
 async function refreshModelList() {

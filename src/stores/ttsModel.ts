@@ -47,6 +47,37 @@ export const useTTSModelStore = defineStore(
       return false;
     }
 
+    async function changeModel(
+      sovitsModel: string,
+      gptModel: string,
+      enforce: boolean = false,
+    ) {
+      if (enforce ||
+        (
+          sovitsModel !== sovitsModelSelected.value ||
+          gptModel !== gptModelSelected.value
+        )
+      ) {
+        const res = await CommonApi.changeModel({
+          url: settingsStore.getTTSConfig.baseURL,
+          sovitsModel,
+          gptModel,
+          originLang: '日文',
+          targetLang: '日文',
+        });
+
+        if (res.code === 200) {
+          setSovitsModelSelected(sovitsModel);
+          setGptModelSelected(gptModel);
+          return true;
+        } else {
+          return false;
+        }
+      }
+      
+      return true;
+    }
+
     onMounted(() => {
       refreshChoices();
     })
@@ -57,8 +88,7 @@ export const useTTSModelStore = defineStore(
       getSovitsModelSelected,
       getGptmodelSelected,
 
-      setSovitsModelSelected,
-      setGptModelSelected,
+      changeModel,
       refreshChoices,
     }
   },

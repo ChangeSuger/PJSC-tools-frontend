@@ -26,6 +26,10 @@
 import type { StoryScriptFull } from '@/types';
 import { ref, computed, type PropType } from 'vue';
 
+defineExpose({
+  getScriptName,
+});
+
 const form = ref({
   scriptName: '',
 });
@@ -96,5 +100,9 @@ function exportScriptJSON() {
   a.href = url;
   a.click();
   URL.revokeObjectURL(url);
+}
+
+function getScriptName() {
+  return form.value.scriptName;
 }
 </script>

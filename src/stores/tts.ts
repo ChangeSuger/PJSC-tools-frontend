@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import type { CharacterModelConfig, TTSCharacterConfig, EmotionConfig, EmotionClass } from '@/types';
-import { TTS_CHARACTER_CONFIG_INIT, CHARACTERS_INIT, getCharacterModelConfigInit, EMOTION_CONFIG_INIT } from '@/datas';
+import { TTS_CHARACTER_CONFIG_INIT, CHARACTERS_INIT, getCharacterModelConfigInit, EMOTION_CONFIG_INIT, DEFAULT_EMOTION_CLASS } from '@/datas';
 
 export const useTTSCharacterStore = defineStore(
   'tts-character-settings', () => {
@@ -14,8 +14,6 @@ export const useTTSCharacterStore = defineStore(
     const emotionConfig = ref<EmotionConfig>(EMOTION_CONFIG_INIT);
 
     function setCharacters(newCharacters: string[]) {
-      characters.value = newCharacters;
-
       newCharacters.forEach((character) => {
         const ttsConfig = ttsCharacterConfigMap.value[character];
         const modelConfig = characterModelConfigMap.value[character];
@@ -28,6 +26,8 @@ export const useTTSCharacterStore = defineStore(
           characterModelConfigMap.value[character] = getCharacterModelConfigInit();
         }
       });
+
+      characters.value = newCharacters;
     }
 
     function setTTSCharacterConfig(character: string, config: TTSCharacterConfig) {
@@ -38,11 +38,49 @@ export const useTTSCharacterStore = defineStore(
       characterModelConfigMap.value[character] = config;
     }
 
+    function getModelByCharacterAndEmotion(character: string, emotion: string) {
+      const emotionClass = getEmotionMap.value[emotion] as EmotionClass;
+
+      const modelConfig = characterModelConfigMap.value[character];
+
+      let { sovitsModel, gptModel } = modelConfig[emotionClass];
+
+      if (!sovitsModel || !gptModel) {
+        sovitsModel = modelConfig[DEFAULT_EMOTION_CLASS].sovitsModel;
+        gptModel = modelConfig[DEFAULT_EMOTION_CLASS].gptModel;
+      }
+
+      if (sovitsModel && gptModel) {
+        return {
+          sovitsModel,
+          gptModel,
+        };
+      } else {
+        return null;
+      }
+    }
+
     function getEmotionList(): string[] {
       return Object.entries(emotionConfig.value).map(([emotionClass, emotions]) => {
         return [emotionClass, ...emotions];
       }).flat();
     }
+
+    const getEmotionMap = computed(() => Object
+      .entries(emotionConfig.value)
+      .reduce<Record<string, string>>(
+        (acc, [emotionClass, emotions]) => {
+          emotions.forEach((emotion) => {
+            acc[emotion] = emotionClass;
+          });
+
+          acc[emotionClass] = emotionClass;
+
+          return acc;
+        },
+        {},
+      ),
+    );
 
     function checkEmotionExisted(emotion: string) {
       return getEmotionList().includes(emotion);
@@ -78,6 +116,8 @@ export const useTTSCharacterStore = defineStore(
       emotionConfig,
 
       getEmotionList,
+      getEmotionMap,
+      getModelByCharacterAndEmotion,
 
       setCharacters,
       setTTSCharacterConfig,

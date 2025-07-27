@@ -1,6 +1,6 @@
 <template>
   <div class="w-full p-2 flex flex-row justify-between items-center gap-1 bg-(--color-bg) rounded-2xl">
-    <div class="w-25 flex flex-col justify-center items-center">
+    <div class="w-30 flex flex-col justify-center items-center">
       <div class="py-1 px-2.5 bg-(--color-fill-3) rounded-2xl">
         <a-typography>
           {{ storyItem.cid }}

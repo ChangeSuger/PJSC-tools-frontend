@@ -15,6 +15,7 @@
           suffix="tts"
           :story-script="storyScript"
           :onReaderLoad="onReaderLoad"
+          ref="manageScriptJSONRef"
         />
       </div>
 
@@ -57,7 +58,7 @@
 
 <script setup lang="ts">
 import { CommonApi } from '@/api';
-import { useSettingsStore, useAudioDBStore, useTTSCharacterStore } from '@/stores';
+import { useSettingsStore, useAudioDBStore, useTTSCharacterStore, useTTSModelStore } from '@/stores';
 import { computed, ref } from 'vue';
 
 import StoryViewerItem from '@/components/story/StoryViewerItem.vue';
@@ -65,24 +66,24 @@ import ExampleAudioConfigDialog from '@/components/tts/exampleAudio/ExampleAudio
 import TTSCharacterConfigDialog from '@/components/tts/TTSCharacterConfigDialog.vue';
 import CharacterModelConfigDialog from '@/components/tts/CharacterModelConfigDialog.vue';
 import { Message } from '@arco-design/web-vue';
-import type { StoryItem, StoryScriptFull, TTSGenerateSSEData } from '@/types';
+import type { ExampleAudioObject, StoryItem, StoryScriptFull, TTSGenerateSSEData } from '@/types';
 import { scriptAdaptIn } from '@/utils/scriptAdapter';
 import ChangeModelForm from '@/components/tts/ChangeModelForm.vue';
 import ManageScriptJSON from '@/components/common/ManageScriptJSON.vue';
 import ManageEmotionDialog from '@/components/tts/manageEmition/ManageEmotionDialog.vue';
+import { DEFAULT_EMOTION_CLASS } from '@/datas';
 
 const settingsStore = useSettingsStore();
 const audioDBStore = useAudioDBStore();
 const ttsCharacterStore = useTTSCharacterStore();
+const ttsModelStore = useTTSModelStore();
+
+const manageScriptJSONRef = ref<InstanceType<typeof ManageScriptJSON>>();
 
 const characters = ref<string[]>([ ...ttsCharacterStore.characters ]);
 
 const generateLoading = ref(false);
 const characterSelected = ref('');
-
-const form = ref({
-  scriptName: '',
-});
 
 const storyScript = ref<StoryScriptFull>([]);
 const storyList = computed(() => {
@@ -105,6 +106,35 @@ const storyListFilter = computed(() => {
   }
 });
 
+/**
+ * 参考音频兜底策略：情感标签的参考音频 > 情感分类的参考音频 > 默认的参考音频
+ * @param cid
+ * @param emotion
+ */
+async function getExampleAudio(
+  cid: string,
+  emotion: string,
+): Promise<ExampleAudioObject | null> {
+  const exampleAudioDB = audioDBStore.getExampleAudioDB;
+  const emotionMap = ttsCharacterStore.getEmotionMap;
+
+  let exampleAudio = await exampleAudioDB.getExampleAudio(`${cid}-${emotion}`);
+
+  if (!exampleAudio) {
+    const emotionClass = emotionMap[emotion];
+
+    if (emotionClass) {
+      exampleAudio = await exampleAudioDB.getExampleAudio(`${cid}-${emotionClass}`);
+    }
+
+    if (exampleAudio && emotionClass !== '中立') {
+      exampleAudio = await exampleAudioDB.getExampleAudio(`${cid}-${DEFAULT_EMOTION_CLASS}`);
+    }
+  }
+
+  return exampleAudio;
+}
+
 async function ttsBatchGenerateJP(storyItem: StoryItem) {
   const { id, cid, lineJP, emotion } = storyItem;
 
@@ -116,13 +146,30 @@ async function ttsBatchGenerateJP(storyItem: StoryItem) {
     ...ttsCharacterStore.ttsCharacterConfigMap[cid]
   };
 
-  const exampleAudioDB = audioDBStore.getExampleAudioDB;
+  const modelConfig = ttsCharacterStore.getModelByCharacterAndEmotion(cid, emotion);
 
-  let exampleAudio = await exampleAudioDB.getExampleAudio(`${cid}-${emotion}`);
+  if (!modelConfig) {
+    Message.error('未找到该角色的模型配置，请在配置角色模型后重试。');
+    return;
+  }
+
+  const { sovitsModel, gptModel } = modelConfig!;
+
+  const changeModelResult = await ttsModelStore.changeModel(sovitsModel, gptModel);
+
+  if (!changeModelResult) {
+    Message.error('切换模型失败，音频生成任务停止。');
+    return;
+  }
+
+  const exampleAudio = await getExampleAudio(cid, emotion);
 
   if (!exampleAudio) {
-    exampleAudio = await exampleAudioDB.getExampleAudio(`${cid}-中立`);
+    Message.error('未找到合适的参考音频，请在设置参考音频后重试。');
+    return;
   }
+
+  const scriptName = manageScriptJSONRef.value!.getScriptName();
 
   const formData = new FormData();
   formData.append('ttsConfig', JSON.stringify(ttsConfig));
@@ -134,7 +181,7 @@ async function ttsBatchGenerateJP(storyItem: StoryItem) {
   }));
   formData.append('targetText', JSON.stringify({
     text: lineJP,
-    id: generateAudioID(id, form.value.scriptName, 'jp'),
+    id: generateAudioID(id, scriptName, 'jp'),
     lang: '日文',
   }));
 
@@ -170,14 +217,13 @@ async function ttsBatchGenerateJP(storyItem: StoryItem) {
 }
 
 async function ttsGenerateAllJP() {
-  if (characterSelected.value) {
-    for (const storyItem of storyListFilter.value) {
-      if (storyItem.jpAudioURLs.length === 0 || storyItem.jpAudioURLs.length < settingsStore.getTTSConfig.batchSize) {
-        await ttsBatchGenerateJP(storyItem);
-      }
+  for (const storyItem of storyListFilter.value) {
+    if (
+      ttsCharacterStore.characters.includes(storyItem.cid) &&
+      storyItem.jpAudioURLs.length < settingsStore.getTTSConfig.batchSize
+    ) {
+      await ttsBatchGenerateJP(storyItem);
     }
-  } else {
-    Message.error('请选择角色');
   }
 }
 
