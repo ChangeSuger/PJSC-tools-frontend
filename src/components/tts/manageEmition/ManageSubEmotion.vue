@@ -26,7 +26,7 @@
       <template #icon>
         <IconPlus />
       </template>
-      新增感情标签
+      新增情感标签
     </a-tag>
   </a-space>
 </template>

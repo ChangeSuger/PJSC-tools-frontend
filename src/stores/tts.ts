@@ -2,6 +2,7 @@ import { defineStore } from 'pinia';
 import { computed, onMounted, ref } from 'vue';
 import type { CharacterModelConfig, TTSCharacterConfig, EmotionConfig, EmotionClass } from '@/types';
 import { TTS_CHARACTER_CONFIG_INIT, CHARACTERS_INIT, getCharacterModelConfigInit, EMOTION_CONFIG_INIT, DEFAULT_EMOTION_CLASS } from '@/datas';
+import { type SelectOptionGroup } from '@arco-design/web-vue'
 
 export const useTTSCharacterStore = defineStore(
   'tts-character-settings', () => {
@@ -82,6 +83,22 @@ export const useTTSCharacterStore = defineStore(
       ),
     );
 
+    const getEmotionOptions = computed<SelectOptionGroup[]>(() => Object
+      .entries(emotionConfig.value)
+      .reduce<SelectOptionGroup[]>(
+        (acc, [emotionClass, emotions]) => {
+          acc.push({
+            isGroup: true,
+            label: emotionClass,
+            options: [emotionClass, ...emotions],
+          });
+
+          return acc;
+        },
+        []
+      )
+    );
+
     function checkEmotionExisted(emotion: string) {
       return getEmotionList().includes(emotion);
     }
@@ -118,6 +135,7 @@ export const useTTSCharacterStore = defineStore(
       getEmotionList,
       getEmotionMap,
       getModelByCharacterAndEmotion,
+      getEmotionOptions,
 
       setCharacters,
       setTTSCharacterConfig,

@@ -45,6 +45,7 @@
         v-for="storyItem in storyListFilter"
         :key="storyItem.id"
         :story-item="storyItem"
+        can-edit-emotion
       >
         <a-space direction="vertical">
           <a-button v-if="characterOptions.includes(storyItem.cid)" @click="ttsBatchGenerateJP(storyItem)">
@@ -234,6 +235,6 @@ function onReaderLoad(reader: FileReader) {
 }
 
 function generateAudioID(id: string, scriptName: string, lang: 'jp' | 'cn'): string {
-  return `${scriptName}_${id}_${lang}`;
+  return `${scriptName}_${id}_${lang}_${Date.now()}`;
 }
 </script>

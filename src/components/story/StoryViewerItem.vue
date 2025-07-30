@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-mutating-props -->
 <template>
   <div class="w-full p-2 rounded-2xl flex flex-row justify-between items-center gap-1 bg-(--color-bg)">
     <div class="w-30 flex flex-col justify-center items-center gap-2">
@@ -6,7 +7,7 @@
           {{ storyItem.cid }}
         </a-typography>
       </div>
-      <EmotionTag :text="storyItem.emotion" />
+      <EmotionTag v-model:text="storyItem.emotion" :can-edit-emotion="canEditEmotion" />
     </div>
 
     <div class="w-full p-2 flex flex-col justify-center items-start gap-2">
@@ -56,6 +57,10 @@ defineProps({
   storyItem: {
     type: Object as PropType<StoryItem>,
     required: true,
+  },
+  canEditEmotion: {
+    type: Boolean,
+    default: false,
   },
 });
 </script>
