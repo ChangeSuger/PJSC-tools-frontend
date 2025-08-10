@@ -10,6 +10,7 @@ export const useTTSModelStore = defineStore(
 
     const sovitsOptions = ref<string[]>([]);
     const gptOptions = ref<string[]>([]);
+    const emotionTexts = ref<[string, string][]>([]);
 
     const sovitsModelSelected = ref('');
     const gptModelSelected = ref('');
@@ -74,8 +75,12 @@ export const useTTSModelStore = defineStore(
           return false;
         }
       }
-      
+
       return true;
+    }
+
+    function setEmotionTexts(testTexts: [string, string][]) {
+      emotionTexts.value = testTexts;
     }
 
     onMounted(() => {
@@ -83,6 +88,8 @@ export const useTTSModelStore = defineStore(
     })
 
     return {
+      emotionTexts,
+
       getSovitsOptions,
       getGptOptions,
       getSovitsModelSelected,
@@ -90,6 +97,10 @@ export const useTTSModelStore = defineStore(
 
       changeModel,
       refreshChoices,
+      setEmotionTexts,
     }
   },
+  {
+    persist: true,
+  }
 );

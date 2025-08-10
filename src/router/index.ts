@@ -34,6 +34,11 @@ const router = createRouter({
       name: 'tts-check',
       component: () => import('../views/TTSCheckView.vue'),
     },
+    {
+      path: '/model-test',
+      name: 'model-test',
+      component: () => import('../views/ModelTestView.vue'),
+    },
   ],
 })
 

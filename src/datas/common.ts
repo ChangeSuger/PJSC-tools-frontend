@@ -5,6 +5,7 @@ import {
   IconCheckSquare,
   IconSubscribed,
   IconMusic,
+  IconApps,
 } from "@arco-design/web-vue/es/icon";
 
 import type { CharacterModelConfig, EmotionClass, EmotionConfig } from "@/types";
@@ -13,6 +14,7 @@ export const MENU_LIST = [
   { name: 'home', label: '首页', icon: IconHome },
   { name: 'translate', label: '中译日', icon: IconLanguage },
   { name: 'translate-check', label: '中译日校对', icon: IconSubscribed },
+  { name: 'model-test', label: '模型测试', icon: IconApps },
   { name: 'tts', label: '音频生成', icon: IconMusic },
   { name: 'tts-check', label: '音频校对', icon: IconCheckSquare },
   { name: 'setting', label: '设置', icon: IconSettings },

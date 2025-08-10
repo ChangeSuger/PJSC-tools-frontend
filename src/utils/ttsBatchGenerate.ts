@@ -35,11 +35,14 @@ export async function getExampleAudio(
 
 
 export async function ttsBatchGenerateJP(
-  storyItem: StoryItem,
-  audioId: string,
+  item: Pick<StoryItem, 'id' | 'cid' | 'lineJP' | 'emotion'>,
+  scriptName: string,
   onSSEProcess: (data: TTSGenerateSSEData) => void,
+  batchSize: number = useSettingsStore().ttsConfig.batchSize,
+  gptModel?: string,
+  sovitsModel?: string,
 ) {
-  const { cid, lineJP, emotion } = storyItem;
+  const { id, cid, lineJP, emotion } = item;
 
   const settingsStore = useSettingsStore();
   const ttsCharacterStore = useTTSCharacterStore();
@@ -53,16 +56,19 @@ export async function ttsBatchGenerateJP(
     ...ttsCharacterStore.ttsCharacterConfigMap[cid]
   };
 
-  const modelConfig = ttsCharacterStore.getModelByCharacterAndEmotion(cid, emotion);
+  if (!(gptModel && sovitsModel)) {
+    const modelConfig = ttsCharacterStore.getModelByCharacterAndEmotion(cid, emotion);
 
-  if (!modelConfig) {
-    Message.error('未找到该角色的模型配置，请在配置角色模型后重试。');
-    return;
+    if (!modelConfig) {
+      Message.error('未找到该角色的模型配置，请在配置角色模型后重试。');
+      return;
+    }
+
+    gptModel = modelConfig.gptModel;
+    sovitsModel = modelConfig.sovitsModel;
   }
 
-  const { sovitsModel, gptModel } = modelConfig!;
-
-  const changeModelResult = await useTTSModelStore().changeModel(sovitsModel, gptModel);
+  const changeModelResult = await useTTSModelStore().changeModel(sovitsModel!, gptModel!);
 
   if (!changeModelResult) {
     Message.error('切换模型失败，音频生成任务停止。');
@@ -77,7 +83,10 @@ export async function ttsBatchGenerateJP(
   }
 
   const formData = new FormData();
-  formData.append('ttsConfig', JSON.stringify(ttsConfig));
+  formData.append('ttsConfig', JSON.stringify({
+    ...ttsConfig,
+    batchSize,
+  }));
   formData.append('ossConfig', JSON.stringify(ossConfig));
   formData.append('exampleAudio', exampleAudio!.audio);
   formData.append('exampleText', JSON.stringify({
@@ -86,7 +95,7 @@ export async function ttsBatchGenerateJP(
   }));
   formData.append('targetText', JSON.stringify({
     text: lineJP,
-    id: audioId,
+    id: generateAudioID(id, scriptName, 'jp'),
     lang: '日文',
   }));
 
@@ -116,4 +125,8 @@ export async function ttsBatchGenerateJP(
       }
     });
   }
+}
+
+function generateAudioID(id: string, scriptName: string, lang: 'jp' | 'cn'): string {
+  return `${scriptName}_${id}_${lang}_${Date.now()}`;
 }

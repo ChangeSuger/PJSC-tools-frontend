@@ -106,11 +106,7 @@ const storyListFilter = computed(() => {
 async function ttsBatchGenerateJP(storyItem: StoryItem) {
   await ttsBatchGenerate(
     storyItem,
-    generateAudioID(
-      storyItem.id,
-      manageScriptJSONRef.value!.getScriptName(),
-      'jp',
-    ),
+    manageScriptJSONRef.value!.getScriptName(),
     (progressData: TTSGenerateSSEData) => {
       const url = progressData.url;
       if (!storyItem.jpAudioURLs.includes(url)) {
@@ -135,9 +131,5 @@ function onReaderLoad(reader: FileReader) {
   const jsonstring = reader.result as string;
   const scriptData = JSON.parse(jsonstring) as StoryItem[];
   storyScript.value = scriptAdaptIn(scriptData);
-}
-
-function generateAudioID(id: string, scriptName: string, lang: 'jp' | 'cn'): string {
-  return `${scriptName}_${id}_${lang}_${Date.now()}`;
 }
 </script>

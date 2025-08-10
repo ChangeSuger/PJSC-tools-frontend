@@ -57,3 +57,14 @@ export type CharacterModelConfig = Record<
     gptModel: string;
   }
 >
+
+export type ModelTestResult = {
+  gptModel: string;
+  soviteModels: Array<{
+    model: string;
+    results: Array<{
+      emotion: string;
+      audios: string[];
+    }>
+  }>;
+};
