@@ -69,7 +69,7 @@
       </a-button-group>
     </div>
 
-    <div class="w-[calc(100vw-320px)] h-[calc(100vh-130px)] px-2.5">
+    <div class="w-[calc(100vw-315px)] h-[calc(100vh-130px)] px-2.5">
       <a-table
         :columns="columns"
         :data="tableData"
@@ -119,6 +119,7 @@ import { Message } from '@arco-design/web-vue';
 import type { TableColumnData } from '@arco-design/web-vue';
 import EmotionTag from '@/components/common/EmotionTag.vue';
 import AudioPlayer from '@/components/common/AudioPlayer.vue';
+import { cloneDeep } from 'lodash-es';
 
 type TestResult = ModelTestResult['soviteModels'][0]['results']
 
@@ -180,6 +181,8 @@ const characterOptions = computed(() => {
 });
 
 async function generateModelTestResult() {
+  generateLoading.value = true;
+
   const { character, batch, gptModels, sovitsModels } = form.value;
 
   if (!character || gptModels.length === 0 || sovitsModels.length === 0) {
@@ -189,13 +192,17 @@ async function generateModelTestResult() {
 
   modelTestResult.value = [];
 
+  const modelTestResultTemp: ModelTestResult[] = [];
+
   for (const gptModel of gptModels) {
     const testResult: ModelTestResult = {
       gptModel,
       soviteModels: [],
     };
 
-    modelTestResult.value.push(testResult);
+    modelTestResultTemp.push(testResult);
+
+    modelTestResult.value = cloneDeep(modelTestResultTemp);
 
     for (const sovitsModel of sovitsModels) {
       const sovitsModelResult: ModelTestResult['soviteModels'][0] = {
@@ -205,8 +212,10 @@ async function generateModelTestResult() {
 
       testResult.soviteModels.push(sovitsModelResult);
 
-      for (const emotionText of ttsModelStore.emotionTexts) {
-        const [emotion, lineJP] = emotionText;
+      modelTestResult.value = cloneDeep(modelTestResultTemp);
+
+      for (const emotionText of ttsModelStore.getEnableEmotionTexts) {
+        const { emotion, text: lineJP } = emotionText;
 
         const result: ModelTestResult['soviteModels'][0]['results'][0] = {
           emotion,
@@ -214,6 +223,8 @@ async function generateModelTestResult() {
         }
 
         sovitsModelResult.results.push(result);
+
+        modelTestResult.value = cloneDeep(modelTestResultTemp);
 
         await ttsBatchGenerateJP(
           {
@@ -227,6 +238,8 @@ async function generateModelTestResult() {
             const { url } = processData;
             if (!result.audios.includes(url)) {
               result.audios.push(url);
+
+              modelTestResult.value = cloneDeep(modelTestResultTemp);
             }
           },
           batch,
@@ -236,6 +249,8 @@ async function generateModelTestResult() {
       }
     }
   }
+
+  generateLoading.value = false;
 }
 
 function importTestResult() {

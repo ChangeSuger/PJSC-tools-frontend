@@ -21,20 +21,31 @@
         v-for="(emotionText, index) of testTexts"
         :key="`${emotionText[0]}-${index}`"
       >
-        <div class="w-full h-10 flex gap-6 items-center">
-          <div class="pb-1">
-            <EmotionTag v-model:text="emotionText[0]" can-edit-emotion />
+        <div class="w-full h-10 flex items-center">
+          <div class="pb-1 pr-2">
+            <a-checkbox v-model="emotionText.enable" :value="true" />
+          </div>
+          <div class="pb-1 pr-4">
+            <EmotionTag v-model:text="emotionText.emotion" can-edit-emotion />
           </div>
           <a-typography class="w-full *:mb-0!">
             <a-typography-paragraph
               class="h-[27px]!"
               editable
               :ellipsis="{ row: 1, showTooltip: true }"
-              v-model:editText="emotionText[1]"
+              v-model:editText="emotionText.text"
             >
-              {{ emotionText[1] }}
+              {{ emotionText.text }}
             </a-typography-paragraph>
           </a-typography>
+
+          <div class="pb-1">
+            <a-button status="danger" @click="deleteTestText(index)">
+              <template #icon>
+                <IconDelete />
+              </template>
+            </a-button>
+          </div>
         </div>
       </template>
 
@@ -53,7 +64,7 @@ import { useTTSModelStore } from '@/stores';
 import { ref } from 'vue';
 import EmotionTag from '@/components/common/EmotionTag.vue';
 import { cloneDeep } from 'lodash-es';
-import { IconSettings } from '@arco-design/web-vue/es/icon';
+import { IconSettings, IconDelete } from '@arco-design/web-vue/es/icon';
 
 const ttsModelStore = useTTSModelStore();
 
@@ -74,9 +85,14 @@ function handleConfirm() {
 }
 
 function addTestText() {
-  testTexts.value.push([
-    '中立',
-    ''
-  ])
+  testTexts.value.push({
+    emotion: '中立',
+    text: '',
+    enable: true,
+  });
 };
+
+function deleteTestText(index: number) {
+  testTexts.value.splice(index, 1);
+}
 </script>

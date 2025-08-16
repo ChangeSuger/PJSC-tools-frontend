@@ -58,6 +58,12 @@ export type CharacterModelConfig = Record<
   }
 >
 
+export type EmotionText = {
+  emotion: string;
+  text: string;
+  enable: boolean;
+}
+
 export type ModelTestResult = {
   gptModel: string;
   soviteModels: Array<{

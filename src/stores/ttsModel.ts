@@ -2,6 +2,7 @@ import { defineStore } from 'pinia';
 import { ref, computed, onMounted } from 'vue';
 import { useSettingsStore } from '@/stores';
 import { CommonApi } from '@/api';
+import type { EmotionText } from '@/types';
 
 export const useTTSModelStore = defineStore(
   'tts-model-store',
@@ -10,7 +11,7 @@ export const useTTSModelStore = defineStore(
 
     const sovitsOptions = ref<string[]>([]);
     const gptOptions = ref<string[]>([]);
-    const emotionTexts = ref<[string, string][]>([]);
+    const emotionTexts = ref<EmotionText[]>([]);
 
     const sovitsModelSelected = ref('');
     const gptModelSelected = ref('');
@@ -79,13 +80,17 @@ export const useTTSModelStore = defineStore(
       return true;
     }
 
-    function setEmotionTexts(testTexts: [string, string][]) {
+    const getEnableEmotionTexts = computed(
+      () => emotionTexts.value.filter(({enable}) => enable)
+    );
+
+    function setEmotionTexts(testTexts: EmotionText[]) {
       emotionTexts.value = testTexts;
     }
 
     onMounted(() => {
       refreshChoices();
-    })
+    });
 
     return {
       emotionTexts,
@@ -94,6 +99,7 @@ export const useTTSModelStore = defineStore(
       getGptOptions,
       getSovitsModelSelected,
       getGptmodelSelected,
+      getEnableEmotionTexts,
 
       changeModel,
       refreshChoices,
