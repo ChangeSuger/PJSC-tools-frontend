@@ -17,7 +17,7 @@
         :key="character"
         :title="character"
       >
-        <a-form class="max-h-[calc(95vh-170px)] overflow-y-scroll" :model="characterModelConfigMap[character]" auto-label-width>
+        <a-form class="max-h-[calc(95vh-170px)] overflow-y-scroll" :model="characterModelConfigMap[character]" auto-label-width v-if="characterModelConfigMap[character]">
           <template v-for="emotion of EMOTION_CLASS" :key="`${character}-${emotion}`">
             <div class="flex items-center gap-2 pl-6">
               <EmotionTag :text="emotion" />
@@ -53,7 +53,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { useTTSCharacterStore, useTTSModelStore } from '@/stores';
 import { cloneDeep } from 'lodash-es';
 
@@ -71,6 +71,25 @@ const characters = computed(() => {
   return ttsCharacterStore.characters;
 });
 
+watch(
+  () => characters.value,
+  (newCharacters, preCharacters) => {
+    if (newCharacters.length > preCharacters.length) {
+      for (const character of newCharacters) {
+        if (!preCharacters.includes(character)) {
+          characterModelConfigMap.value[character] = cloneDeep(ttsCharacterStore.characterModelConfigMap[character]);
+        }
+      }
+    } else {
+      for (const character of preCharacters) {
+        if (!newCharacters.includes(character)) {
+          delete characterModelConfigMap.value[character];
+        }
+      }
+    }
+  }
+)
+
 const visible = ref(false);
 
 function open() {
@@ -86,5 +105,4 @@ function saveCharacterModelConfig(character: string) {
 
   Message.success('角色模型配置已保存~');
 }
-
 </script>

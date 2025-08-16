@@ -17,6 +17,7 @@
         :title="character"
       >
         <TTSCharacterConfigForm
+          v-if="ttsCharacterConfigMap[character]"
           :ttsCharacterConfig="ttsCharacterConfigMap[character]"
           ref="ttsCharacterConfigFormRefs"
         />
@@ -27,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { useTTSCharacterStore } from '@/stores';
 import { cloneDeep } from 'lodash-es';
 
@@ -52,6 +53,28 @@ function open() {
 
   visible.value = true;
 }
+
+watch(
+  () => characters.value,
+  (newCharacters, preCharacters) => {
+    if (newCharacters.length > preCharacters.length) {
+      for (const character of newCharacters) {
+        if (!preCharacters.includes(character)) {
+          ttsCharacterConfigMap.value = {
+            ...ttsCharacterConfigMap.value,
+            [character]: cloneDeep(ttsCharacterStore.ttsCharacterConfigMap[character])
+          };
+        }
+      }
+    } else {
+      for (const character of preCharacters) {
+        if (!newCharacters.includes(character)) {
+          delete ttsCharacterConfigMap.value[character];
+        }
+      }
+    }
+  }
+)
 
 function saveTTSCharacterConfig(character: string, index: number) {
   const config = ttsCharacterConfigFormRefs.value[index].getTTSCharacterConfig();

@@ -29,15 +29,12 @@ const ttsCharacterStore = useTTSCharacterStore();
 
 const visible = ref(false);
 
-const characters = ref<string[]>([ ...ttsCharacterStore.characters ]);
-
 const addCharacterForm = ref({
   name: ''
 });
 
 function open() {
   addCharacterForm.value.name = '';
-  characters.value = [ ...ttsCharacterStore.characters ];
 
   visible.value = true;
 }
@@ -47,14 +44,10 @@ function close() {
 }
 
 function addCharacter() {
-  const newCharacterName = addCharacterForm.value.name;
+  const newCharacter = addCharacterForm.value.name;
 
-  if (newCharacterName && !characters.value.includes(newCharacterName)) {
-    characters.value.push(newCharacterName);
-
-    ttsCharacterStore.setCharacters(characters.value);
-
-    addCharacterForm.value.name = '';
+  if (newCharacter) {
+    ttsCharacterStore.addCharacter(newCharacter);
   }
 
   close();

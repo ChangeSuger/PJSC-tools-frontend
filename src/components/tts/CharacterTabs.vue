@@ -40,11 +40,9 @@ function checkDeleteCharacter(character: string) {
 }
 
 function removeCharacter(character: string) {
-  const newCharacters = characters.value.filter((chara => {
-    return chara !== character;
-  }));
-  ttsCharacterStore.setCharacters(newCharacters);
-  if (character === activeName.value) {
+  const isSuccess = ttsCharacterStore.removeCharacter(character);
+
+  if (isSuccess && character === activeName.value) {
     activeName.value = characters.value[0];
   }
 }

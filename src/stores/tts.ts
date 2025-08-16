@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { computed, onMounted, ref } from 'vue';
+import { computed, onMounted, ref, nextTick } from 'vue';
 import type { CharacterModelConfig, TTSCharacterConfig, EmotionConfig, EmotionClass } from '@/types';
 import { TTS_CHARACTER_CONFIG_INIT, CHARACTERS_INIT, getCharacterModelConfigInit, EMOTION_CONFIG_INIT, DEFAULT_EMOTION_CLASS } from '@/datas';
 import { type SelectOptionGroup } from '@arco-design/web-vue'
@@ -28,7 +28,39 @@ export const useTTSCharacterStore = defineStore(
         }
       });
 
-      characters.value = newCharacters;
+      nextTick(() => {
+        characters.value = newCharacters;
+      })
+    }
+
+    function addCharacter(newCharacter: string) {
+      if (!characters.value.includes(newCharacter)) {
+        ttsCharacterConfigMap.value[newCharacter] = { ...TTS_CHARACTER_CONFIG_INIT };
+        characterModelConfigMap.value[newCharacter] = getCharacterModelConfigInit();
+
+        nextTick(() => {
+          characters.value = [ ...characters.value, newCharacter ];
+        })
+
+        return true;
+      }
+
+      return false;
+    }
+
+    function removeCharacter(character: string) {
+      if (characters.value.includes(character)) {
+        delete ttsCharacterConfigMap.value[character];
+        delete characterModelConfigMap.value[character];
+
+        characters.value = characters.value.filter(
+          (chara) => chara !== character
+        );
+
+        return true;
+      }
+
+      return false;
     }
 
     function setTTSCharacterConfig(character: string, config: TTSCharacterConfig) {
@@ -138,6 +170,8 @@ export const useTTSCharacterStore = defineStore(
       getEmotionOptions,
 
       setCharacters,
+      addCharacter,
+      removeCharacter,
       setTTSCharacterConfig,
       setCharacterModelConfig,
       checkEmotionExisted,
