@@ -21,13 +21,13 @@
     </div>
 
     <div class="h-[calc(100%-40px)] flex flex-col gap-2 overflow-y-scroll">
-      <TranslateCheckItem
+      <StoryViewerItem
         v-for="(storyItem, index) in storyList"
         :key="storyItem.id"
         :story-item="storyItem"
-        is-translate-check-item
+        canEditLineJP
       >
-        <template #jp v-if="characters.includes(storyItem.cid)">
+        <!-- <template #jp v-if="characters.includes(storyItem.cid)">
           <a-typography class="*:mb-0!">
             <a-typography-paragraph
               class="h-[27px]!"
@@ -37,7 +37,7 @@
               {{ storyItem.lineJP }}
             </a-typography-paragraph>
           </a-typography>
-        </template>
+        </template> -->
 
         <div class="w-12.5 h-8">
           <a-rate
@@ -51,7 +51,7 @@
             </template>
           </a-rate>
         </div>
-      </TranslateCheckItem>
+      </StoryViewerItem>
     </div>
   </div>
 </template>
@@ -63,7 +63,7 @@ import { scriptAdaptIn } from '@/utils/scriptAdapter';
 import type { StoryScript, StoryScriptFull } from '@/types';
 import { useTTSCharacterStore } from '@/stores';
 
-import TranslateCheckItem from '@/components/translate/TranslateCheckItem.vue';
+import StoryViewerItem from '@/components/story/StoryViewerItem.vue';
 import { Message } from '@arco-design/web-vue';
 import { IconCheckCircle } from '@arco-design/web-vue/es/icon';
 import ManageScriptJSON from '@/components/common/ManageScriptJSON.vue';

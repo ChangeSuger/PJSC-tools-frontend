@@ -26,13 +26,15 @@
     </div>
 
     <div class="h-[calc(100%-40px)] flex flex-col gap-2 overflow-y-scroll">
-      <TTSCheckItem
+      <StoryViewerItem
         v-for="(storyItem, index) in storyList"
         :key="storyItem.id"
         :story-item="storyItem"
-        is-tts-check-item
+        can-edit-emotion
+        canEditLineJP
+        show-audio
       >
-        <template #jp v-if="storyItem.jpAudioURLs.length">
+        <template #audio v-if="storyItem.jpAudioURLs.length">
           <a-radio-group v-model="checkListJP[index]" class="flex! items-center">
             <template
               v-for="(url, index) in storyItem.jpAudioURLs"
@@ -46,7 +48,7 @@
             <a-radio :value="-2">都不行</a-radio>
           </a-radio-group>
         </template>
-      </TTSCheckItem>
+      </StoryViewerItem>
     </div>
   </div>
 </template>
@@ -55,7 +57,7 @@
 import { ref, computed, watch } from 'vue';
 
 import type { StoryItem, StoryScriptFull } from '@/types';
-import TTSCheckItem from '@/components/tts/TTSCheckItem.vue';
+import StoryViewerItem from '@/components/story/StoryViewerItem.vue';
 import AudioPlayer from '@/components/common/AudioPlayer.vue';
 import { scriptAdaptIn } from '@/utils/scriptAdapter';
 import { cloneDeep } from 'lodash-es';

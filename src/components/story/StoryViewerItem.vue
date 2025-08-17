@@ -12,32 +12,32 @@
 
     <div class="w-full p-2 flex flex-col justify-center items-start gap-2">
       <div>
-        <a-typography size="large">
+        <a-typography>
           {{ storyItem.line }}
         </a-typography>
       </div>
 
-      <div class="flex gap-2" v-if="storyItem.cnAudioURLs.length">
-        <AudioPlayer
-          v-for="(url, index) of storyItem.cnAudioURLs"
-          :key="`audio-${storyItem.id}-${index}`"
-          :url="url"
-        />
-      </div>
-
-      <div v-if="storyItem.lineJP">
-        <a-typography size="large">
-          {{ storyItem.lineJP }}
+      <slot name="jp">
+        <a-typography class="w-full *:mb-0!" v-if="storyItem.lineJP">
+          <a-typography-paragraph
+            class="h-[27px]!"
+            :editable="canEditLineJP"
+            v-model:editText="storyItem.lineJP"
+          >
+            {{ storyItem.lineJP }}
+          </a-typography-paragraph>
         </a-typography>
-      </div>
+      </slot>
 
-      <div class="flex gap-2" v-if="storyItem.jpAudioURLs.length">
-        <AudioPlayer
-          v-for="(url, index) of storyItem.jpAudioURLs"
-          :key="`audio-${storyItem.id}-${index}`"
-          :url="url"
-        />
-      </div>
+      <slot name="audio" v-if="showAudio">
+        <div class="flex gap-2" v-if="storyItem.jpAudioURLs.length">
+          <AudioPlayer
+            v-for="(url, index) of storyItem.jpAudioURLs"
+            :key="`audio-${storyItem.id}-${index}`"
+            :url="url"
+          />
+        </div>
+      </slot>
     </div>
 
     <div>
@@ -62,5 +62,13 @@ defineProps({
     type: Boolean,
     default: false,
   },
+  showAudio: {
+    type: Boolean,
+    default: false,
+  },
+  canEditLineJP: {
+    type: Boolean,
+    default: false,
+  }
 });
 </script>

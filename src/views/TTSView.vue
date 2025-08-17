@@ -46,6 +46,8 @@
         :key="storyItem.id"
         :story-item="storyItem"
         can-edit-emotion
+        show-audio
+        canEditLineJP
       >
         <a-space direction="vertical">
           <a-button v-if="characterOptions.includes(storyItem.cid)" @click="ttsBatchGenerateJP(storyItem)">
