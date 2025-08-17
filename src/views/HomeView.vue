@@ -7,12 +7,13 @@
         :span="8"
       >
         <a-card
-          class="w-full h-30 cursor-pointer rounded-2xl! hover:transform-[translateY(-4px)]"
+          class="w-full cursor-pointer rounded-2xl! hover:transform-[translateY(-4px)]"
           :style="{ transitionProperty: 'all' }"
           hoverable
           @click="goTo(menu.name)"
+          :body-style="{ height: '120px' }"
         >
-          <div class="">
+          <div class="w-full h-full flex items-center justify-center">
             <a-typography class="text-3xl text-center">
               <component :is="menu.icon" />
               {{ menu.label }}
