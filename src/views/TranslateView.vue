@@ -33,7 +33,7 @@
         :key="storyItem.id"
         :story-item="storyItem"
       >
-        <a-button @click="translate(storyItem)">翻译</a-button>
+        <a-button @click="translate(storyItem)" v-if="NeedTranslate(storyItem)">翻译</a-button>
       </StoryViewerItem>
     </div>
   </div>
@@ -46,7 +46,7 @@ import OpenAI from "openai";
 import { scriptAdaptIn } from '@/utils/scriptAdapter';
 
 import type { StoryItem, StoryScript, StoryScriptFull } from '@/types';
-
+import { CHARACTER_BLACK_LIST } from '@/datas';
 import StoryViewerItem from '@/components/story/StoryViewerItem.vue';
 import TranslateSystemMessageDialog from '@/components/translate/TranslateSystemMessageDialog.vue';
 import { Message } from '@arco-design/web-vue';
@@ -90,7 +90,17 @@ async function translate(storyItem: StoryItem) {
     ],
   });
 
-  storyItem.lineJP = response.choices[0].message.content!;
+  let translateResult = response.choices[0].message.content!;
+
+  if (translateResult[0] === '「') {
+    translateResult = translateResult.slice(1);
+  }
+
+  if (translateResult[translateResult.length - 1] === '」') {
+    translateResult = translateResult.slice(0, -1);
+  }
+
+  storyItem.lineJP = translateResult;
 }
 
 async function translateAll() {
@@ -101,10 +111,12 @@ async function translateAll() {
 
   translateLoading.value = true;
 
-  total.value = storyList.value!.length;
+  const storyListNeedTranslate = storyList.value!.filter(NeedTranslate);
+
+  total.value = storyListNeedTranslate.length;
   count.value = 0;
 
-  for (const storyItem of storyList.value!) {
+  for (const storyItem of storyListNeedTranslate) {
     if (!storyItem.lineJP) {
       await translate(storyItem);
       count.value = count.value + 1;
@@ -119,5 +131,9 @@ function onReaderLoad(reader: FileReader) {
   const jsonstring = reader.result as string;
   const scriptData = JSON.parse(jsonstring) as StoryScript;
   storyScript.value = scriptAdaptIn(scriptData);
+}
+
+function NeedTranslate(storyItem: StoryItem) {
+  return !CHARACTER_BLACK_LIST.includes(storyItem.cid)
 }
 </script>

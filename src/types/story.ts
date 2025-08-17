@@ -76,9 +76,14 @@ export type StoryItem = ScriptTypeMap['line'] & {
   lineJP: string;
 
   /**
-   * 情感
+   * 情感，控制音频生成
    */
   emotion: string;
+
+  /**
+   * 参考情感，从剧本中提取
+   */
+  emotionReference: string;
 
   /**
    * 中文音频资源 URL

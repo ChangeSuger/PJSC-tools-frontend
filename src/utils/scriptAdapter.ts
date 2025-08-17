@@ -1,13 +1,10 @@
 import type { ScriptTypeMap, StoryItem, StoryScript, StoryScriptFull } from "@/types";
 
-import { useTTSCharacterStore } from "@/stores";
-
 function getEmotion(storyItem: ScriptTypeMap['line']): string {
   if (storyItem.charas) {
     const emotion = storyItem.charas[storyItem.cid];
-    const emotionList = useTTSCharacterStore().getEmotionList()
 
-    if (emotion && emotionList.includes(emotion)) {
+    if (emotion) {
       return emotion;
     }
   }
@@ -25,7 +22,8 @@ export function scriptAdaptIn(storyScript: StoryScript): StoryScriptFull {
     } else {
       const result: StoryItem = {
         lineJP: '',
-        emotion: getEmotion(storyItem),
+        emotion: '中立',
+        emotionReference: getEmotion(storyItem),
         cnAudioURL: '',
         cnAudioURLs: [],
         jpAudioURL: '',

@@ -62,3 +62,8 @@ export const EMOTION_CONFIG_INIT: EmotionConfig = {
   '恐惧': [],
   '愤怒': [],
 };
+
+export const CHARACTER_BLACK_LIST = [
+  '旁白',
+  '主角',
+];

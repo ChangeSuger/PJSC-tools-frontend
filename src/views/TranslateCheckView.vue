@@ -26,19 +26,8 @@
         :key="storyItem.id"
         :story-item="storyItem"
         canEditLineJP
+        is-translate-check-item
       >
-        <!-- <template #jp v-if="characters.includes(storyItem.cid)">
-          <a-typography class="*:mb-0!">
-            <a-typography-paragraph
-              class="h-[27px]!"
-              editable
-              v-model:editText="storyItem.lineJP"
-            >
-              {{ storyItem.lineJP }}
-            </a-typography-paragraph>
-          </a-typography>
-        </template> -->
-
         <div class="w-12.5 h-8">
           <a-rate
             v-if="checkListMap[index] !== undefined"
@@ -62,6 +51,7 @@ import { scriptAdaptIn } from '@/utils/scriptAdapter';
 
 import type { StoryScript, StoryScriptFull } from '@/types';
 import { useTTSCharacterStore } from '@/stores';
+import { CHARACTER_BLACK_LIST } from '@/datas';
 
 import StoryViewerItem from '@/components/story/StoryViewerItem.vue';
 import { Message } from '@arco-design/web-vue';
@@ -100,7 +90,7 @@ watch(
     let count = 0;
 
     checkList.value = storyList.value.filter((item, index) => {
-      if (characters.value.includes(item.cid)) {
+      if (characters.value.includes(item.cid) || !CHARACTER_BLACK_LIST.includes(item.cid)) {
         checkListMap.value[index] = count;
         count ++;
 

@@ -33,6 +33,7 @@
         can-edit-emotion
         canEditLineJP
         show-audio
+        is-tts-check-item
       >
         <template #audio v-if="storyItem.jpAudioURLs.length">
           <a-radio-group v-model="checkListJP[index]" class="flex! items-center">

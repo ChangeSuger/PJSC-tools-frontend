@@ -7,7 +7,11 @@
           {{ storyItem.cid }}
         </a-typography>
       </div>
-      <EmotionTag v-model:text="storyItem.emotion" :can-edit-emotion="canEditEmotion" />
+      <EmotionTag
+        v-model:text="storyItem.emotion"
+        :can-edit-emotion="canEditEmotion"
+        v-if="!CHARACTER_BLACK_LIST.includes(storyItem.cid)"
+      />
     </div>
 
     <div class="w-full p-2 flex flex-col justify-center items-start gap-2">
@@ -17,12 +21,13 @@
         </a-typography>
       </div>
 
-      <slot name="jp">
+      <slot name="jp" v-if="!CHARACTER_BLACK_LIST.includes(storyItem.cid)">
         <a-typography class="w-full *:mb-0!" v-if="storyItem.lineJP">
           <a-typography-paragraph
             class="h-[27px]!"
             :editable="canEditLineJP"
             v-model:editText="storyItem.lineJP"
+            :ellipsis="{ row: 1, showTooltip: true }"
           >
             {{ storyItem.lineJP }}
           </a-typography-paragraph>
@@ -49,6 +54,7 @@
 <script setup lang="ts">
 import { type PropType } from 'vue';
 import type { StoryItem } from '@/types';
+import { CHARACTER_BLACK_LIST } from '@/datas';
 
 import AudioPlayer from '@/components/common/AudioPlayer.vue';
 import EmotionTag from '@/components/common/EmotionTag.vue';
