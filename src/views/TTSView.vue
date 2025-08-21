@@ -48,6 +48,7 @@
         can-edit-emotion
         show-audio
         canEditLineJP
+        show-emotion-reference
       >
         <a-space direction="vertical">
           <a-button v-if="characterOptions.includes(storyItem.cid)" @click="ttsBatchGenerateJP(storyItem)">

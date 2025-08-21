@@ -9,7 +9,7 @@ function getEmotion(storyItem: ScriptTypeMap['line']): string {
     }
   }
 
-  return '中立';
+  return '';
 }
 
 /**

@@ -7,6 +7,7 @@
           {{ storyItem.cid }}
         </a-typography>
       </div>
+      <a-tag v-if="showEmotionReference && storyItem.emotionReference">{{ storyItem.emotionReference }}</a-tag>
       <EmotionTag
         v-model:text="storyItem.emotion"
         :can-edit-emotion="canEditEmotion"
@@ -75,6 +76,10 @@ defineProps({
   canEditLineJP: {
     type: Boolean,
     default: false,
-  }
+  },
+  showEmotionReference: {
+    type: Boolean,
+    default: false,
+  },
 });
 </script>
