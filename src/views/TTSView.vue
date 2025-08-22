@@ -107,6 +107,7 @@ const storyListFilter = computed(() => {
 });
 
 async function ttsBatchGenerateJP(storyItem: StoryItem) {
+  storyItem.jpAudioURLs.splice(0, storyItem.jpAudioURLs.length);
   await ttsBatchGenerate(
     storyItem,
     manageScriptJSONRef.value!.getScriptName(),
